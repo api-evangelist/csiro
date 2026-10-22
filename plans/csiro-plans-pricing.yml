@@ -1,0 +1,12 @@
+generated: '2026-10-22'
+method: none
+source: https://research.csiro.au/dap/developer-tools/
+name: CSIRO pricing
+audience: unclear
+pricing_basis: none
+published: false
+plan_count: 0
+plans: []
+delivery:
+  model: managed
+note: No pricing or plans are published for the Data Access Portal web services. The developer tools page describes /ws/v2 as "Public – read only" with no charge or tier stated, and /api/v2 as "CSIRO staff only".

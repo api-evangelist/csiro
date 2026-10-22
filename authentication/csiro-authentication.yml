@@ -1,0 +1,47 @@
+generated: '2026-10-22'
+method: searched
+source: https://research.csiro.au/dap/developer-tools/web-services-ws-v2/
+summary:
+  types:
+  - http
+  - oauth2
+  oauth2_flows:
+  - authorizationCode
+schemes:
+- name: basicAuth
+  type: http
+  scheme: basic
+  sources:
+  - openapi/csiro-dap-api-v2-openapi.yml
+  - openapi/csiro-dap-orcid-v1-openapi.yml
+  - openapi/csiro-dap-ws-v2-openapi.yml
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  bearerFormat: opaque
+  sources:
+  - openapi/csiro-dap-api-v2-openapi.yml
+  - openapi/csiro-dap-orcid-v1-openapi.yml
+  - openapi/csiro-dap-ws-v2-openapi.yml
+- name: oauth2
+  type: oauth2
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://login.microsoftonline.com/0fe05593-19ac-4f98-adbf-0375fce7f160/oauth2/v2.0/authorize
+    tokenUrl: /dap/auth/csiro/token
+    scopes: 1
+  sources:
+  - openapi/csiro-dap-api-v2-openapi.yml
+  - openapi/csiro-dap-orcid-v1-openapi.yml
+  - openapi/csiro-dap-ws-v2-openapi.yml
+derived_from: openapi/csiro-dap-api-v2-openapi.yml, openapi/csiro-dap-orcid-v1-openapi.yml,
+  openapi/csiro-dap-ws-v2-openapi.yml
+docs: https://research.csiro.au/dap/developer-tools/web-services-ws-v2/
+public_access:
+  surface: /ws/v2
+  evidence: Publicly accessible DAP collections can be accessed using /ws/v2 without
+    authentication.
+identity_providers:
+  evidence: 'Authenticate as CSIRO staff, Partners or OPAL user (developer tools features
+    table, /ws/v2: Yes)'
+  source: https://research.csiro.au/dap/developer-tools/

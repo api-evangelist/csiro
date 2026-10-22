@@ -1,0 +1,276 @@
+openapi: 3.2.0
+info:
+  title: Csiro Api-V2 Casda Observations API
+  version: v2
+  description: 'Operations tagged Api-V2 Casda Observations across 2 of this provider''s published API definitions: csiro-dap-api-v2-openapi.json, csiro-dap-api-v2-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://data.csiro.au/dap
+  description: Generated server url
+security:
+- basicAuth: []
+- bearerAuth: []
+- oauth2: []
+tags:
+- name: Api-V2 Casda Observations
+paths:
+  /api/v2/casda/observation/{sbid}/{projectCode}/quality/released:
+    get:
+      tags:
+      - Api-V2 Casda Observations
+      summary: Retrieve quality metadata for a released CASDA observation
+      operationId: getReleasedObservationQuality
+      parameters:
+      - name: sbid
+        in: path
+        description: Scheduling Block ID of the CASDA observation.
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 12345
+      - name: projectCode
+        in: path
+        description: Project (Opal) code of the CASDA project.
+        required: true
+        schema:
+          type: string
+        example: AB123
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CasdaObservationValidationDTO'
+    post:
+      tags:
+      - Api-V2 Casda Observations
+      summary: Save quality metadata for a released CASDA observation
+      operationId: saveReleasedQuality
+      parameters:
+      - name: sbid
+        in: path
+        description: Scheduling Block ID of the CASDA observation.
+        required: true
+        schema:
+          type: integer
+          format: int32
+        example: 12345
+      - name: projectCode
+        in: path
+        description: Project (Opal) code of the CASDA project.
+        required: true
+        schema:
+          type: string
+        example: AB123
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CasdaObservationValidationDTO'
+        required: true
+      responses:
+        '200':
+          description: OK
+    servers:
+    - url: https://data.csiro.au/dap
+      description: Generated server url
+  /api/v2/casda/observation/metadata:
+    get:
+      tags:
+      - Api-V2 Casda Observations
+      summary: Search observation metadata for a CASDA observation by project, state and…
+      operationId: searchObservationMetadata
+      parameters:
+      - name: partialSbid
+        in: query
+        description: The Leftmost digits of the SBID.
+        required: false
+        schema:
+          type: integer
+          format: int32
+        example: 12345
+      - name: projectCode
+        in: query
+        description: Project (Opal) code of the CASDA project.
+        required: false
+        schema:
+          type: string
+        example: AB123
+      - name: observationState
+        in: query
+        description: State of the observation e.g. released.
+        required: false
+        schema:
+          type: string
+        example: released
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CasdaObservationMetadataResultDTO'
+    servers:
+    - url: https://data.csiro.au/dap
+      description: Generated server url
+components:
+  schemas:
+    CasdaObservationValidationDTO:
+      type: object
+      description: DTO of CASDA release task.
+      properties:
+        sbid:
+          type: integer
+          format: int32
+        observationId:
+          type: integer
+          format: int64
+        opalCode:
+          type: string
+        obsStartDateMillis:
+          type: integer
+          format: int64
+        principalFirstName:
+          type: string
+        principalLastName:
+          type: string
+        globalQualityLevel:
+          type: string
+        subTypes:
+          type: array
+          items:
+            $ref: '#/components/schemas/CasdaDataProductSubTypeValidationDTO'
+        dataProducts:
+          type: array
+          items:
+            $ref: '#/components/schemas/CasdaDataProductValidationDTO'
+        validationNotes:
+          type: array
+          items:
+            $ref: '#/components/schemas/CasdaValidationNoteDTO'
+        projectName:
+          type: string
+        taskTitle:
+          type: string
+        encapsulationFileIds:
+          type: array
+          items:
+            type: string
+        validationReportUrl:
+          type: string
+        validationMetrics:
+          type: array
+          items:
+            $ref: '#/components/schemas/CasdaValidationMetricDTO'
+    CasdaValidationMetricDTO:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        status:
+          type: integer
+          format: int32
+        value:
+          type: number
+          format: double
+    CasdaObservationMetadataResultDTO:
+      type: object
+      properties:
+        sbid:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        projectCode:
+          type:
+          - string
+          - 'null'
+        projectName:
+          type:
+          - string
+          - 'null'
+        telescope:
+          type:
+          - string
+          - 'null'
+        observationState:
+          type:
+          - string
+          - 'null'
+    CasdaDataProductSubTypeValidationDTO:
+      type: object
+      properties:
+        type:
+          type: string
+        subType:
+          type: string
+        qualityLevel:
+          type: string
+        count:
+          type: integer
+          format: int32
+    CasdaDataProductValidationDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        type:
+          type: string
+        subType:
+          type: string
+        identifier:
+          type: string
+        fileName:
+          type: string
+        qualityLevel:
+          type: string
+    CasdaValidationNoteDTO:
+      type: object
+      properties:
+        id:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        userId:
+          type:
+          - string
+          - 'null'
+        userName:
+          type:
+          - string
+          - 'null'
+        content:
+          type:
+          - string
+          - 'null'
+        createdDate:
+          type:
+          - integer
+          - 'null'
+          format: int64
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: opaque
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.microsoftonline.com/0fe05593-19ac-4f98-adbf-0375fce7f160/oauth2/v2.0/authorize
+          tokenUrl: /dap/auth/csiro/token
+          scopes:
+            openid: OpenID Connect
+x-refined-from:
+- csiro-dap-api-v2-openapi.json
+- csiro-dap-api-v2-openapi.yml

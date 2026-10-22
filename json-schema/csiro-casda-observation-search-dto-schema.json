@@ -1,0 +1,190 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/csiro/main/json-schema/csiro-casda-observation-search-dto-schema.json",
+  "title": "CasdaObservationSearchDto",
+  "x-generated": "2026-10-22",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/csiro-dap-ws-v2-openapi.yml#/components/schemas/CasdaObservationSearchDto",
+  "type": "object",
+  "properties": {
+    "coneSearches": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/ConeSearch"
+      }
+    },
+    "dataProducts": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/DataTab"
+      }
+    },
+    "facets": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/Facet"
+      }
+    },
+    "filename": {
+      "type": "string"
+    },
+    "componentId": {
+      "type": "string"
+    },
+    "project": {
+      "type": "string"
+    },
+    "schedulingBlockId": {
+      "type": "string"
+    },
+    "startDate": {
+      "type": "string"
+    },
+    "endDate": {
+      "type": "string"
+    },
+    "showRejected": {
+      "type": "boolean"
+    },
+    "frequencyFrom": {
+      "type": "string"
+    },
+    "frequencyTo": {
+      "type": "string"
+    },
+    "redshiftFrom": {
+      "type": "string"
+    },
+    "redshiftTo": {
+      "type": "string"
+    },
+    "velocityFrom": {
+      "type": "string"
+    },
+    "velocityTo": {
+      "type": "string"
+    },
+    "restFrequency": {
+      "type": "string"
+    },
+    "dataCollectionId": {
+      "type": "string"
+    },
+    "releaseDate": {
+      "type": "string"
+    },
+    "releasedFilter": {
+      "type": "string"
+    },
+    "includeCommensalProjects": {
+      "type": "boolean"
+    },
+    "telescopes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "searchType": {
+      "type": "string"
+    },
+    "atcaArray": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "bandwidthMin": {
+      "type": "string"
+    },
+    "bandwidthMax": {
+      "type": "string"
+    },
+    "channelsMin": {
+      "type": "string"
+    },
+    "channelsMax": {
+      "type": "string"
+    },
+    "investigator": {
+      "type": "string"
+    },
+    "frontend": {
+      "type": "string"
+    },
+    "backend": {
+      "type": "string"
+    },
+    "showFacets": {
+      "type": "boolean"
+    }
+  },
+  "$defs": {
+    "ConeSearch": {
+      "type": "object",
+      "properties": {
+        "rightAscension": {
+          "type": "string"
+        },
+        "declination": {
+          "type": "string"
+        },
+        "radius": {
+          "type": "string"
+        }
+      }
+    },
+    "DataTab": {
+      "type": "object",
+      "properties": {
+        "dataProduct": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "page": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "format": "int32"
+        },
+        "sortOrder": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "sortBy": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "Facet": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "type": "string"
+        },
+        "values": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/csiro/main/json-schema/csiro-specimen-image-search-request-dto-schema.json",
+  "title": "SpecimenImageSearchRequestDto",
+  "x-generated": "2026-10-22",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/csiro-dap-ws-v2-openapi.yml#/components/schemas/SpecimenImageSearchRequestDto",
+  "type": "object",
+  "properties": {
+    "nationalSpecimenCollection": {
+      "type": "string"
+    },
+    "filters": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "any": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "taxonomy": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "specimenId": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "dataCollectionId": {
+      "type": "string"
+    },
+    "fieldNumber": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "dataAccessLevel": {
+      "type": "string"
+    },
+    "searchQuery": {
+      "type": "string"
+    },
+    "pageNumber": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "resultsPerPage": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "sortBy": {
+      "type": "string"
+    },
+    "sortOrder": {
+      "type": "string",
+      "enum": [
+        "asc",
+        "desc"
+      ]
+    },
+    "showFacets": {
+      "type": "boolean"
+    },
+    "facetsSize": {
+      "type": "integer",
+      "format": "int32"
+    }
+  }
+}

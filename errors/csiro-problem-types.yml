@@ -1,0 +1,24 @@
+generated: '2026-10-22'
+method: derived
+generator: derive-problem-types.py
+source:
+- openapi/csiro-dap-api-v2-openapi.yml
+- openapi/csiro-dap-orcid-v1-openapi.yml
+- openapi/csiro-dap-ws-v2-openapi.yml
+format: custom
+envelope:
+  media_type: application/json
+  schema: TombstoneDTO
+coverage:
+  operations: 344
+  statuses_declared: 1
+problems:
+- status: 410
+  title: Gone
+  description: Collection has been withdrawn
+  operations: 2
+  media_types:
+  - application/json
+  - application/xml
+  - application/atom+xml;type=entry
+  schema: TombstoneDTO

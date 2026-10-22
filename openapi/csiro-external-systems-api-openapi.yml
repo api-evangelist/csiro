@@ -1,0 +1,886 @@
+openapi: 3.2.0
+info:
+  title: Csiro External Systems API
+  version: v2
+  description: 'Operations tagged External Systems across 2 of this provider''s published API definitions: csiro-dap-ws-v2-openapi.json, csiro-dap-ws-v2-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://data.csiro.au/dap
+  description: Generated server url
+security:
+- basicAuth: []
+- bearerAuth: []
+- oauth2: []
+tags:
+- name: External Systems
+paths:
+  /ws/v2/tags:
+    get:
+      tags:
+      - External Systems
+      operationId: getAllExternalSystemTags
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExternalSystemListDto'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ExternalSystemListDto'
+            application/atom+xml;type=entry:
+              schema:
+                $ref: '#/components/schemas/ExternalSystemListDto'
+      summary: Get all external system tags
+      x-summary-source: derived
+    servers:
+    - url: https://data.csiro.au/dap
+      description: Generated server url
+  /ws/v2/tags/{tagName}:
+    get:
+      tags:
+      - External Systems
+      operationId: getCollectionsByExternalSystemTag
+      parameters:
+      - name: tagName
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataCollectionListDto'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/DataCollectionListDto'
+            application/atom+xml;type=entry:
+              schema:
+                $ref: '#/components/schemas/DataCollectionListDto'
+      summary: Get collections by external system tag
+      x-summary-source: derived
+    servers:
+    - url: https://data.csiro.au/dap
+      description: Generated server url
+components:
+  schemas:
+    ProjectDto:
+      type: object
+      properties:
+        irpHierarchy:
+          type: boolean
+          xml:
+            attribute: true
+        wbs:
+          type: string
+        businessUnit:
+          type: string
+        program:
+          type: string
+        group:
+          type: string
+        portfolio:
+          type: string
+        theme:
+          type: string
+        stream:
+          type: string
+        projectDescription:
+          type: string
+        projectLeader:
+          type: string
+        projectTitle:
+          type: string
+      xml:
+        name: project
+        namespace: urn:au:csiro:rds:dap:1.0
+    SensorDto:
+      type: object
+      properties:
+        network:
+          type: string
+        platform:
+          type: string
+        sensor:
+          type: string
+        featureOfInterest:
+          type: string
+        verticalExtent:
+          type: string
+        sensorSerialNumber:
+          type: string
+        phenomena:
+          type: string
+        latestDeploymentStartDate:
+          type: string
+          format: date-time
+        latestDeploymentEndDate:
+          type: string
+          format: date-time
+        deployer:
+          type: string
+        latestDeploymentOrganisation:
+          type: string
+        latestDeploymentContact:
+          type: string
+        latestDeploymentOffsetX:
+          type: string
+        latestDeploymentOffsetY:
+          type: string
+        latestDeploymentOffsetZ:
+          type: string
+        latestCalibrationDate:
+          type: string
+          format: date-time
+        latestCalibrationOrganisation:
+          type: string
+        latestCalibrationGroup:
+          type: string
+        latestConformanceDate:
+          type: string
+          format: date-time
+        latestConformanceOrganisation:
+          type: string
+        latestConformanceGroup:
+          type: string
+        latestConformanceRequirement:
+          type: string
+        latestConformancePassed:
+          type: boolean
+        latestConformanceReason:
+          type: string
+        unitOfMeasure:
+          type: string
+        method:
+          type: string
+        observedProperty:
+          type: string
+      xml:
+        name: Sensor
+        namespace: urn:au:csiro:rds:dap:1.0
+    SpecimenTaxonomyDto:
+      type: object
+      properties:
+        family:
+          type: string
+        genus:
+          type: string
+        kingdom:
+          type: string
+        order:
+          type: string
+        phylum:
+          type: string
+        scientificName:
+          type: string
+        species:
+          type: string
+        subfamily:
+          type: string
+        taxonomyClass:
+          type: string
+        subPhylum:
+          type: string
+        infraPhylum:
+          type: string
+        parvPhylum:
+          type: string
+        gigaClass:
+          type: string
+        megaClass:
+          type: string
+        superClass:
+          type: string
+        subClass:
+          type: string
+        infraClass:
+          type: string
+        subterClass:
+          type: string
+        superOrder:
+          type: string
+        subOrder:
+          type: string
+        infraOrder:
+          type: string
+        parvOrder:
+          type: string
+        nanoOrder:
+          type: string
+        sectionZoology:
+          type: string
+        superFamily:
+          type: string
+        epiFamily:
+          type: string
+        superTribe:
+          type: string
+        tribe:
+          type: string
+        subTribe:
+          type: string
+        subGenus:
+          type: string
+        infragenericName:
+          type: string
+        section:
+          type: string
+        subSection:
+          type: string
+        subSpecies:
+          type: string
+    ExternalSystemDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+        displayName:
+          type: string
+        tag:
+          type: string
+        schemaName:
+          type: string
+      required:
+      - displayName
+      - id
+      - name
+      - schemaName
+      - tag
+      xml:
+        name: externalSystem
+        namespace: urn:au:csiro:rds:dap:1.0
+    ExternalSystemListDto:
+      type: object
+      properties:
+        externalSystemList:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExternalSystemDto'
+          xml:
+            wrapped: true
+      xml:
+        name: externalSystemList
+        namespace: urn:au:csiro:rds:dap:1.0
+    DataCollectionListDto:
+      type: object
+      properties:
+        dataCollections:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataCollectionDto'
+          xml:
+            wrapped: true
+      xml:
+        name: dataCollectionsList
+        namespace: urn:au:csiro:rds:dap:1.0
+    LinkDto:
+      type: object
+      properties:
+        relationship:
+          type: string
+          xml:
+            name: rel
+            attribute: true
+        mediaType:
+          type: string
+          xml:
+            name: type
+            attribute: true
+        href:
+          type: string
+          format: uri
+          xml:
+            attribute: true
+        fileUpload:
+          type: boolean
+        fileId:
+          type: integer
+          format: int32
+    DistributionDto:
+      type: object
+      properties:
+        distributionFormat:
+          type: string
+        distributionVersion:
+          type: string
+      xml:
+        name: Distribution
+        namespace: urn:au:csiro:rds:dap:1.0
+    ActivityDto:
+      type: object
+      properties:
+        activityId:
+          type: integer
+          format: int32
+        activityTitle:
+          type: string
+        activityType:
+          type: string
+        activityDescription:
+          type: string
+        activityInstrument:
+          type: string
+      xml:
+        name: activity
+        namespace: urn:au:csiro:rds:dap:1.0
+    DataCollectionDto:
+      type: object
+      properties:
+        id:
+          $ref: '#/components/schemas/IdentifierDto'
+        dataCollectionId:
+          type: integer
+          format: int32
+        self:
+          type: string
+          format: uri
+        landingPage:
+          $ref: '#/components/schemas/LinkDto'
+        title:
+          type: string
+        description:
+          type: string
+        fieldsOfResearch:
+          type: array
+          items:
+            type: string
+            xml:
+              name: fieldOfResearch
+          xml:
+            wrapped: true
+        contact:
+          $ref: '#/components/schemas/ContactDto'
+        dataStartDate:
+          type: string
+          format: date-time
+        dataEndDate:
+          type: string
+          format: date-time
+        keywords:
+          type: string
+        relatedLinks:
+          type: array
+          items:
+            type: string
+            format: uri
+            xml:
+              name: relatedLink
+          xml:
+            wrapped: true
+        lineage:
+          type: string
+        credit:
+          type: string
+        licence:
+          type: string
+        licenceLink:
+          $ref: '#/components/schemas/LinkDto'
+          xml:
+            name: link
+        organisations:
+          type: array
+          items:
+            type: string
+            xml:
+              name: organisation
+          xml:
+            wrapped: true
+        attributionStatement:
+          type: string
+        rights:
+          type: string
+        access:
+          type: string
+        size:
+          type: string
+        published:
+          type: string
+        leadResearcher:
+          type: string
+        versions:
+          type: string
+          format: uri
+        metadata:
+          type: string
+          format: uri
+        data:
+          type: string
+          format: uri
+        serviceCount:
+          type: integer
+          format: int32
+        supportingFiles:
+          type: string
+          format: uri
+        spatialParameters:
+          $ref: '#/components/schemas/SpatialParametersDto'
+        contributors:
+          type: array
+          items:
+            type: string
+            xml:
+              name: contributor
+          xml:
+            wrapped: true
+        activity:
+          $ref: '#/components/schemas/ActivityDto'
+        fundingSources:
+          type: array
+          items:
+            type: string
+            xml:
+              name: fundingSource
+          xml:
+            wrapped: true
+        collectionType:
+          type: string
+        domainType:
+          type: string
+        andsPid:
+          type: string
+        doi:
+          type: string
+        project:
+          $ref: '#/components/schemas/ProjectDto'
+        nationalFacility:
+          type: string
+        nationalCollection:
+          type: string
+        organisationalLevels:
+          $ref: '#/components/schemas/OrganisationalLevelsDto'
+        accessLevel:
+          type: string
+        dataRestricted:
+          type: string
+        voResource:
+          $ref: '#/components/schemas/VoResourceDto'
+        software:
+          $ref: '#/components/schemas/SoftwareDto'
+        specimen:
+          $ref: '#/components/schemas/SpecimenDto'
+        sensor:
+          $ref: '#/components/schemas/SensorDto'
+        darwinCore:
+          $ref: '#/components/schemas/DarwinCoreDto'
+        marineCommunityProfile:
+          $ref: '#/components/schemas/MarineCommunityProfileDto'
+        anzlic:
+          $ref: '#/components/schemas/AnzlicDto'
+        dataVersionNumber:
+          type: string
+        softwareVersionNumber:
+          type: string
+      required:
+      - dataCollectionId
+      - id
+      - self
+      - title
+      xml:
+        name: dataCollection
+        namespace: urn:au:csiro:rds:dap:1.0
+    VoResourceDto:
+      type: object
+      properties:
+        ivoIdentifier:
+          type: string
+      xml:
+        name: VoResource
+        namespace: urn:au:csiro:rds:dap:1.0
+    AnzlicDto:
+      type: object
+      properties:
+        individualName:
+          type: string
+        position:
+          type: string
+        verticalExtentMin:
+          type: string
+        verticalExtentMax:
+          type: string
+        spatialRepresentationType:
+          type: string
+        metadataLanguage:
+          type: string
+        metadataCharacterSet:
+          type: string
+        anzlicTopicCategory:
+          type: string
+      xml:
+        name: Anzlic
+        namespace: urn:au:csiro:rds:dap:1.0
+    IdentifierDto:
+      type: object
+      properties:
+        identifierType:
+          type: string
+          xml:
+            attribute: true
+        identifier:
+          type: string
+    SpecimenDto:
+      type: object
+      properties:
+        uniqueSequenceId:
+          type: string
+        accessionNo:
+          type: string
+        campaignId:
+          type: string
+        campaignName:
+          type: string
+        institutionName:
+          type: string
+        scientificNameAuthorship:
+          type: string
+        campaignFunder:
+          type: string
+        campaignCollaborators:
+          type: string
+        campaignDataRelease:
+          type: string
+        contractNumber:
+          type: string
+        collectionId:
+          type: string
+        institutionId:
+          type: string
+        mtaNumber:
+          type: string
+        collectionName:
+          type: string
+        projectName:
+          type: string
+        contact:
+          type: string
+        speciesNameSupplied:
+          type: string
+        higherTaxonomySupplied:
+          type: string
+        biome:
+          type: string
+        marineEcoRegions:
+          type: array
+          items:
+            type: string
+        terrestrialEcoRegions:
+          type: array
+          items:
+            type: string
+        taxonomicGroup:
+          type: string
+        taxonomicStatus:
+          type: string
+        taxonRemarks:
+          type: string
+        vernacularName:
+          type: string
+        nuclearGeneticCode:
+          type: string
+        mitochondrialGeneticCode:
+          type: string
+        plastidGeneticCode:
+          type: string
+        nameAccordingTo:
+          type: string
+        taxonRank:
+          type: string
+        specimen:
+          type: string
+        preservedSpecimen:
+          type: string
+        preparations:
+          type: string
+        specimenNotes:
+          type: string
+        materialCollectionId:
+          type: string
+        recordNumber:
+          type: string
+        tissueSampleId:
+          type: string
+        otherIdentifiers:
+          type: string
+        releaseDate:
+          type: string
+        dataGeneralizations:
+          type: string
+        licence:
+          type: string
+        acknowledgement:
+          type: string
+        collector:
+          type: string
+        collectionPermits:
+          type: string
+        identifiedBy:
+          type: string
+        privateLatitude:
+          type: string
+        privateLongitude:
+          type: string
+        verbatimLocality:
+          type: string
+        verbatimLatitude:
+          type: string
+        verbatimLongitude:
+          type: string
+        decimalEndLat:
+          type: string
+        decimalEndLong:
+          type: string
+        occurrenceRemarks:
+          type: string
+        lifeStage:
+          type: string
+        typeStatus:
+          type: string
+        specimenPreservation:
+          type: string
+        dateIdentified:
+          type: string
+        sex:
+          type: string
+        collectionDate:
+          type: string
+        fieldNumber:
+          type: string
+        eventRemarks:
+          type: string
+        country:
+          type: string
+        stateProvince:
+          type: string
+        locality:
+          type: string
+        station:
+          type: string
+        specimenCollectionLatitude:
+          type: number
+          format: double
+        specimenCollectionLongitude:
+          type: number
+          format: double
+        geodeticDatum:
+          type: string
+        depth:
+          type: string
+        depthStart:
+          type: string
+        depthEnd:
+          type: string
+        altitude:
+          type: string
+        maximumElevationInMeters:
+          type: number
+          format: double
+        minimumElevationInMeters:
+          type: number
+          format: double
+        specimenTaxonomyAtSequencing:
+          $ref: '#/components/schemas/SpecimenTaxonomyDto'
+        currentSpecimenTaxonomy:
+          $ref: '#/components/schemas/SpecimenTaxonomyDto'
+      xml:
+        name: Specimen
+        namespace: urn:au:csiro:rds:dap:1.0
+    ContactDto:
+      type: object
+      properties:
+        contactName:
+          type: string
+        contactDetails:
+          type: string
+      xml:
+        name: contact
+        namespace: urn:au:csiro:rds:dap:1.0
+    SpatialParametersDto:
+      type: object
+      properties:
+        projection:
+          type: string
+          xml:
+            attribute: true
+        northLatitude:
+          type: string
+        southLatitude:
+          type: string
+        westLongitude:
+          type: string
+        eastLongitude:
+          type: string
+    DarwinCoreDto:
+      type: object
+      properties:
+        scientificName:
+          type: string
+        commonName:
+          type: string
+        kingdom:
+          type: string
+        phylum:
+          type: string
+        class:
+          type: string
+        order:
+          type: string
+        family:
+          type: string
+        genus:
+          type: string
+        species:
+          type: string
+        comments:
+          type: string
+      xml:
+        name: DarwinCore
+        namespace: urn:au:csiro:rds:dap:1.0
+    SoftwareDto:
+      type: object
+      properties:
+        environmentRequirements:
+          type: string
+        programmingLanguage:
+          type: string
+        operatingSystem:
+          type: string
+        version:
+          type: string
+      xml:
+        name: Software
+        namespace: urn:au:csiro:rds:dap:1.0
+    MarineCommunityProfileDto:
+      type: object
+      properties:
+        voyageId:
+          type: string
+        alternateTitle:
+          type: string
+        supplementalInformation:
+          type: string
+        isoTopicCategories:
+          type: array
+          items:
+            type: string
+            xml:
+              name: isoTopicCategory
+          xml:
+            wrapped: true
+        gcmdKeywords:
+          type: string
+        mcpCollectionMethods:
+          type: string
+        mcpGeographicExtentNames:
+          type: string
+        csiroAreasOfInterest:
+          type: string
+        csiroGlobalProjectList:
+          type: string
+        csiroSourceList:
+          type: string
+        csiroSurveyList:
+          type: string
+        csiroStandardDataTypes:
+          type: string
+        region:
+          type: string
+        australianNationalSpeciesList:
+          type: string
+        worldRegisterOfMarineSpeciesAlgae:
+          type: string
+        verticalCoordinateSystem:
+          type: string
+        verticalExtentMin:
+          type: string
+        verticalExtentMax:
+          type: string
+        spatialRepresentationType:
+          type: string
+        spatialResolution:
+          type: string
+        completenessOmission:
+          type: string
+        distributions:
+          type: array
+          items:
+            $ref: '#/components/schemas/DistributionDto'
+          xml:
+            wrapped: true
+        metadataContacts:
+          type: array
+          items:
+            $ref: '#/components/schemas/MetadataContactDto'
+          xml:
+            wrapped: true
+        metadataLanguage:
+          type: string
+        metadataCharacterSet:
+          type: string
+        metadataDateStamp:
+          type: string
+        revisionDate:
+          type: string
+      xml:
+        name: MarineCommunityProfile
+        namespace: urn:au:csiro:rds:dap:1.0
+    MetadataContactDto:
+      type: object
+      properties:
+        organisation:
+          type: string
+        individualName:
+          type: string
+        position:
+          type: string
+        role:
+          type: string
+        contactInformation:
+          type: string
+      xml:
+        name: MetadataContact
+        namespace: urn:au:csiro:rds:dap:1.0
+    OrganisationalLevelsDto:
+      type: object
+      properties:
+        irpHierarchy:
+          type: boolean
+          xml:
+            attribute: true
+        businessUnit:
+          type: string
+        team:
+          type: string
+        program:
+          type: string
+        group:
+          type: string
+        costCentre:
+          type: string
+        researchProgram:
+          type: string
+        researchGroup:
+          type: string
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: opaque
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.microsoftonline.com/0fe05593-19ac-4f98-adbf-0375fce7f160/oauth2/v2.0/authorize
+          tokenUrl: /dap/auth/csiro/token
+          scopes:
+            openid: OpenID Connect
+x-refined-from:
+- csiro-dap-ws-v2-openapi.json
+- csiro-dap-ws-v2-openapi.yml

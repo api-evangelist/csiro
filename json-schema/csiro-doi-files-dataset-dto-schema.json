@@ -1,0 +1,357 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/csiro/main/json-schema/csiro-doi-files-dataset-dto-schema.json",
+  "title": "DoiFilesDatasetDTO",
+  "x-generated": "2026-10-22",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/DoiFilesDatasetDTO",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "uuid": {
+      "type": "string"
+    },
+    "creatorId": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "publisher": {
+      "type": "string"
+    },
+    "doi": {
+      "type": "string"
+    },
+    "restricted": {
+      "type": "boolean"
+    },
+    "title": {
+      "type": "string"
+    },
+    "created": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "dataCollectionType": {
+      "type": "string"
+    },
+    "nationalCollection": {
+      "type": "string"
+    },
+    "licenceId": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "withdrawn": {
+      "type": "boolean"
+    },
+    "attribution": {
+      "type": "string"
+    },
+    "doiUrl": {
+      "type": "string"
+    },
+    "filesList": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/DoiFile"
+      }
+    },
+    "withdrawnFilesList": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "availableFilesList": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "specimens": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/SpecimenImageDto"
+      }
+    },
+    "specimenImageResults": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/SpecimenImageDto"
+      },
+      "writeOnly": true
+    }
+  },
+  "$defs": {
+    "DoiFile": {
+      "type": "object",
+      "properties": {
+        "adoId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "dataCollectionId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "dataCollectionVersion": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "filePath": {
+          "type": "string"
+        },
+        "filename": {
+          "type": "string"
+        }
+      }
+    },
+    "LinkDto": {
+      "type": "object",
+      "properties": {
+        "relationship": {
+          "type": "string"
+        },
+        "mediaType": {
+          "type": "string"
+        },
+        "href": {
+          "type": "string",
+          "format": "uri"
+        },
+        "fileUpload": {
+          "type": "boolean"
+        },
+        "fileId": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "SpecimenImageDto": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "dataCollectionId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "dataCollectionVers": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "licenceId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "projectName": {
+          "type": "string"
+        },
+        "nationalSpecimenCollection": {
+          "type": "string"
+        },
+        "externalInstitutionCode": {
+          "type": "string"
+        },
+        "externalContact": {
+          "type": "string"
+        },
+        "externalInstitutionName": {
+          "type": "string"
+        },
+        "dateTimeDigitised": {
+          "type": "string"
+        },
+        "specimenPreparationView": {
+          "type": "string"
+        },
+        "specimenCollectionLatitude": {
+          "type": "number",
+          "format": "double"
+        },
+        "specimenCollectionLongitude": {
+          "type": "number",
+          "format": "double"
+        },
+        "taxonRank": {
+          "type": "string"
+        },
+        "scientificName": {
+          "type": "string"
+        },
+        "identificationQualifier": {
+          "type": "string"
+        },
+        "kingdom": {
+          "type": "string"
+        },
+        "phylum": {
+          "type": "string"
+        },
+        "specimenClass": {
+          "type": "string"
+        },
+        "order": {
+          "type": "string"
+        },
+        "family": {
+          "type": "string"
+        },
+        "subfamily": {
+          "type": "string"
+        },
+        "genus": {
+          "type": "string"
+        },
+        "subgenus": {
+          "type": "string"
+        },
+        "species": {
+          "type": "string"
+        },
+        "subspecies": {
+          "type": "string"
+        },
+        "scientificNameAuthorship": {
+          "type": "string"
+        },
+        "acceptedScientificName": {
+          "type": "string"
+        },
+        "acceptedCanonicalScientificName": {
+          "type": "string"
+        },
+        "acceptedScientificNameId": {
+          "type": "string"
+        },
+        "taxonomicStatus": {
+          "type": "string"
+        },
+        "scientificNameId": {
+          "type": "string"
+        },
+        "collector": {
+          "type": "string"
+        },
+        "fieldNumber": {
+          "type": "string"
+        },
+        "locality": {
+          "type": "string"
+        },
+        "user": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "string"
+        },
+        "accessionNo": {
+          "type": "string"
+        },
+        "typeStatus": {
+          "type": "string"
+        },
+        "collectionDate": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "stateProvince": {
+          "type": "string"
+        },
+        "catalogNumber": {
+          "type": "string"
+        },
+        "dataAccessLevel": {
+          "type": "string"
+        },
+        "thumbnails": {
+          "$ref": "#/$defs/ThumbnailDto"
+        },
+        "imageOnly": {
+          "type": "boolean"
+        },
+        "files": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/SpecimenImageFileDetailsDto"
+          }
+        },
+        "resolutions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "formats": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "dataRestricted": {
+          "type": "boolean"
+        },
+        "specimenImageIdentifier": {
+          "type": "string"
+        },
+        "view": {
+          "type": "string"
+        }
+      }
+    },
+    "SpecimenImageFileDetailsDto": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "fileFormat": {
+          "type": "string"
+        },
+        "fileSize": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "resolution": {
+          "type": "string"
+        },
+        "fileName": {
+          "type": "string"
+        },
+        "filePath": {
+          "type": "string"
+        },
+        "downloadUrl": {
+          "type": "string",
+          "format": "uri"
+        }
+      }
+    },
+    "ThumbnailDto": {
+      "type": "object",
+      "properties": {
+        "smallThumbnail": {
+          "$ref": "#/$defs/LinkDto"
+        },
+        "mediumThumbnail": {
+          "$ref": "#/$defs/LinkDto"
+        },
+        "largeThumbnail": {
+          "$ref": "#/$defs/LinkDto"
+        },
+        "fullThumbnail": {
+          "$ref": "#/$defs/LinkDto"
+        }
+      }
+    }
+  }
+}

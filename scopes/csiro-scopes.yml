@@ -1,0 +1,31 @@
+generated: '2026-10-22'
+method: derived
+source: openapi/csiro-dap-api-v2-openapi.yml, openapi/csiro-dap-orcid-v1-openapi.yml, openapi/csiro-dap-ws-v2-openapi.yml
+schemes:
+- name: oauth2
+  source: openapi/csiro-dap-api-v2-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://login.microsoftonline.com/0fe05593-19ac-4f98-adbf-0375fce7f160/oauth2/v2.0/authorize
+    tokenUrl: /dap/auth/csiro/token
+- name: oauth2
+  source: openapi/csiro-dap-orcid-v1-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://login.microsoftonline.com/0fe05593-19ac-4f98-adbf-0375fce7f160/oauth2/v2.0/authorize
+    tokenUrl: /dap/auth/csiro/token
+- name: oauth2
+  source: openapi/csiro-dap-ws-v2-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://login.microsoftonline.com/0fe05593-19ac-4f98-adbf-0375fce7f160/oauth2/v2.0/authorize
+    tokenUrl: /dap/auth/csiro/token
+scopes:
+- scope: openid
+  description: OpenID Connect
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/csiro-dap-api-v2-openapi.yml
+  - openapi/csiro-dap-orcid-v1-openapi.yml
+  - openapi/csiro-dap-ws-v2-openapi.yml

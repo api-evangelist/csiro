@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/csiro/main/json-schema/csiro-orcid-work-dto-schema.json",
+  "title": "OrcidWorkDTO",
+  "x-generated": "2026-10-22",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/csiro-dap-orcid-v1-openapi.yml#/components/schemas/OrcidWorkDTO",
+  "type": "object",
+  "properties": {
+    "orcid": {
+      "type": "string"
+    },
+    "dataCollection": {
+      "type": "string"
+    },
+    "workId": {
+      "type": "string"
+    }
+  }
+}

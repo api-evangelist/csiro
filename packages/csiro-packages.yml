@@ -1,0 +1,12 @@
+generated: '2026-10-22'
+method: none
+source: https://research.csiro.au/dap/developer-tools/web-services-python/
+name: CSIRO Data Access Portal packages
+packages: []
+note: No first-party client library is published. The docs point to Python example scripts (using the third-party requests module) on CSIRO Bitbucket (https://bitbucket.csiro.au/projects/RDS/repos/examples) and a Postman import of the OpenAPI; neither is a registry package. PyPI names csiro-dap, dap-client, csiro and pydap-csiro returned 404 on 2026-10-22.
+examples:
+- name: RDS examples (Python)
+  url: https://bitbucket.csiro.au/projects/RDS/repos/examples
+  official: true
+  version: null
+  note: Source repository of example scripts, not a versioned package.

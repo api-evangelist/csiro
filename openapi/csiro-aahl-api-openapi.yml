@@ -1,0 +1,540 @@
+openapi: 3.2.0
+info:
+  title: Csiro AAHL API
+  version: v2
+  description: 'Operations tagged AAHL across 2 of this provider''s published API definitions: csiro-dap-ws-v2-openapi.json, csiro-dap-ws-v2-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://data.csiro.au/dap
+  description: Generated server url
+security:
+- basicAuth: []
+- bearerAuth: []
+- oauth2: []
+tags:
+- name: AAHL
+paths:
+  /ws/v2/domains/aahlMicroscopyImages/search:
+    get:
+      tags:
+      - AAHL
+      operationId: getAahlResults
+      parameters:
+      - name: fileSize
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: fileName
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: imageNo
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: sanSpecimenNumbers
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+      - name: virusSpecies
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: virusFamily
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: host
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: cell
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: hostTissueSamplePresentation
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: analysisType
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: gridBoxLocation
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: gridRef1Location
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: resinBlockLocation
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: user
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: contact
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: instrument
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: instrumentType
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: experimentalBook
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: specimenId
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: scaleBarRepresents
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: dataCollectionId
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: p
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 1
+      - name: rpp
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 25
+      - name: sb
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: so
+        in: query
+        required: false
+        schema:
+          type: string
+          default: asc
+          enum:
+          - asc
+          - desc
+      - name: showFacets
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: false
+      - name: images
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AahlResultDto'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/AahlResultDto'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/AahlResultDto'
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+              schema:
+                $ref: '#/components/schemas/AahlResultDto'
+      summary: Get aahl results
+      x-summary-source: derived
+    servers:
+    - url: https://data.csiro.au/dap
+      description: Generated server url
+  /ws/v2/domains/aahlMicroscopyImages/fields:
+    get:
+      tags:
+      - AAHL
+      operationId: getFields_2
+      parameters:
+      - name: columns
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FieldsDto'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/FieldsDto'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/FieldsDto'
+      summary: Get fields 2
+      x-summary-source: derived
+    servers:
+    - url: https://data.csiro.au/dap
+      description: Generated server url
+components:
+  schemas:
+    AahlResultDto:
+      type: object
+      properties:
+        elapsedTime:
+          type: integer
+          format: int64
+        totalResults:
+          type: string
+        page:
+          type: integer
+          format: int32
+        resultsPerPage:
+          type: integer
+          format: int32
+        next:
+          $ref: '#/components/schemas/LinkDto'
+        previous:
+          $ref: '#/components/schemas/LinkDto'
+        first:
+          $ref: '#/components/schemas/LinkDto'
+        last:
+          $ref: '#/components/schemas/LinkDto'
+        facets:
+          type: array
+          items:
+            $ref: '#/components/schemas/FacetDto'
+          xml:
+            wrapped: true
+        files:
+          type: array
+          items:
+            $ref: '#/components/schemas/AahlDto'
+          xml:
+            wrapped: true
+      required:
+      - elapsedTime
+      - first
+      - last
+      - page
+      - resultsPerPage
+      - totalResults
+      xml:
+        name: aahlResult
+        namespace: urn:au:csiro:rds:dap:1.0
+    ColumnDto:
+      type: object
+      properties:
+        label:
+          type: string
+        key:
+          type: string
+        parameter:
+          type: string
+        type:
+          type: string
+          enum:
+          - TEXT
+          - SIZE
+          - IMAGE
+          - LINK
+          - DIALOG
+          - PROJECT_LINKS
+        defaultOrder:
+          type: integer
+          format: int32
+        tooltip:
+          type: string
+        sortable:
+          type: boolean
+      required:
+      - key
+      - label
+      - parameter
+      - sortable
+      - tooltip
+      - type
+      xml:
+        name: column
+        namespace: urn:au:csiro:rds:dap:1.0
+    AahlDto:
+      type: object
+      properties:
+        analysisType:
+          type: string
+        antibodies:
+          type: string
+        aperture:
+          type: string
+        cell:
+          type: string
+        contact:
+          type: string
+        dataCollectionId:
+          type: string
+        dataObjectId:
+          type: string
+        excitationIlluminationSource:
+          type: string
+        experimentalBook:
+          type: string
+        fedoraId:
+          type: string
+        filename:
+          type: string
+        filepath:
+          type: string
+        fileSize:
+          type: string
+        filterSet:
+          type: string
+        gridBoxLocation:
+          type: string
+        gridRef1Location:
+          type: string
+        host:
+          type: string
+        hostTissueSamplePresentation:
+          type: string
+        imageCreateDate:
+          type: string
+        imageNo:
+          type: string
+        instrument:
+          type: string
+        instrumentType:
+          type: string
+        scaleBarRepresents:
+          type: string
+        opticalLens:
+          type: string
+        virusSpecies:
+          type: string
+        resinBlockLocation:
+          type: string
+        sampleDate:
+          type: string
+        sanSpecimenNo:
+          type: string
+        specimenId:
+          type: string
+        spotSize:
+          type: string
+        presignedLink:
+          $ref: '#/components/schemas/LinkDto'
+        thumbnails:
+          $ref: '#/components/schemas/ThumbnailDto'
+        user:
+          type: string
+        virusFamily:
+          type: string
+        voltage:
+          type: string
+      xml:
+        name: aahl
+        namespace: urn:au:csiro:rds:dap:1.0
+    FacetDto:
+      type: object
+      properties:
+        field:
+          type: string
+        values:
+          type: array
+          items:
+            $ref: '#/components/schemas/FacetValueDto'
+          xml:
+            wrapped: true
+      required:
+      - field
+      xml:
+        name: facet
+        namespace: urn:au:csiro:rds:dap:1.0
+    RestFrequencyDto:
+      type: object
+      properties:
+        code:
+          type: string
+        value:
+          type: number
+          format: double
+      xml:
+        name: RestFrequency
+        namespace: urn:au:csiro:rds:dap:1.0
+    LinkDto:
+      type: object
+      properties:
+        relationship:
+          type: string
+          xml:
+            name: rel
+            attribute: true
+        mediaType:
+          type: string
+          xml:
+            name: type
+            attribute: true
+        href:
+          type: string
+          format: uri
+          xml:
+            attribute: true
+        fileUpload:
+          type: boolean
+        fileId:
+          type: integer
+          format: int32
+    SearchFieldDto:
+      type: object
+      properties:
+        code:
+          type: string
+        name:
+          type: string
+        value:
+          type: string
+      xml:
+        name: SearchField
+        namespace: urn:au:csiro:rds:dap:1.0
+    FacetValueDto:
+      type: object
+      properties:
+        value:
+          type: string
+        count:
+          type: integer
+          format: int64
+      xml:
+        name: facetValue
+        namespace: urn:au:csiro:rds:dap:1.0
+    ThumbnailDto:
+      type: object
+      properties:
+        smallThumbnail:
+          $ref: '#/components/schemas/LinkDto'
+        mediumThumbnail:
+          $ref: '#/components/schemas/LinkDto'
+        largeThumbnail:
+          $ref: '#/components/schemas/LinkDto'
+        fullThumbnail:
+          $ref: '#/components/schemas/LinkDto'
+      xml:
+        name: thumbnail
+        namespace: urn:au:csiro:rds:dap:1.0
+    FrequencyBandDto:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        description:
+          type: string
+      xml:
+        name: frequencyBand
+        namespace: urn:au:csiro:rds:dap:1.0
+    FieldDto:
+      type: object
+      properties:
+        label:
+          type: string
+        type:
+          type: string
+        values:
+          type: array
+          items:
+            type: string
+        frequencyBands:
+          type: array
+          items:
+            $ref: '#/components/schemas/FrequencyBandDto'
+        restFrequencies:
+          type: array
+          items:
+            $ref: '#/components/schemas/RestFrequencyDto'
+        searchFields:
+          type: array
+          items:
+            $ref: '#/components/schemas/SearchFieldDto'
+      required:
+      - label
+      - type
+      xml:
+        name: field
+        namespace: urn:au:csiro:rds:dap:1.0
+    FieldsDto:
+      type: object
+      properties:
+        fields:
+          type: array
+          items:
+            $ref: '#/components/schemas/FieldDto'
+          xml:
+            wrapped: true
+        columns:
+          type: array
+          items:
+            $ref: '#/components/schemas/ColumnDto'
+          xml:
+            wrapped: true
+      xml:
+        name: availableFields
+        namespace: urn:au:csiro:rds:dap:1.0
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: opaque
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.microsoftonline.com/0fe05593-19ac-4f98-adbf-0375fce7f160/oauth2/v2.0/authorize
+          tokenUrl: /dap/auth/csiro/token
+          scopes:
+            openid: OpenID Connect
+x-refined-from:
+- csiro-dap-ws-v2-openapi.json
+- csiro-dap-ws-v2-openapi.yml

@@ -1,0 +1,124 @@
+openapi: 3.2.0
+info:
+  title: Csiro UI Display API
+  version: v2
+  description: 'Operations tagged UI Display across 2 of this provider''s published API definitions: csiro-dap-ws-v2-openapi.json, csiro-dap-ws-v2-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://data.csiro.au/dap
+  description: Generated server url
+security:
+- basicAuth: []
+- bearerAuth: []
+- oauth2: []
+tags:
+- name: UI Display
+paths:
+  /ws/v2/surveys:
+    get:
+      tags:
+      - UI Display
+      summary: This function allows a client to view active surveys being conducted
+      operationId: getActiveSurveys
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LookupValueDTO'
+    servers:
+    - url: https://data.csiro.au/dap
+      description: Generated server url
+  /ws/v2/serverInfo:
+    get:
+      tags:
+      - UI Display
+      summary: This function allows a client to view the server info for the current DAP…
+      operationId: getServerInfo
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerInformationDto'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ServerInformationDto'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ServerInformationDto'
+            application/atom+xml;type=entry:
+              schema:
+                $ref: '#/components/schemas/ServerInformationDto'
+    servers:
+    - url: https://data.csiro.au/dap
+      description: Generated server url
+  /ws/v2/countries:
+    get:
+      tags:
+      - UI Display
+      summary: This function allows a client to view the list of active countries
+      operationId: getActiveCountries
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LookupValueDTO'
+    servers:
+    - url: https://data.csiro.au/dap
+      description: Generated server url
+components:
+  schemas:
+    ServerInformationDto:
+      type: object
+      properties:
+        parameters:
+          type: object
+          additionalProperties:
+            type: string
+        links:
+          type: object
+          additionalProperties:
+            type: string
+        bannerText:
+          type: string
+        pawseyDownText:
+          type: string
+      xml:
+        name: serverInformation
+        namespace: urn:au:csiro:rds:dap:1.0
+    LookupValueDTO:
+      type: object
+      properties:
+        id:
+          type: string
+        description:
+          type: string
+        active:
+          type: boolean
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: opaque
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.microsoftonline.com/0fe05593-19ac-4f98-adbf-0375fce7f160/oauth2/v2.0/authorize
+          tokenUrl: /dap/auth/csiro/token
+          scopes:
+            openid: OpenID Connect
+x-refined-from:
+- csiro-dap-ws-v2-openapi.json
+- csiro-dap-ws-v2-openapi.yml

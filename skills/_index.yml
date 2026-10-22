@@ -1,0 +1,31 @@
+name: CSIRO agent skills
+generated: '2026-10-22'
+method: generated
+source: openapi/csiro-dap-ws-v2-openapi.yml
+skills:
+- name: csiro-find-and-download-dataset
+  path: skills/csiro-find-and-download-dataset.md
+  operations:
+  - getCollections
+  - getCollection
+  - getCollectionLicenceFile
+  - getFiles
+  - getDownloadUrls
+- name: csiro-browse-and-filter-collections
+  path: skills/csiro-browse-and-filter-collections.md
+  operations:
+  - getFieldsOfResearch
+  - getKeywords
+  - getCollectionsByBrowse
+  - getCollectionsByLocation
+  - getCollectionsSearch
+- name: csiro-search-specimen-images
+  path: skills/csiro-search-specimen-images.md
+  operations:
+  - getSpecimenImageResults
+  - validateTerms
+- name: csiro-casda-cutouts
+  path: skills/csiro-casda-cutouts.md
+  operations:
+  - getCutoutSurveys
+  - getCutoutDetail

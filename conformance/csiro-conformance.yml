@@ -1,0 +1,48 @@
+generated: '2026-10-22'
+method: searched
+source: https://research.csiro.au/dap/developer-tools/harvesting-metadata/
+name: CSIRO Data Access Portal conformance
+standards:
+- id: schema.org
+  conforms: true
+  evidence: A complete metadata record for each collection can also be harvested from the header of the collection landing page in accordance
+    with the specifications of schema.org .
+- id: dublin-core
+  conforms: true
+  evidence: Dublin Core All publicly accessible DAP collection records. dc (metadata type served by GET /ws/v2/collections/{id}/metadata/{type})
+- id: rif-cs
+  conforms: true
+  evidence: RIF-CS All publicly accessible DAP collection records. Party records for lead researchers. Activity records. rif
+- id: iso-19115
+  conforms: true
+  evidence: ANZLIC This is an implementation of the geospatial metadata schema ISO 19115 in the context of Australia/New Zealand. AnzlicDto anzlic
+- id: darwin-core
+  conforms: true
+  evidence: Darwin Core A metadata schema based on taxa, for sharing biological information. DarwinCoreDto dwc
+- id: oai-pmh
+  conforms: false
+  evidence: The DAP used to expose metadata for harvesting through an Open Archives Initiative Protocol for Metadata Harvesting (OAI-PMH) endpoint,
+    but this has now been retired.
+- id: orcid
+  conforms: true
+  evidence: openapi/csiro-dap-orcid-v1-openapi.yml declares /orcid/v1/orcid/{orcidId} and /orcid/v1/orcid/{orcidId}/works (registerOrcidForUser,
+    getWorksForUser)
+- id: datacite-doi
+  conforms: true
+  evidence: 'Release history 2.36: DataCite DOI health check feature; ws/v2 accepts DOI-based collection paths (GET /ws/v2/collections/{doi}/**,
+    getCollection_1)'
+- id: oauth2
+  conforms: true
+  evidence: openapi securitySchemes.oauth2 authorizationCode via login.microsoftonline.com, scope openid
+- id: openapi-3.1
+  conforms: true
+  evidence: the document declares 3.1.0
+- id: rfc9457
+  conforms: false
+  evidence: no response declares application/problem+json
+- id: idempotency
+  conforms: false
+  evidence: no idempotency key parameter on mutating operations
+- id: pagination
+  conforms: true
+  evidence: list operations take limit, page

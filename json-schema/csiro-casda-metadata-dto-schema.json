@@ -1,0 +1,191 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/csiro/main/json-schema/csiro-casda-metadata-dto-schema.json",
+  "title": "CasdaMetadataDto",
+  "x-generated": "2026-10-22",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/csiro-dap-ws-v2-openapi.yml#/components/schemas/CasdaMetadataDto",
+  "type": "object",
+  "properties": {
+    "projectCode": {
+      "type": "string"
+    },
+    "projectTitle": {
+      "type": "string"
+    },
+    "projectDescription": {
+      "type": "string"
+    },
+    "filename": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "emUcd": {
+      "type": "string"
+    },
+    "spatialCoordSys": {
+      "type": "string"
+    },
+    "sbids": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "imageCube": {
+      "type": "string"
+    },
+    "objectName": {
+      "type": "string"
+    },
+    "sexagesimalCoordRangeRa": {
+      "type": "string"
+    },
+    "sexagesimalCoordRangeDec": {
+      "type": "string"
+    },
+    "componentId": {
+      "type": "string"
+    },
+    "principalInvestigator": {
+      "type": "string"
+    },
+    "collectionName": {
+      "type": "string"
+    },
+    "collectionDescription": {
+      "type": "string"
+    },
+    "fedoraId": {
+      "type": "string"
+    },
+    "observationStart": {
+      "type": "string"
+    },
+    "observationEnd": {
+      "type": "string"
+    },
+    "obsDurationMinutes": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "centreFrequency": {
+      "type": "string"
+    },
+    "polarisation": {
+      "type": "string"
+    },
+    "collectionType": {
+      "type": "string"
+    },
+    "imageHeader": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "thumbnailSmall": {
+      "type": "string"
+    },
+    "thumbnailLarge": {
+      "type": "string"
+    },
+    "canUserAccessProject": {
+      "type": "boolean"
+    },
+    "validationNotes": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "array",
+        "items": {
+          "$ref": "#/$defs/ValidationNote"
+        }
+      }
+    },
+    "evaluationFilesAvailable": {
+      "type": "boolean"
+    },
+    "validationReportUrl": {
+      "type": "string"
+    },
+    "filesizeMb": {
+      "type": "number",
+      "format": "double"
+    },
+    "restFrequency": {
+      "type": "number",
+      "format": "double"
+    },
+    "frequencyMin": {
+      "type": "number",
+      "format": "double"
+    },
+    "frequencyMax": {
+      "type": "number",
+      "format": "double"
+    },
+    "ra": {
+      "type": "number",
+      "format": "double"
+    },
+    "dec": {
+      "type": "number",
+      "format": "double"
+    },
+    "raMin": {
+      "type": "number",
+      "format": "double"
+    },
+    "raMax": {
+      "type": "number",
+      "format": "double"
+    },
+    "decMin": {
+      "type": "number",
+      "format": "double"
+    },
+    "decMax": {
+      "type": "number",
+      "format": "double"
+    },
+    "corners": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "available": {
+      "type": "boolean"
+    },
+    "bunit": {
+      "type": "string"
+    },
+    "btype": {
+      "type": "string"
+    }
+  },
+  "$defs": {
+    "ValidationNote": {
+      "type": "object",
+      "properties": {
+        "author": {
+          "type": "string"
+        },
+        "created": {
+          "type": "string"
+        },
+        "content": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

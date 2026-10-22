@@ -1,0 +1,94 @@
+overlay: 1.0.0
+info:
+  title: CSIRO dap-ws-v2 enhancements
+  version: 1.0.0
+extends: ../openapi/_original/csiro-dap-ws-v2-openapi.yml
+actions:
+- target: $.info
+  update:
+    x-provider: CSIRO
+    x-apisjson-aid: csiro:dap-web-services
+    x-documentation: https://research.csiro.au/dap/developer-tools/
+    contact:
+      name: CSIRO Data Access Portal
+      url: https://data.csiro.au/
+- target: $.servers
+  update:
+  - url: https://data.csiro.au/dap
+    description: CSIRO Data Access Portal production
+- target: $.paths['/ws/v2/collections{ext}'].get
+  update:
+    x-agent-tool: search_collections
+    x-agent-category: discovery
+- target: $.paths['/ws/v2/collections/search'].get
+  update:
+    x-agent-tool: search_collections_by_field
+    x-agent-category: discovery
+- target: $.paths['/ws/v2/collections/advancedSearch'].post
+  update:
+    x-agent-tool: advanced_search_collections
+    x-agent-category: discovery
+- target: $.paths['/ws/v2/collections/searchbylocation'].get
+  update:
+    x-agent-tool: search_collections_by_location
+    x-agent-category: discovery
+- target: $.paths['/ws/v2/collections/browse/{browseType}/{browseValue}'].get
+  update:
+    x-agent-tool: browse_collections
+    x-agent-category: discovery
+- target: $.paths['/ws/v2/browse/keywords'].get
+  update:
+    x-agent-tool: list_keywords
+    x-agent-category: discovery
+- target: $.paths['/ws/v2/browse/fieldsOfResearch'].get
+  update:
+    x-agent-tool: list_fields_of_research
+    x-agent-category: discovery
+- target: $.paths['/ws/v2/collections/{id}'].get
+  update:
+    x-agent-tool: get_collection
+    x-agent-category: collections
+- target: $.paths['/ws/v2/collections/{id}/versions'].get
+  update:
+    x-agent-tool: get_collection_versions
+    x-agent-category: collections
+- target: $.paths['/ws/v2/collections/{id}/metadata/{type}'].get
+  update:
+    x-agent-tool: get_collection_metadata
+    x-agent-category: collections
+- target: $.paths['/ws/v2/collections/{id}/licence'].get
+  update:
+    x-agent-tool: get_collection_licence
+    x-agent-category: collections
+- target: $.paths['/ws/v2/collections/{id}/files'].get
+  update:
+    x-agent-tool: list_collection_files
+    x-agent-category: files
+- target: $.paths['/ws/v2/collections/{id}/data'].get
+  update:
+    x-agent-tool: list_collection_data_files
+    x-agent-category: files
+- target: $.paths['/ws/v2/collections/{collectionId}/downloadurls'].post
+  update:
+    x-agent-tool: get_download_urls
+    x-agent-category: files
+- target: $.paths['/ws/v2/domains/specimenImages/search'].get
+  update:
+    x-agent-tool: search_specimen_images
+    x-agent-category: domains
+- target: $.paths['/ws/v2/domains/pulsarObservations/search'].get
+  update:
+    x-agent-tool: search_pulsar_observations
+    x-agent-category: domains
+- target: $.paths['/ws/v2/domains/casdaCutout/surveys'].get
+  update:
+    x-agent-tool: list_cutout_surveys
+    x-agent-category: domains
+- target: $.paths['/ws/v2/domains/casdaCutout/cutout'].get
+  update:
+    x-agent-tool: find_cutouts
+    x-agent-category: domains
+- target: $.paths['/ws/v2/serverInfo'].get
+  update:
+    x-agent-tool: get_server_info
+    x-agent-category: meta

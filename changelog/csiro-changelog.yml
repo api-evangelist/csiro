@@ -1,0 +1,39 @@
+generated: '2026-10-22'
+method: searched
+source: https://research.csiro.au/dap/about/release-history/
+name: CSIRO Data Access Portal release history
+scheme: semver-like application release numbers (dated)
+current_version: 2.4.9
+note: Release history covers the Data Access Portal application as a whole (UI, deposit, administration and API), not the /ws/v2 web-service contract specifically. Version labels are copied as written; the page lists "2.4.9" after "2.47".
+entries:
+- version: 2.4.9
+  date: '2026-06-30'
+  breaking: false
+  highlights:
+  - Improve load times of published collections that have many files.
+  - Improve loading of the "List of file download links" when a collection has many files.
+  - Fix missing fields when creating a collection using XML import.
+- version: '2.47'
+  date: '2026-04-09'
+  breaking: false
+  highlights:
+  - Depositor S3 Access Keys expiry dates are recorded and automatically regenerated upon expiry date
+  - Research Organisation Register (ROR) details submitted as part of DOI metadata for selected collection types
+  - Download filenames changed to a format including Published Date, Lead Researcher and Collection ID
+  - Globus download option API improvements
+  - ROR API upgraded to version and schema 2.1
+- version: '2.44'
+  date: '2025-08-19'
+  breaking: false
+  highlights:
+  - ANZSRC Fields of Research 2020 implemented replacing 2008 version
+  - Began staged migration of collections to S3 object storage
+  - Fedora decommissioning by expanding Dublin Core fields for XML file
+  - Deprecated DOI review task from Administration functionality
+- version: '2.36'
+  date: '2022-09-15'
+  breaking: false
+  highlights:
+  - "'Cite as' DOI changed to a URL"
+  - Standard software licences added for Software Collections
+  - DataCite DOI health check feature

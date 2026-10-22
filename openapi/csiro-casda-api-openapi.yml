@@ -1,0 +1,2137 @@
+openapi: 3.2.0
+info:
+  title: Csiro CASDA API
+  version: v2
+  description: 'Operations tagged CASDA across 2 of this provider''s published API definitions: csiro-dap-ws-v2-openapi.json, csiro-dap-ws-v2-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://data.csiro.au/dap
+  description: Generated server url
+security:
+- basicAuth: []
+- bearerAuth: []
+- oauth2: []
+tags:
+- name: CASDA
+paths:
+  /ws/v2/domains/casdaObservation/search:
+    get:
+      tags:
+      - CASDA
+      operationId: getCasdaObservationSearchDto
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CasdaObservationSearchDto'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CasdaObservationSearchDto'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/CasdaObservationSearchDto'
+      summary: Get casda observation search dto
+      x-summary-source: derived
+    post:
+      tags:
+      - CASDA
+      operationId: getCasdaObservationResults
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CasdaObservationSearchDto'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CasdaObservationResultDto'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CasdaObservationResultDto'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/CasdaObservationResultDto'
+      summary: Get casda observation results
+      x-summary-source: derived
+    servers:
+    - url: https://data.csiro.au/dap
+      description: Generated server url
+  /ws/v2/domains/casdaObservation/download:
+    post:
+      tags:
+      - CASDA
+      operationId: createDownloadJob
+      parameters:
+      - name: id
+        in: query
+        required: true
+        schema:
+          type: array
+          items:
+            type: string
+      - name: downloadMode
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: downloadFormat
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: string
+            application/xml:
+              schema:
+                type: object
+                additionalProperties:
+                  type: string
+            text/xml:
+              schema:
+                type: object
+                additionalProperties:
+                  type: string
+      summary: Create download job
+      x-summary-source: derived
+    servers:
+    - url: https://data.csiro.au/dap
+      description: Generated server url
+  /ws/v2/domains/casdaObservation/IMAGE_CUBE/{id}/generateImage:
+    post:
+      tags:
+      - CASDA
+      operationId: generateImage
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: released
+        in: query
+        required: true
+        schema:
+          type: boolean
+      - name: jobType
+        in: query
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CutoutDto'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: string
+            application/xml:
+              schema:
+                type: object
+                additionalProperties:
+                  type: string
+            text/xml:
+              schema:
+                type: object
+                additionalProperties:
+                  type: string
+      summary: Generate image
+      x-summary-source: derived
+    servers:
+    - url: https://data.csiro.au/dap
+      description: Generated server url
+  /ws/v2/domains/casdaSkymap/{objectId}/summary:
+    get:
+      tags:
+      - CASDA
+      operationId: getCasdaSkymapSummaryData
+      parameters:
+      - name: objectId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: catalogueType
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CasdaSkymapCatalogueSummaryDto'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CasdaSkymapCatalogueSummaryDto'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/CasdaSkymapCatalogueSummaryDto'
+      summary: Get casda skymap summary data
+      x-summary-source: derived
+    servers:
+    - url: https://data.csiro.au/dap
+      description: Generated server url
+  /ws/v2/domains/casdaSkymap/search:
+    get:
+      tags:
+      - CASDA
+      operationId: getCasdaSkymapSearchDto
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CasdaSkymapSearchDto'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CasdaSkymapSearchDto'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/CasdaSkymapSearchDto'
+      summary: Get casda skymap search dto
+      x-summary-source: derived
+    servers:
+    - url: https://data.csiro.au/dap
+      description: Generated server url
+  /ws/v2/domains/casdaSkymap/previewImage:
+    get:
+      tags:
+      - CASDA
+      operationId: getCasdaSkymapPreviewImage
+      parameters:
+      - name: objectId
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: catalogueType
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: thumbnailType
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: zoomIn
+        in: query
+        required: false
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+                enum:
+                - 100 CONTINUE
+                - 101 SWITCHING_PROTOCOLS
+                - 102 PROCESSING
+                - 103 EARLY_HINTS
+                - 200 OK
+                - 201 CREATED
+                - 202 ACCEPTED
+                - 203 NON_AUTHORITATIVE_INFORMATION
+                - 204 NO_CONTENT
+                - 205 RESET_CONTENT
+                - 206 PARTIAL_CONTENT
+                - 207 MULTI_STATUS
+                - 208 ALREADY_REPORTED
+                - 226 IM_USED
+                - 300 MULTIPLE_CHOICES
+                - 301 MOVED_PERMANENTLY
+                - 302 FOUND
+                - 303 SEE_OTHER
+                - 304 NOT_MODIFIED
+                - 307 TEMPORARY_REDIRECT
+                - 308 PERMANENT_REDIRECT
+                - 400 BAD_REQUEST
+                - 401 UNAUTHORIZED
+                - 402 PAYMENT_REQUIRED
+                - 403 FORBIDDEN
+                - 404 NOT_FOUND
+                - 405 METHOD_NOT_ALLOWED
+                - 406 NOT_ACCEPTABLE
+                - 407 PROXY_AUTHENTICATION_REQUIRED
+                - 408 REQUEST_TIMEOUT
+                - 409 CONFLICT
+                - 410 GONE
+                - 411 LENGTH_REQUIRED
+                - 412 PRECONDITION_FAILED
+                - 413 CONTENT_TOO_LARGE
+                - 413 PAYLOAD_TOO_LARGE
+                - 414 URI_TOO_LONG
+                - 415 UNSUPPORTED_MEDIA_TYPE
+                - 416 REQUESTED_RANGE_NOT_SATISFIABLE
+                - 417 EXPECTATION_FAILED
+                - 418 I_AM_A_TEAPOT
+                - 421 MISDIRECTED_REQUEST
+                - 422 UNPROCESSABLE_CONTENT
+                - 422 UNPROCESSABLE_ENTITY
+                - 423 LOCKED
+                - 424 FAILED_DEPENDENCY
+                - 425 TOO_EARLY
+                - 426 UPGRADE_REQUIRED
+                - 428 PRECONDITION_REQUIRED
+                - 429 TOO_MANY_REQUESTS
+                - 431 REQUEST_HEADER_FIELDS_TOO_LARGE
+                - 451 UNAVAILABLE_FOR_LEGAL_REASONS
+                - 500 INTERNAL_SERVER_ERROR
+                - 501 NOT_IMPLEMENTED
+                - 502 BAD_GATEWAY
+                - 503 SERVICE_UNAVAILABLE
+                - 504 GATEWAY_TIMEOUT
+                - 505 HTTP_VERSION_NOT_SUPPORTED
+                - 506 VARIANT_ALSO_NEGOTIATES
+                - 507 INSUFFICIENT_STORAGE
+                - 508 LOOP_DETECTED
+                - 509 BANDWIDTH_LIMIT_EXCEEDED
+                - 510 NOT_EXTENDED
+                - 511 NETWORK_AUTHENTICATION_REQUIRED
+            application/xml:
+              schema:
+                type: string
+                enum:
+                - 100 CONTINUE
+                - 101 SWITCHING_PROTOCOLS
+                - 102 PROCESSING
+                - 103 EARLY_HINTS
+                - 200 OK
+                - 201 CREATED
+                - 202 ACCEPTED
+                - 203 NON_AUTHORITATIVE_INFORMATION
+                - 204 NO_CONTENT
+                - 205 RESET_CONTENT
+                - 206 PARTIAL_CONTENT
+                - 207 MULTI_STATUS
+                - 208 ALREADY_REPORTED
+                - 226 IM_USED
+                - 300 MULTIPLE_CHOICES
+                - 301 MOVED_PERMANENTLY
+                - 302 FOUND
+                - 303 SEE_OTHER
+                - 304 NOT_MODIFIED
+                - 307 TEMPORARY_REDIRECT
+                - 308 PERMANENT_REDIRECT
+                - 400 BAD_REQUEST
+                - 401 UNAUTHORIZED
+                - 402 PAYMENT_REQUIRED
+                - 403 FORBIDDEN
+                - 404 NOT_FOUND
+                - 405 METHOD_NOT_ALLOWED
+                - 406 NOT_ACCEPTABLE
+                - 407 PROXY_AUTHENTICATION_REQUIRED
+                - 408 REQUEST_TIMEOUT
+                - 409 CONFLICT
+                - 410 GONE
+                - 411 LENGTH_REQUIRED
+                - 412 PRECONDITION_FAILED
+                - 413 CONTENT_TOO_LARGE
+                - 413 PAYLOAD_TOO_LARGE
+                - 414 URI_TOO_LONG
+                - 415 UNSUPPORTED_MEDIA_TYPE
+                - 416 REQUESTED_RANGE_NOT_SATISFIABLE
+                - 417 EXPECTATION_FAILED
+                - 418 I_AM_A_TEAPOT
+                - 421 MISDIRECTED_REQUEST
+                - 422 UNPROCESSABLE_CONTENT
+                - 422 UNPROCESSABLE_ENTITY
+                - 423 LOCKED
+                - 424 FAILED_DEPENDENCY
+                - 425 TOO_EARLY
+                - 426 UPGRADE_REQUIRED
+                - 428 PRECONDITION_REQUIRED
+                - 429 TOO_MANY_REQUESTS
+                - 431 REQUEST_HEADER_FIELDS_TOO_LARGE
+                - 451 UNAVAILABLE_FOR_LEGAL_REASONS
+                - 500 INTERNAL_SERVER_ERROR
+                - 501 NOT_IMPLEMENTED
+                - 502 BAD_GATEWAY
+                - 503 SERVICE_UNAVAILABLE
+                - 504 GATEWAY_TIMEOUT
+                - 505 HTTP_VERSION_NOT_SUPPORTED
+                - 506 VARIANT_ALSO_NEGOTIATES
+                - 507 INSUFFICIENT_STORAGE
+                - 508 LOOP_DETECTED
+                - 509 BANDWIDTH_LIMIT_EXCEEDED
+                - 510 NOT_EXTENDED
+                - 511 NETWORK_AUTHENTICATION_REQUIRED
+            text/xml:
+              schema:
+                type: string
+                enum:
+                - 100 CONTINUE
+                - 101 SWITCHING_PROTOCOLS
+                - 102 PROCESSING
+                - 103 EARLY_HINTS
+                - 200 OK
+                - 201 CREATED
+                - 202 ACCEPTED
+                - 203 NON_AUTHORITATIVE_INFORMATION
+                - 204 NO_CONTENT
+                - 205 RESET_CONTENT
+                - 206 PARTIAL_CONTENT
+                - 207 MULTI_STATUS
+                - 208 ALREADY_REPORTED
+                - 226 IM_USED
+                - 300 MULTIPLE_CHOICES
+                - 301 MOVED_PERMANENTLY
+                - 302 FOUND
+                - 303 SEE_OTHER
+                - 304 NOT_MODIFIED
+                - 307 TEMPORARY_REDIRECT
+                - 308 PERMANENT_REDIRECT
+                - 400 BAD_REQUEST
+                - 401 UNAUTHORIZED
+                - 402 PAYMENT_REQUIRED
+                - 403 FORBIDDEN
+                - 404 NOT_FOUND
+                - 405 METHOD_NOT_ALLOWED
+                - 406 NOT_ACCEPTABLE
+                - 407 PROXY_AUTHENTICATION_REQUIRED
+                - 408 REQUEST_TIMEOUT
+                - 409 CONFLICT
+                - 410 GONE
+                - 411 LENGTH_REQUIRED
+                - 412 PRECONDITION_FAILED
+                - 413 CONTENT_TOO_LARGE
+                - 413 PAYLOAD_TOO_LARGE
+                - 414 URI_TOO_LONG
+                - 415 UNSUPPORTED_MEDIA_TYPE
+                - 416 REQUESTED_RANGE_NOT_SATISFIABLE
+                - 417 EXPECTATION_FAILED
+                - 418 I_AM_A_TEAPOT
+                - 421 MISDIRECTED_REQUEST
+                - 422 UNPROCESSABLE_CONTENT
+                - 422 UNPROCESSABLE_ENTITY
+                - 423 LOCKED
+                - 424 FAILED_DEPENDENCY
+                - 425 TOO_EARLY
+                - 426 UPGRADE_REQUIRED
+                - 428 PRECONDITION_REQUIRED
+                - 429 TOO_MANY_REQUESTS
+                - 431 REQUEST_HEADER_FIELDS_TOO_LARGE
+                - 451 UNAVAILABLE_FOR_LEGAL_REASONS
+                - 500 INTERNAL_SERVER_ERROR
+                - 501 NOT_IMPLEMENTED
+                - 502 BAD_GATEWAY
+                - 503 SERVICE_UNAVAILABLE
+                - 504 GATEWAY_TIMEOUT
+                - 505 HTTP_VERSION_NOT_SUPPORTED
+                - 506 VARIANT_ALSO_NEGOTIATES
+                - 507 INSUFFICIENT_STORAGE
+                - 508 LOOP_DETECTED
+                - 509 BANDWIDTH_LIMIT_EXCEEDED
+                - 510 NOT_EXTENDED
+                - 511 NETWORK_AUTHENTICATION_REQUIRED
+      summary: Get casda skymap preview image
+      x-summary-source: derived
+    servers:
+    - url: https://data.csiro.au/dap
+      description: Generated server url
+  /ws/v2/domains/casdaObservation/{sbid}/{projectCode}/qualityLevel:
+    get:
+      tags:
+      - CASDA
+      operationId: getQualityLevel
+      parameters:
+      - name: sbid
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: projectCode
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/QualityLevelDto'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/QualityLevelDto'
+            text/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/QualityLevelDto'
+      summary: Get quality level
+      x-summary-source: derived
+    servers:
+    - url: https://data.csiro.au/dap
+      description: Generated server url
+  /ws/v2/domains/casdaObservation/{projectCode}/{observationId}/evaluationFiles:
+    get:
+      tags:
+      - CASDA
+      operationId: getEvaluationFiles
+      parameters:
+      - name: projectCode
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: observationId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: string
+                format: uri
+            application/xml:
+              schema:
+                type: string
+                format: uri
+            text/xml:
+              schema:
+                type: string
+                format: uri
+      summary: Get evaluation files
+      x-summary-source: derived
+    servers:
+    - url: https://data.csiro.au/dap
+      description: Generated server url
+  /ws/v2/domains/casdaObservation/{dataProductType}/{id}/metadata:
+    get:
+      tags:
+      - CASDA
+      operationId: getMetadata_2
+      parameters:
+      - name: dataProductType
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: released
+        in: query
+        required: true
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CasdaMetadataDto'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CasdaMetadataDto'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/CasdaMetadataDto'
+      summary: Get metadata 2
+      x-summary-source: derived
+    servers:
+    - url: https://data.csiro.au/dap
+      description: Generated server url
+  /ws/v2/domains/casdaObservation/{dataProductType}/{id}/formattedFreqRange:
+    get:
+      tags:
+      - CASDA
+      operationId: getFormattedFreqRange
+      parameters:
+      - name: dataProductType
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: released
+        in: query
+        required: true
+        schema:
+          type: boolean
+      - name: spectralSelection
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: freqMeasure
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: restFrequency
+        in: query
+        required: false
+        schema:
+          type: number
+          format: double
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: string
+            application/xml:
+              schema:
+                type: object
+                additionalProperties:
+                  type: string
+            text/xml:
+              schema:
+                type: object
+                additionalProperties:
+                  type: string
+      summary: Get formatted freq range
+      x-summary-source: derived
+    servers:
+    - url: https://data.csiro.au/dap
+      description: Generated server url
+  /ws/v2/domains/casdaObservation/scanSummary:
+    get:
+      tags:
+      - CASDA
+      operationId: getMeasurementSetScanSummary
+      parameters:
+      - name: measurementSetId
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CasdaScanSummaryResultDTO'
+      summary: Get measurement set scan summary
+      x-summary-source: derived
+    servers:
+    - url: https://data.csiro.au/dap
+      description: Generated server url
+  /ws/v2/domains/casdaObservation/projectContributors:
+    get:
+      tags:
+      - CASDA
+      operationId: getProjectContributors
+      parameters:
+      - name: opalCode
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  type: string
+      summary: Get project contributors
+      x-summary-source: derived
+    servers:
+    - url: https://data.csiro.au/dap
+      description: Generated server url
+  /ws/v2/domains/casdaObservation/objectResolver/{objectName}:
+    get:
+      tags:
+      - CASDA
+      operationId: getCoordForObject
+      parameters:
+      - name: objectName
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: decimal
+        in: query
+        required: false
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ObjectCoordDto'
+      summary: Get coord for object
+      x-summary-source: derived
+    servers:
+    - url: https://data.csiro.au/dap
+      description: Generated server url
+  /ws/v2/domains/casdaObservation/imageGeneration/options:
+    get:
+      tags:
+      - CASDA
+      operationId: getCasdaImageGenerationOptions
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CASDAImageGenerationOptionsDto'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CASDAImageGenerationOptionsDto'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/CASDAImageGenerationOptionsDto'
+      summary: Get casda image generation options
+      x-summary-source: derived
+    servers:
+    - url: https://data.csiro.au/dap
+      description: Generated server url
+  /ws/v2/domains/casdaObservation/fields:
+    get:
+      tags:
+      - CASDA
+      operationId: getFields_1
+      parameters:
+      - name: columns
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CasdaFieldsDto'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CasdaFieldsDto'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/CasdaFieldsDto'
+      summary: Get fields 1
+      x-summary-source: derived
+    servers:
+    - url: https://data.csiro.au/dap
+      description: Generated server url
+  /ws/v2/domains/casdaObservation/atoa/fields:
+    get:
+      tags:
+      - CASDA
+      operationId: getAtoaFields
+      parameters:
+      - name: columns
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CasdaAtoaFieldsDto'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CasdaAtoaFieldsDto'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/CasdaAtoaFieldsDto'
+      summary: Get atoa fields
+      x-summary-source: derived
+    servers:
+    - url: https://data.csiro.au/dap
+      description: Generated server url
+  /ws/v2/domains/casdaCutout/surveys:
+    get:
+      tags:
+      - CASDA
+      summary: Retrieve the list of surveys supported by this cutout service
+      operationId: getCutoutSurveys
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CasdaSurveyDto'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CasdaSurveyDto'
+            text/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CasdaSurveyDto'
+    servers:
+    - url: https://data.csiro.au/dap
+      description: Generated server url
+  /ws/v2/domains/casdaCutout/cutout:
+    get:
+      tags:
+      - CASDA
+      summary: Process a request to find cutout dataproducts
+      operationId: getCutoutDetail
+      parameters:
+      - name: surveys
+        in: query
+        description: The code of the survey to be queried e.g. CasdaSurveyDto.code
+        required: true
+        schema:
+          type: array
+          items:
+            type: string
+        example: RACS-Low
+      - name: ra
+        in: query
+        description: The Right ascension portion of the position, in decimal degrees.
+        required: true
+        schema:
+          type: string
+        example: 125.6
+      - name: dec
+        in: query
+        description: The Declination portion of the position, in decimal degrees.
+        required: true
+        schema:
+          type: string
+        example: -43.0
+      - name: size
+        in: query
+        description: The size of the cutout, in decimal degrees.
+        required: true
+        schema:
+          type: string
+        example: 0.5
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CasdaSurveyCutoutDto'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CasdaSurveyCutoutDto'
+            text/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CasdaSurveyCutoutDto'
+    servers:
+    - url: https://data.csiro.au/dap
+      description: Generated server url
+  /ws/v2/dcToken:
+    get:
+      tags:
+      - CASDA
+      operationId: getToken
+      parameters:
+      - name: code
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: redirectUri
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Oauth2UserProfileDto'
+      summary: Get token
+      x-summary-source: derived
+    servers:
+    - url: https://data.csiro.au/dap
+      description: Generated server url
+components:
+  schemas:
+    CatalogueResultDto:
+      type: object
+      properties:
+        totalResults:
+          type: string
+        page:
+          type: integer
+          format: int32
+        resultsPerPage:
+          type: integer
+          format: int32
+        allAvailable:
+          type: boolean
+        files:
+          type: array
+          items:
+            $ref: '#/components/schemas/CatalogueDto'
+          xml:
+            wrapped: true
+      required:
+      - page
+      - resultsPerPage
+      - totalResults
+    CasdaCutoutDto:
+      type: object
+      properties:
+        title:
+          type: string
+        dataUrl:
+          type: string
+        previewUrl:
+          type: string
+        distance:
+          type: string
+        ra:
+          type: string
+        dec:
+          type: string
+        estFileSizeBytes:
+          type: integer
+          format: int64
+    ColumnDto:
+      type: object
+      properties:
+        label:
+          type: string
+        key:
+          type: string
+        parameter:
+          type: string
+        type:
+          type: string
+          enum:
+          - TEXT
+          - SIZE
+          - IMAGE
+          - LINK
+          - DIALOG
+          - PROJECT_LINKS
+        defaultOrder:
+          type: integer
+          format: int32
+        tooltip:
+          type: string
+        sortable:
+          type: boolean
+      required:
+      - key
+      - label
+      - parameter
+      - sortable
+      - tooltip
+      - type
+      xml:
+        name: column
+        namespace: urn:au:csiro:rds:dap:1.0
+    CasdaSkymapCatalogueDto:
+      type: object
+      properties:
+        fields:
+          type: array
+          items:
+            $ref: '#/components/schemas/CasdaSkymapSummaryFieldDto'
+        hipsCatalogueUrl:
+          type: string
+        displayName:
+          type: string
+        idFieldName:
+          type: string
+        sourceCat:
+          type: string
+      xml:
+        name: casdaCatalogue
+    CasdaAtoaFieldsDto:
+      type: object
+      properties:
+        fields:
+          type: array
+          items:
+            $ref: '#/components/schemas/FieldDto'
+          xml:
+            wrapped: true
+        atoaVisibilityColumns:
+          type: array
+          items:
+            $ref: '#/components/schemas/ColumnDto'
+          xml:
+            wrapped: true
+      xml:
+        name: availableFields
+        namespace: urn:au:csiro:rds:dap:1.0
+    Facet:
+      type: object
+      properties:
+        label:
+          type: string
+        values:
+          type: array
+          items:
+            type: string
+      xml:
+        name: facet
+    CasdaMetadataDto:
+      type: object
+      properties:
+        projectCode:
+          type: string
+        projectTitle:
+          type: string
+        projectDescription:
+          type: string
+        filename:
+          type: string
+        type:
+          type: string
+        emUcd:
+          type: string
+        spatialCoordSys:
+          type: string
+        sbids:
+          type: array
+          items:
+            type: integer
+            format: int32
+        imageCube:
+          type: string
+        objectName:
+          type: string
+        sexagesimalCoordRangeRa:
+          type: string
+        sexagesimalCoordRangeDec:
+          type: string
+        componentId:
+          type: string
+        principalInvestigator:
+          type: string
+        collectionName:
+          type: string
+        collectionDescription:
+          type: string
+        fedoraId:
+          type: string
+        observationStart:
+          type: string
+        observationEnd:
+          type: string
+        obsDurationMinutes:
+          type: integer
+          format: int64
+        centreFrequency:
+          type: string
+        polarisation:
+          type: string
+        collectionType:
+          type: string
+        imageHeader:
+          type: array
+          items:
+            type: string
+        thumbnailSmall:
+          type: string
+        thumbnailLarge:
+          type: string
+        canUserAccessProject:
+          type: boolean
+        validationNotes:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              $ref: '#/components/schemas/ValidationNote'
+        evaluationFilesAvailable:
+          type: boolean
+        validationReportUrl:
+          type: string
+        filesizeMb:
+          type: number
+          format: double
+        restFrequency:
+          type: number
+          format: double
+        frequencyMin:
+          type: number
+          format: double
+        frequencyMax:
+          type: number
+          format: double
+        ra:
+          type: number
+          format: double
+        dec:
+          type: number
+          format: double
+        raMin:
+          type: number
+          format: double
+        raMax:
+          type: number
+          format: double
+        decMin:
+          type: number
+          format: double
+        decMax:
+          type: number
+          format: double
+        corners:
+          type: array
+          items:
+            type: array
+            items:
+              type: number
+              format: double
+        available:
+          type: boolean
+        bunit:
+          type: string
+        btype:
+          type: string
+      xml:
+        name: CasdaMetadataDto
+    CatalogueDto:
+      type: object
+      properties:
+        catalogueName:
+          type: string
+        catalogueRows:
+          type: integer
+          format: int64
+        catalogueType:
+          type: string
+        collectionName:
+          type: string
+        dataCollectionId:
+          type: integer
+          format: int32
+        dataProductId:
+          type: integer
+          format: int64
+        fedoraId:
+          type: string
+        filename:
+          type: string
+        lastModifiedDate:
+          type: string
+        obsEnd:
+          type: string
+        obsStart:
+          type: string
+        otherSbids:
+          type: array
+          items:
+            type: integer
+            format: int32
+        projectTitle:
+          type: string
+        projectCode:
+          type: string
+        principalInvestigator:
+          type: string
+        qualityLevel:
+          type: string
+        sbid:
+          type: integer
+          format: int32
+        observationId:
+          type: integer
+          format: int64
+        embargoed:
+          type: boolean
+        dataObjectId:
+          type: string
+        collectionType:
+          type: string
+        releasedDate:
+          type: string
+        releasedStatus:
+          type: string
+        project:
+          $ref: '#/components/schemas/CasdaProjectDto'
+        commensalProjects:
+          type: array
+          items:
+            $ref: '#/components/schemas/CasdaProjectDto'
+        available:
+          type: boolean
+      xml:
+        name: catalogue
+        namespace: urn:au:csiro:rds:dap:1.0
+    ConeSearch:
+      type: object
+      properties:
+        rightAscension:
+          type: string
+        declination:
+          type: string
+        radius:
+          type: string
+      xml:
+        name: coneSearch
+    KeyValuePair:
+      type: object
+      properties:
+        key:
+          type: string
+        value:
+          type: string
+    CasdaScanSummaryResultDTO:
+      type: object
+      properties:
+        sourceName:
+          type:
+          - string
+          - 'null'
+        ra:
+          type:
+          - string
+          - 'null'
+        dec:
+          type:
+          - string
+          - 'null'
+        frequency:
+          type:
+          - number
+          - 'null'
+          format: double
+        bandwidth:
+          type:
+          - number
+          - 'null'
+          format: double
+        channels:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        totalScanTime:
+          type:
+          - number
+          - 'null'
+          format: double
+        totalScans:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        polarisations:
+          type:
+          - string
+          - 'null'
+    CasdaFieldsDto:
+      type: object
+      properties:
+        fields:
+          type: array
+          items:
+            $ref: '#/components/schemas/FieldDto'
+          xml:
+            wrapped: true
+        catalogueColumns:
+          type: array
+          items:
+            $ref: '#/components/schemas/ColumnDto'
+          xml:
+            wrapped: true
+        imagecubeColumns:
+          type: array
+          items:
+            $ref: '#/components/schemas/ColumnDto'
+          xml:
+            wrapped: true
+        spectrumColumns:
+          type: array
+          items:
+            $ref: '#/components/schemas/ColumnDto'
+          xml:
+            wrapped: true
+        visibilityColumns:
+          type: array
+          items:
+            $ref: '#/components/schemas/ColumnDto'
+          xml:
+            wrapped: true
+      xml:
+        name: availableFields
+        namespace: urn:au:csiro:rds:dap:1.0
+    CASDAImageGenerationOptionsDto:
+      type: object
+      properties:
+        spectralOptions:
+          type: object
+          additionalProperties:
+            type: string
+        frequencyMeasurements:
+          type: object
+          additionalProperties:
+            type: string
+        waveMeasurements:
+          type: object
+          additionalProperties:
+            type: string
+        restFrequencyMap:
+          type: object
+          additionalProperties:
+            type: string
+      xml:
+        name: casdaImageGenerationOptionsDto
+    ValidationNote:
+      type: object
+      properties:
+        author:
+          type: string
+        created:
+          type: string
+        content:
+          type: string
+      xml:
+        name: validationNote
+    FacetDto:
+      type: object
+      properties:
+        field:
+          type: string
+        values:
+          type: array
+          items:
+            $ref: '#/components/schemas/FacetValueDto'
+          xml:
+            wrapped: true
+      required:
+      - field
+      xml:
+        name: facet
+        namespace: urn:au:csiro:rds:dap:1.0
+    ImageCubeDto:
+      type: object
+      properties:
+        collectionName:
+          type: string
+        cellSize:
+          type: number
+          format: double
+        centreFrequency:
+          type: number
+          format: double
+        channelWidth:
+          type: number
+          format: double
+        dataCollectionId:
+          type: integer
+          format: int32
+        dataProductId:
+          type: integer
+          format: int64
+        declination:
+          type: string
+        fedoraId:
+          type: string
+        filename:
+          type: string
+        fileSize:
+          type: integer
+          format: int64
+        lastModifiedDate:
+          type: string
+        numChannels:
+          type: integer
+          format: int32
+        numPixels:
+          type: integer
+          format: int64
+        objectName:
+          type: string
+        obsEnd:
+          type: string
+        obsDurationMinutes:
+          type: integer
+          format: int64
+        obsStart:
+          type: string
+        otherSbids:
+          type: array
+          items:
+            type: integer
+            format: int32
+        polarisation:
+          type: string
+        projectTitle:
+          type: string
+        projectCode:
+          type: string
+        principalInvestigator:
+          type: string
+        qualityLevel:
+          type: string
+        rightAscension:
+          type: string
+        sbid:
+          type: integer
+          format: int32
+        observationId:
+          type: integer
+          format: int64
+        type:
+          type: string
+        smallThumbnail:
+          $ref: '#/components/schemas/LinkDto'
+        largeThumbnail:
+          $ref: '#/components/schemas/LinkDto'
+        embargoed:
+          type: boolean
+        dataObjectId:
+          type: string
+        collectionType:
+          type: string
+        releasedDate:
+          type: string
+        releasedStatus:
+          type: string
+        project:
+          $ref: '#/components/schemas/CasdaProjectDto'
+        commensalProjects:
+          type: array
+          items:
+            $ref: '#/components/schemas/CasdaProjectDto'
+        available:
+          type: boolean
+      xml:
+        name: imageCube
+        namespace: urn:au:csiro:rds:dap:1.0
+    LinkDto:
+      type: object
+      properties:
+        relationship:
+          type: string
+          xml:
+            name: rel
+            attribute: true
+        mediaType:
+          type: string
+          xml:
+            name: type
+            attribute: true
+        href:
+          type: string
+          format: uri
+          xml:
+            attribute: true
+        fileUpload:
+          type: boolean
+        fileId:
+          type: integer
+          format: int32
+    CasdaProjectDto:
+      type: object
+      properties:
+        fedoraId:
+          type: string
+        projectCode:
+          type: string
+      xml:
+        name: catalogue
+        namespace: urn:au:csiro:rds:dap:1.0
+    VisibilityDto:
+      type: object
+      properties:
+        collectionName:
+          type: string
+        dataCollectionId:
+          type: integer
+          format: int32
+        dataProductId:
+          type: integer
+          format: int64
+        fedoraId:
+          type: string
+        filename:
+          type: string
+        fileSize:
+          type: integer
+          format: int64
+        lastModifiedDate:
+          type: string
+        numScans:
+          type: integer
+          format: int64
+        obsEnd:
+          type: string
+        obsStart:
+          type: string
+        otherSbids:
+          type: array
+          items:
+            type: integer
+            format: int32
+        projectTitle:
+          type: string
+        projectCode:
+          type: string
+        principalInvestigator:
+          type: string
+        qualityLevel:
+          type: string
+        sbid:
+          type: integer
+          format: int32
+        observationId:
+          type: integer
+          format: int64
+        embargoed:
+          type: boolean
+        dataObjectId:
+          type: string
+        collectionType:
+          type: string
+        releasedDate:
+          type: string
+        releasedStatus:
+          type: string
+        project:
+          $ref: '#/components/schemas/CasdaProjectDto'
+        commensalProjects:
+          type: array
+          items:
+            $ref: '#/components/schemas/CasdaProjectDto'
+        available:
+          type: boolean
+        frontend:
+          type: string
+        backend:
+          type: string
+        arrayConfig:
+          type: string
+      xml:
+        name: visibility
+        namespace: urn:au:csiro:rds:dap:1.0
+    DataTab:
+      type: object
+      properties:
+        dataProduct:
+          type:
+          - string
+          - 'null'
+        page:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        pageSize:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        sortOrder:
+          type:
+          - string
+          - 'null'
+        sortBy:
+          type:
+          - string
+          - 'null'
+    SummaryFieldDto:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        value:
+          type: string
+        units:
+          type: string
+    Oauth2UserProfileDto:
+      type: object
+      properties:
+        displayName:
+          type: string
+        userName:
+          type: string
+        token:
+          type: string
+        expiry:
+          type: string
+        mail:
+          type: string
+        affiliation:
+          type: string
+        credentialType:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+    VisibilityResultDto:
+      type: object
+      properties:
+        totalResults:
+          type: string
+        page:
+          type: integer
+          format: int32
+        resultsPerPage:
+          type: integer
+          format: int32
+        allAvailable:
+          type: boolean
+        files:
+          type: array
+          items:
+            $ref: '#/components/schemas/VisibilityDto'
+          xml:
+            wrapped: true
+      required:
+      - page
+      - resultsPerPage
+      - totalResults
+    ImageCubeResultDto:
+      type: object
+      properties:
+        totalResults:
+          type: string
+        page:
+          type: integer
+          format: int32
+        resultsPerPage:
+          type: integer
+          format: int32
+        allAvailable:
+          type: boolean
+        files:
+          type: array
+          items:
+            $ref: '#/components/schemas/ImageCubeDto'
+          xml:
+            wrapped: true
+      required:
+      - page
+      - resultsPerPage
+      - totalResults
+    CutoutDto:
+      type: object
+      properties:
+        coords:
+          type: array
+          items:
+            type: array
+            items:
+              type: string
+          xml:
+            wrapped: true
+        corners:
+          type: array
+          items:
+            type: string
+          xml:
+            wrapped: true
+        decimalCoords:
+          type: boolean
+          xml:
+            wrapped: true
+        spectralSelection:
+          type: string
+          xml:
+            wrapped: true
+        freqMeasure:
+          type: string
+          xml:
+            wrapped: true
+        restFrequency:
+          type: number
+          format: double
+          xml:
+            wrapped: true
+        minSpectralValue:
+          type: number
+          format: double
+          xml:
+            wrapped: true
+        maxSpectralValue:
+          type: number
+          format: double
+          xml:
+            wrapped: true
+        polarisation:
+          type: string
+          xml:
+            wrapped: true
+      xml:
+        name: cutout
+    CasdaObservationResultDto:
+      type: object
+      properties:
+        facets:
+          type: array
+          items:
+            $ref: '#/components/schemas/FacetDto'
+          xml:
+            wrapped: true
+        catalogueResultDto:
+          $ref: '#/components/schemas/CatalogueResultDto'
+        imageCubeResultDto:
+          $ref: '#/components/schemas/ImageCubeResultDto'
+        imageCubeAncillaryResultDto:
+          $ref: '#/components/schemas/ImageCubeResultDto'
+        spectrumResultDto:
+          $ref: '#/components/schemas/SpectrumResultDto'
+        visibilityResultDto:
+          $ref: '#/components/schemas/VisibilityResultDto'
+        allAvailable:
+          type: boolean
+    SearchFieldDto:
+      type: object
+      properties:
+        code:
+          type: string
+        name:
+          type: string
+        value:
+          type: string
+      xml:
+        name: SearchField
+        namespace: urn:au:csiro:rds:dap:1.0
+    FacetValueDto:
+      type: object
+      properties:
+        value:
+          type: string
+        count:
+          type: integer
+          format: int64
+      xml:
+        name: facetValue
+        namespace: urn:au:csiro:rds:dap:1.0
+    CasdaSurveyCutoutDto:
+      type: object
+      properties:
+        surveyCode:
+          type: string
+        cutouts:
+          type: array
+          items:
+            $ref: '#/components/schemas/CasdaCutoutDto'
+    CasdaSurveyDto:
+      type: object
+      properties:
+        code:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        group:
+          type: string
+    CasdaObservationSearchDto:
+      type: object
+      properties:
+        coneSearches:
+          type: array
+          items:
+            $ref: '#/components/schemas/ConeSearch'
+          xml:
+            wrapped: true
+        dataProducts:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataTab'
+          xml:
+            wrapped: true
+        facets:
+          type: array
+          items:
+            $ref: '#/components/schemas/Facet'
+          xml:
+            wrapped: true
+        filename:
+          type: string
+        componentId:
+          type: string
+        project:
+          type: string
+        schedulingBlockId:
+          type: string
+        startDate:
+          type: string
+        endDate:
+          type: string
+        showRejected:
+          type: boolean
+        frequencyFrom:
+          type: string
+        frequencyTo:
+          type: string
+        redshiftFrom:
+          type: string
+        redshiftTo:
+          type: string
+        velocityFrom:
+          type: string
+        velocityTo:
+          type: string
+        restFrequency:
+          type: string
+        dataCollectionId:
+          type: string
+        releaseDate:
+          type: string
+        releasedFilter:
+          type: string
+        includeCommensalProjects:
+          type: boolean
+        telescopes:
+          type: array
+          items:
+            type: string
+        searchType:
+          type: string
+        atcaArray:
+          type: array
+          items:
+            type: string
+        bandwidthMin:
+          type: string
+        bandwidthMax:
+          type: string
+        channelsMin:
+          type: string
+        channelsMax:
+          type: string
+        investigator:
+          type: string
+        frontend:
+          type: string
+        backend:
+          type: string
+        showFacets:
+          type: boolean
+      xml:
+        name: casdaObservationSearch
+    CasdaSkymapSearchDto:
+      type: object
+      properties:
+        catalogues:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/CasdaSkymapCatalogueDto'
+        instructionsUrl:
+          type: string
+        defaultTarget:
+          type: string
+        hipsDataDirectoryURL:
+          type: string
+      xml:
+        name: casdaSkymapSearch
+    SpectrumDto:
+      type: object
+      properties:
+        channelWidth:
+          type: number
+          format: double
+        collectionName:
+          type: string
+        dataCollectionId:
+          type: integer
+          format: int32
+        dataProductId:
+          type: integer
+          format: int64
+        declination:
+          type: string
+        fedoraId:
+          type: string
+        filename:
+          type: string
+        fileSize:
+          type: integer
+          format: int64
+        imageCubeName:
+          type: string
+        lastModifiedDate:
+          type: string
+        numChannels:
+          type: integer
+          format: int32
+        objectName:
+          type: string
+        obsDurationMinutes:
+          type: integer
+          format: int64
+        obsEnd:
+          type: string
+        obsStart:
+          type: string
+        otherSbids:
+          type: array
+          items:
+            type: integer
+            format: int32
+        polarisation:
+          type: string
+        projectTitle:
+          type: string
+        projectCode:
+          type: string
+        principalInvestigator:
+          type: string
+        qualityLevel:
+          type: string
+        rightAscension:
+          type: string
+        sbid:
+          type: integer
+          format: int32
+        observationId:
+          type: integer
+          format: int64
+        type:
+          type: string
+        smallThumbnail:
+          $ref: '#/components/schemas/LinkDto'
+        embargoed:
+          type: boolean
+        dataObjectId:
+          type: string
+        collectionType:
+          type: string
+        releasedDate:
+          type: string
+        releasedStatus:
+          type: string
+        project:
+          $ref: '#/components/schemas/CasdaProjectDto'
+        commensalProjects:
+          type: array
+          items:
+            $ref: '#/components/schemas/CasdaProjectDto'
+        available:
+          type: boolean
+      xml:
+        name: spectrum
+        namespace: urn:au:csiro:rds:dap:1.0
+    CasdaSkymapCatalogueSummaryDto:
+      type: object
+      properties:
+        objectName:
+          type: string
+        data:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              $ref: '#/components/schemas/KeyValuePair'
+        summaryData:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              $ref: '#/components/schemas/SummaryFieldDto'
+        tabs:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              type: string
+        sourceFilesCount:
+          type: integer
+          format: int32
+    ObjectCoordDto:
+      type: object
+      properties:
+        rightAscension:
+          type: string
+        declination:
+          type: string
+        radius:
+          type: number
+          format: double
+      required:
+      - declination
+      - radius
+      - rightAscension
+    RestFrequencyDto:
+      type: object
+      properties:
+        code:
+          type: string
+        value:
+          type: number
+          format: double
+      xml:
+        name: RestFrequency
+        namespace: urn:au:csiro:rds:dap:1.0
+    CasdaSkymapSummaryFieldDto:
+      type: object
+      properties:
+        name:
+          type: string
+        id:
+          type: string
+        units:
+          type: string
+      xml:
+        name: casdaSkymapField
+    SpectrumResultDto:
+      type: object
+      properties:
+        totalResults:
+          type: string
+        page:
+          type: integer
+          format: int32
+        resultsPerPage:
+          type: integer
+          format: int32
+        allAvailable:
+          type: boolean
+        files:
+          type: array
+          items:
+            $ref: '#/components/schemas/SpectrumDto'
+          xml:
+            wrapped: true
+      required:
+      - page
+      - resultsPerPage
+      - totalResults
+    FrequencyBandDto:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        description:
+          type: string
+      xml:
+        name: frequencyBand
+        namespace: urn:au:csiro:rds:dap:1.0
+    FieldDto:
+      type: object
+      properties:
+        label:
+          type: string
+        type:
+          type: string
+        values:
+          type: array
+          items:
+            type: string
+        frequencyBands:
+          type: array
+          items:
+            $ref: '#/components/schemas/FrequencyBandDto'
+        restFrequencies:
+          type: array
+          items:
+            $ref: '#/components/schemas/RestFrequencyDto'
+        searchFields:
+          type: array
+          items:
+            $ref: '#/components/schemas/SearchFieldDto'
+      required:
+      - label
+      - type
+      xml:
+        name: field
+        namespace: urn:au:csiro:rds:dap:1.0
+    QualityLevelDto:
+      type: object
+      properties:
+        status:
+          type: integer
+          format: int32
+        name:
+          type: string
+        value:
+          type: number
+          format: double
+      required:
+      - name
+      - status
+      - value
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: opaque
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.microsoftonline.com/0fe05593-19ac-4f98-adbf-0375fce7f160/oauth2/v2.0/authorize
+          tokenUrl: /dap/auth/csiro/token
+          scopes:
+            openid: OpenID Connect
+x-refined-from:
+- csiro-dap-ws-v2-openapi.json
+- csiro-dap-ws-v2-openapi.yml

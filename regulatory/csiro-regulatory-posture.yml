@@ -1,0 +1,56 @@
+name: CSIRO Regulatory Posture
+description: >-
+  Regulatory posture of CSIRO (Commonwealth Scientific and Industrial Research Organisation),
+  read from its own privacy policy and AI Transparency Statement. CSIRO is an Australian
+  Government agency subject to the Privacy Act 1988 (Australian Privacy Principles) and the
+  Freedom of Information Act. The Legal notice and disclaimer page
+  (https://www.csiro.au/en/about/Policies/Legal/Legal-notice, HTTP 200) was also read and
+  spoke to none of the catalog signals.
+generated: '2026-10-22'
+method: searched
+source:
+  - https://www.csiro.au/en/about/Policies/Privacy
+  - https://www.csiro.au/en/about/Policies/Artificial-Intelligence-Statement
+signals:
+  - signal: data_subject_request
+    url: https://www.csiro.au/en/about/Policies/Privacy
+    section: Access to and amendment of personal information held by CSIRO
+    note: >-
+      Individuals can request access to (and amendment of) their personal information under the
+      Privacy Act, with identity verification; lodging is free but reasonable administrative costs
+      may be charged.
+    evidence:
+      source: https://www.csiro.au/en/about/Policies/Privacy
+      http_status: 200
+      fetched: '2026-10-22'
+      quote: "We will provide you with access to your personal information that we hold, subject to any applicable exceptions under the Privacy Act. We will require you to verify your identity and specify, as clearly as possible, the information that you wish to access."
+    additional_quotes:
+      - "If you can establish that information held by us about you is inaccurate, irrelevant, out of date, incomplete or misleading, we will take reasonable steps to amend the information."
+  - signal: data_residency
+    url: https://www.csiro.au/en/about/Policies/Privacy
+    section: Disclosures of personal information overseas
+    note: >-
+      No Australia-only residency commitment: personal information may be stored with third parties
+      in Australia or overseas, and overseas disclosure is governed by APP 8.
+    evidence:
+      source: https://www.csiro.au/en/about/Policies/Privacy
+      http_status: 200
+      fetched: '2026-10-22'
+      quote: "CSIRO will only disclose your information overseas in accordance with APP 8 and where certain conditions are met, for example, where the recipient is subject to a law or binding scheme substantially similar to the APPs, including mechanisms for enforcement, we have sought your consent, or we have ensured appropriate contractual measurements are met."
+    additional_quotes:
+      - "We may use third parties to store some personal information on servers and cloud services in Australia or overseas."
+  - signal: ai_transparency
+    url: https://www.csiro.au/en/about/Policies/Artificial-Intelligence-Statement
+    section: Our Commitment / Public Impact and Safeguards
+    note: >-
+      CSIRO publishes an AI Transparency Statement under the Australian Government's (DTA) Policy for
+      the Responsible Use of AI in Government, names an accountable official, and states AI is not
+      used for direct public interaction without human oversight.
+    evidence:
+      source: https://www.csiro.au/en/about/Policies/Artificial-Intelligence-Statement
+      http_status: 200
+      fetched: '2026-10-22'
+      quote: "CSIRO adopts the Australian Government’s Policy for the Responsible Use of AI in Government, applying the Digital Transformation Agency’s framework to ensure our AI practices remain safe, ethical and transparent."
+    additional_quotes:
+      - "CSIRO's Chief Digital Officer is the designated accountable official for AI use at CSIRO."
+      - "CSIRO does not currently use AI in a way that allows direct interaction with the public or significantly impacts individuals without human oversight."

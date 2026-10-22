@@ -1,0 +1,6 @@
+generated: '2026-10-22'
+method: probed
+generator: harvest-llms.py
+source: https://jobs.csiro.au/llms.txt
+bytes: 55986
+note: saved verbatim; the provider's own document

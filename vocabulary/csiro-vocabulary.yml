@@ -1,0 +1,433 @@
+generated: '2026-10-22'
+method: derived
+generator: derive-vocabulary.py
+source:
+- openapi/csiro-dap-api-v2-openapi.yml
+- openapi/csiro-dap-orcid-v1-openapi.yml
+- openapi/csiro-dap-ws-v2-openapi.yml
+vocabulary:
+  name: CSIRO Domain Vocabulary
+  description: 'Terms declared by CSIRO''s own API contract: its resource groups, objects and enumerations, with the contract''s definitions.
+    Derived, not authored.'
+  version: '2026-10-22'
+  terms:
+  - term: ApprovalAdviceDTO
+    definition: 'Object declared by the contract with fields: adviceId, adviser, approver, approverRequest, adviserComments, dueDate, adviceStatus.'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/ApprovalAdviceDTO
+  - term: ApproverDecisionDTO
+    definition: 'Object declared by the contract with fields: dataCollectionId, depositor, notesToApprover, approvalAdvices, supportingFilesForApprover,
+      previouslyApprovedForAllVersions, willUnblock, blockReason, comments, decision.'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/ApproverDecisionDTO
+  - term: SupportingFileDTO
+    definition: 'Object declared by the contract with fields: id, fileName.'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/SupportingFileDTO
+  - term: UserEntityDto
+    definition: 'Object declared by the contract with fields: id, userName, email, loginSystem, distinguishedName, displayName, firstName, surname,
+      organisation, organisationDisplay, rorId, country. (5 more)'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/UserEntityDto
+  - term: S3AccessKeysDTO
+    definition: 'Object declared by the contract with fields: accesskey, secretAccessKey, expires, accessKey, accessKeyExpiryDate.'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/S3AccessKeysDTO
+  - term: UserRESTAccountDTO
+    definition: 'Object declared by the contract with fields: userName, password, active, regenerate.'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/UserRESTAccountDTO
+  - term: ProjectDTO
+    definition: 'Object declared by the contract with fields: id, wbsCode, projectId, name, description, inactive, projectLeader, editedProjectName,
+      editedProgramName.'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/ProjectDTO
+  - term: OrgNodeDTO
+    definition: 'Object declared by the contract with fields: id, nodeCode, description, inactive.'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/OrgNodeDTO
+  - term: UserOrgDetailsDTO
+    definition: 'Object declared by the contract with fields: nationalFacility, costCentreBusinessUnit, costCentreTeam.'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/UserOrgDetailsDTO
+  - term: AccessControlListDto
+    definition: 'Object declared by the contract with fields: accessControlListId, metadataAccessLevel, dataAccessLevel, embargoEndDate, permittedUsers,
+      permittedGroups.'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/AccessControlListDto
+  - term: ActivityDTO
+    definition: 'Object declared by the contract with fields: activityId, activityType, title, activityAbstract, instrument, projectType, wbs,
+      nationalFacility, nationalCollection, fromExternalSource, editable.'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/ActivityDTO
+  - term: AnzlicDto
+    definition: 'Object declared by the contract with fields: id, spatialId, altCollectionTitle, individualName, position, verticalExtentMin,
+      verticalExtentMax, spatialRepresentationType, spatialResolution, metadataLanguage, metadataCharacterSet, anzlicTopicCategoryCode.'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/AnzlicDto
+  - term: CollaboratingOrganisationDto
+    definition: 'Object declared by the contract with fields: id, organisation, dataOwner.'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/CollaboratingOrganisationDto
+  - term: ContributorDto
+    definition: 'Object declared by the contract with fields: id, contact.'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/ContributorDto
+  - term: DataCollectionDTO
+    definition: 'Object declared by the contract with fields: dataCollectionId, versionNumber, dataVersionNumber, collectionTitle, description,
+      collectionContentTypeCode, fieldsOfResearch, depositDate, publishedDate, startDate, endDate, keywords. (50 more)'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/DataCollectionDTO
+  - term: DistributionDto
+    definition: 'Object declared by the contract with fields: id, title, version.'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/DistributionDto
+  - term: ForDto
+    definition: 'Object declared by the contract with fields: id, code, link, displayValue.'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/ForDto
+  - term: FundingSourceDto
+    definition: 'Object declared by the contract with fields: id, fundingBody, grantId.'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/FundingSourceDto
+  - term: LegacyCostCentreDTO
+    definition: 'Object declared by the contract with fields: businessUnit, costCentre, researchProgram, researchGroup.'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/LegacyCostCentreDTO
+  - term: LegacyProjectDTO
+    definition: 'Object declared by the contract with fields: wbsCode, name, group, portfolio, theme, stream, description, projectLeader.'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/LegacyProjectDTO
+  - term: MarineSchemaDto
+    definition: 'Object declared by the contract with fields: id, geoSpatialId, fileIdentifier, spatialId, standardName, standardVersion, standardDataTypes,
+      areasOfInterest, collectionMethods, completenessOmission, distributionList, metadataContactList. (26 more)'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/MarineSchemaDto
+  - term: MetadataContactDto
+    definition: 'Object declared by the contract with fields: id, organisation, individualName, position, role, contactInformation.'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/MetadataContactDto
+  - term: OrganisationDto
+    definition: 'Object declared by the contract with fields: organisationId, organisationName, email, state, countryCode, countryDisplayName,
+      notes, active, rorId.'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/OrganisationDto
+  - term: RelatedLinkDTO
+    definition: 'Object declared by the contract with fields: id, address, displayText, toolTip, type, attributionStatement.'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/RelatedLinkDTO
+  - term: ServiceEndpointDto
+    definition: 'Object declared by the contract with fields: serviceEndpointId, title, url, description, keywords, type, metadata.'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/ServiceEndpointDto
+  - term: SoftwareMetadataDto
+    definition: 'Object declared by the contract with fields: id, environmentRequirements, programmingLanguage, operatingSystem, version.'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/SoftwareMetadataDto
+  - term: SpatialParametersDto
+    definition: 'Object declared by the contract with fields: id, projection, northLatitude, southLatitude, westLongitude, eastLongitude.'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/SpatialParametersDto
+  - term: SpecimenMetadataDto
+    definition: 'Object declared by the contract with fields: id, uniqueSequenceId, accessionNo, campaignId, campaignName, institutionName, campaignFunder,
+      campaignCollaborators, campaignDataRelease, contractNumber, collectionId, institutionId. (66 more)'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/SpecimenMetadataDto
+  - term: SpecimenTaxonomyDto
+    definition: 'Object declared by the contract with fields: family, genus, kingdom, order, phylum, scientificName, species, subfamily, taxonomyClass,
+      subPhylum, infraPhylum, parvPhylum. (22 more)'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/SpecimenTaxonomyDto
+  - term: TaxonomyDto
+    definition: 'Object declared by the contract with fields: id, scientificName, commonName, kingdom, phylum, taxonomyClass, order, family, genus,
+      species, comments.'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/TaxonomyDto
+  - term: VoResourceDto
+    definition: 'Object declared by the contract with fields: id, ivoIdentifier.'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/VoResourceDto
+  - term: HelpDto
+    definition: 'Object declared by the contract with fields: key, value, page, type, heading.'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/HelpDto
+  - term: DoiFile
+    definition: 'Object declared by the contract with fields: adoId, dataCollectionId, dataCollectionVersion, filePath, filename.'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/DoiFile
+  - term: DoiFilesDatasetDTO
+    definition: 'Object declared by the contract with fields: id, uuid, creatorId, publisher, doi, restricted, title, created, dataCollectionType,
+      nationalCollection, licenceId, withdrawn. (7 more)'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/DoiFilesDatasetDTO
+  - term: LinkDto
+    definition: 'Object declared by the contract with fields: relationship, mediaType, href, fileUpload, fileId.'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/LinkDto
+  - term: SpecimenImageDto
+    definition: 'Object declared by the contract with fields: id, dataCollectionId, dataCollectionVers, licenceId, projectName, nationalSpecimenCollection,
+      externalInstitutionCode, externalContact, externalInstitutionName, dateTimeDigitised, specimenPreparationView, specimenCollectionLatitude.
+      (40 more)'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/SpecimenImageDto
+  - term: SpecimenImageFileDetailsDto
+    definition: 'Object declared by the contract with fields: id, fileFormat, fileSize, resolution, fileName, filePath, downloadUrl.'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/SpecimenImageFileDetailsDto
+  - term: ThumbnailDto
+    definition: 'Object declared by the contract with fields: smallThumbnail, mediumThumbnail, largeThumbnail, fullThumbnail.'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/ThumbnailDto
+  - term: FileDto
+    definition: 'Object declared by the contract with fields: id, filename, path, lastUpdated, fileSize, parameters, downloadUrl, smallThumbnail,
+      mediumThumbnail, largeThumbnail, fullThumbnail.'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/FileDto
+  - term: FileMetadataDto
+    definition: 'Object declared by the contract with fields: name, dateValue, dateValueString, numericValue, stringValue.'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/FileMetadataDto
+  - term: BulkFileMetadataDTO
+    definition: 'Object declared by the contract with fields: allFiles, selectedFilePaths, parameters.'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/BulkFileMetadataDTO
+  - term: BulkFileMetadataResultDTO
+    definition: 'Object declared by the contract with fields: numFilesUpdated, unsuccessfulPaths.'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/BulkFileMetadataResultDTO
+  - term: CasdaPathsDTO
+    definition: 'Object declared by the contract with fields: imageCubePath, spectrumPath, momentMapPath, cubeletPath, cataloguePath.'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/CasdaPathsDTO
+  - term: CasdaFileDTO
+    definition: 'Object declared by the contract with fields: name, size, thumbnail.'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/CasdaFileDTO
+  - term: ErrorDTO
+    definition: 'Object declared by the contract with fields: field, message.'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/ErrorDTO
+  - term: TemplateSubmitValidationDTO
+    definition: 'Object declared by the contract with fields: errors, collectionTemplateId, dataCollectionType.'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/TemplateSubmitValidationDTO
+  - term: UserAdminDTO
+    definition: 'Object declared by the contract with fields: userEntityDto, userAdminRolesDto, status.'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/UserAdminDTO
+  - term: UserAdminRoleDTO
+    definition: 'Object declared by the contract with fields: roleName, roleKey, enabled.'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/UserAdminRoleDTO
+  - term: SystemTaskDto
+    definition: 'Object declared by the contract with fields: id, collectionCommonId, collectionFullId, collectionName, collectionVersion, taskType,
+      status, created, lastModified, queueName, failureCount.'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/SystemTaskDto
+  - term: QueueStatusDto
+    definition: 'Object declared by the contract with fields: active.'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/QueueStatusDto
+  - term: RESTUserDTO
+    definition: 'Object declared by the contract with fields: userId, userName, password, role, notes, ident, lastModified, active, regenerate.'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/RESTUserDTO
+  - term: OpalProjectTeamDTO
+    definition: 'Object declared by the contract with fields: members.'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/OpalProjectTeamDTO
+  - term: OpalProjectTeamMemberDTO
+    definition: 'Object declared by the contract with fields: user, accessLevel.'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/OpalProjectTeamMemberDTO
+  - term: LookupValueDTO
+    definition: 'Object declared by the contract with fields: id, description, active.'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/LookupValueDTO
+  - term: LicenceAdminDTO
+    definition: 'Object declared by the contract with fields: id, name, depositorDescription, dataUserDescription, logo, uploadAvailable, active,
+      displayOrder, displayName, licenceType, collectionType, rightsUri.'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/LicenceAdminDTO
+  - term: FeaturedCollectionDTO
+    definition: 'Object declared by the contract with fields: collectionId, fedoraId, collectionTitle, description, imageLink, imageTitle, imageAltText,
+      publishedDate, contributors.'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/FeaturedCollectionDTO
+  - term: ExternalSystemDTO
+    definition: 'Object declared by the contract with fields: id, name, displayName, tag, schemaName, active.'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/ExternalSystemDTO
+  - term: BasicValueDto
+    definition: 'Object declared by the contract with fields: value.'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/BasicValueDto
+  - term: StatusDTO
+    definition: 'Object declared by the contract with fields: status, statusMessage.'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/StatusDTO
+  - term: ContactEditDto
+    definition: 'Object declared by the contract with fields: id, contact, authenticatedUsersOnly.'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/ContactEditDto
+  - term: RightsStatementDto
+    definition: 'Object declared by the contract with fields: rightsStatement.'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/RightsStatementDto
+  - term: ProgressiveDoiIntervalDto
+    definition: 'Object declared by the contract with fields: interval.'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/ProgressiveDoiIntervalDto
+  - term: ExternalSystemIdListDto
+    definition: 'Object declared by the contract with fields: externalSystemIds.'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/ExternalSystemIdListDto
+  - term: CasdaDataProductSubTypeValidationDTO
+    definition: 'Object declared by the contract with fields: type, subType, qualityLevel, count.'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/CasdaDataProductSubTypeValidationDTO
+  - term: CasdaDataProductValidationDTO
+    definition: 'Object declared by the contract with fields: id, type, subType, identifier, fileName, qualityLevel.'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/CasdaDataProductValidationDTO
+  - term: CasdaObservationValidationDTO
+    definition: DTO of CASDA release task.
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/CasdaObservationValidationDTO
+  - term: CasdaValidationMetricDTO
+    definition: 'Object declared by the contract with fields: name, description, status, value.'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/CasdaValidationMetricDTO
+  - term: CasdaValidationNoteDTO
+    definition: 'Object declared by the contract with fields: id, userId, userName, content, createdDate.'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/CasdaValidationNoteDTO
+  - term: SequenceCollectionDTO
+    definition: 'Object declared by the contract with fields: uniqueSequenceId, dataCollectionId.'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/SequenceCollectionDTO
+  - term: SequenceCollectionsDTO
+    definition: 'Object declared by the contract with fields: idPairs.'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/SequenceCollectionsDTO
+  - term: ApprovalDTO
+    definition: 'Object declared by the contract with fields: approver, businessUnit, notesToApprover, supportingFilesForApprover.'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/ApprovalDTO
+  - term: ReassignDTO
+    definition: 'Object declared by the contract with fields: collectionTitle, templateCollection, templateType, depositStatus, depositor, approverName.'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/ReassignDTO
+  - term: DepositCollaboratorDto
+    definition: 'Object declared by the contract with fields: id, readOnlyAccess, user.'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/DepositCollaboratorDto
+  - term: ChangeApproverDTO
+    definition: 'Object declared by the contract with fields: approver, businessUnit, notesToApprover.'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/ChangeApproverDTO
+  - term: CollectionDetailsDTO
+    definition: 'Object declared by the contract with fields: dataCollectionId, dataCollectionTypeCode, collectionTitle.'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/CollectionDetailsDTO
+  - term: MessageDTO
+    definition: 'Object declared by the contract with fields: type, message.'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/MessageDTO
+  - term: XmlCollectionSummaryDTO
+    definition: 'Object declared by the contract with fields: filename, schemaType, size, status, messages, collection.'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/XmlCollectionSummaryDTO
+  - term: AtnfCollectionSummaryDTO
+    definition: 'Object declared by the contract with fields: dataCollectionId, versionNumber, semester, name, creationStatus, depositStatusCode,
+      depositor.'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/AtnfCollectionSummaryDTO
+  - term: AdminChangeRequestDto
+    definition: 'Object declared by the contract with fields: requestorIdent, reason.'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/AdminChangeRequestDto
+  - term: WorkerStatusRecord
+    definition: 'Object declared by the contract with fields: taskQueue, taskUrl, started, polling, suspended, shutdown, terminated.'
+    tags:
+    - Object
+    source: openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/WorkerStatusRecord

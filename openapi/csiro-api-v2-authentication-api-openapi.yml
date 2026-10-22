@@ -1,0 +1,79 @@
+openapi: 3.2.0
+info:
+  title: Csiro Api-V2 Authentication API
+  version: v2
+  description: 'Operations tagged Api-V2 Authentication across 2 of this provider''s published API definitions: csiro-dap-api-v2-openapi.json, csiro-dap-api-v2-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://data.csiro.au/dap
+  description: Generated server url
+security:
+- basicAuth: []
+- bearerAuth: []
+- oauth2: []
+tags:
+- name: Api-V2 Authentication
+paths:
+  /api/v2/authentication/opal:
+    get:
+      tags:
+      - Api-V2 Authentication
+      summary: OPAL authentication. For use only by VO Proxy.
+      operationId: authenticateOpalUser
+      parameters:
+      - name: username
+        in: header
+        required: true
+        schema:
+          type: string
+      - name: password
+        in: header
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OpalAuthenticationDTO'
+    servers:
+    - url: https://data.csiro.au/dap
+      description: Generated server url
+components:
+  schemas:
+    OpalAuthenticationDTO:
+      type: object
+      properties:
+        userId:
+          type: integer
+          format: int32
+        logonIdent:
+          type: string
+        emailAddress:
+          type: string
+        firstName:
+          type: string
+        surname:
+          type: string
+        largeWebDownload:
+          type: boolean
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: opaque
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.microsoftonline.com/0fe05593-19ac-4f98-adbf-0375fce7f160/oauth2/v2.0/authorize
+          tokenUrl: /dap/auth/csiro/token
+          scopes:
+            openid: OpenID Connect
+x-refined-from:
+- csiro-dap-api-v2-openapi.json
+- csiro-dap-api-v2-openapi.yml

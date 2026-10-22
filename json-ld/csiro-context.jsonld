@@ -1,0 +1,2740 @@
+{
+  "@context": {
+    "@vocab": "https://csiro.au/schema#",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "csiro": "https://csiro.au/schema#",
+    "ApprovalAdviceDTO": "csiro:ApprovalAdviceDTO",
+    "adviceId": {
+      "@id": "csiro:adviceId",
+      "@type": "xsd:integer"
+    },
+    "adviser": {
+      "@id": "csiro:adviser",
+      "@type": "@id"
+    },
+    "approver": {
+      "@id": "csiro:approver",
+      "@type": "@id"
+    },
+    "approverRequest": {
+      "@id": "csiro:approverRequest",
+      "@type": "xsd:string"
+    },
+    "adviserComments": {
+      "@id": "csiro:adviserComments",
+      "@type": "xsd:string"
+    },
+    "dueDate": {
+      "@id": "csiro:dueDate",
+      "@type": "xsd:string"
+    },
+    "adviceStatus": {
+      "@id": "csiro:adviceStatus",
+      "@type": "xsd:string"
+    },
+    "ApproverDecisionDTO": "csiro:ApproverDecisionDTO",
+    "dataCollectionId": {
+      "@id": "csiro:dataCollectionId",
+      "@type": "xsd:integer"
+    },
+    "depositor": {
+      "@id": "csiro:depositor",
+      "@type": "@id"
+    },
+    "notesToApprover": {
+      "@id": "csiro:notesToApprover",
+      "@type": "xsd:string"
+    },
+    "approvalAdvices": {
+      "@id": "csiro:approvalAdvices",
+      "@container": "@list"
+    },
+    "supportingFilesForApprover": {
+      "@id": "csiro:supportingFilesForApprover",
+      "@container": "@list"
+    },
+    "previouslyApprovedForAllVersions": {
+      "@id": "csiro:previouslyApprovedForAllVersions",
+      "@type": "xsd:boolean"
+    },
+    "willUnblock": {
+      "@id": "csiro:willUnblock",
+      "@type": "xsd:boolean"
+    },
+    "blockReason": {
+      "@id": "csiro:blockReason",
+      "@type": "xsd:string"
+    },
+    "comments": {
+      "@id": "csiro:comments",
+      "@type": "xsd:string"
+    },
+    "decision": {
+      "@id": "csiro:decision",
+      "@type": "xsd:string"
+    },
+    "SupportingFileDTO": "csiro:SupportingFileDTO",
+    "id": {
+      "@id": "csiro:id",
+      "@type": "xsd:integer"
+    },
+    "fileName": {
+      "@id": "csiro:fileName",
+      "@type": "xsd:string"
+    },
+    "UserEntityDto": "csiro:UserEntityDto",
+    "userName": {
+      "@id": "csiro:userName",
+      "@type": "xsd:string"
+    },
+    "email": {
+      "@id": "csiro:email",
+      "@type": "xsd:string"
+    },
+    "loginSystem": {
+      "@id": "csiro:loginSystem",
+      "@type": "xsd:string"
+    },
+    "distinguishedName": {
+      "@id": "csiro:distinguishedName",
+      "@type": "xsd:string"
+    },
+    "displayName": {
+      "@id": "csiro:displayName",
+      "@type": "xsd:string"
+    },
+    "firstName": {
+      "@id": "csiro:firstName",
+      "@type": "xsd:string"
+    },
+    "surname": {
+      "@id": "csiro:surname",
+      "@type": "xsd:string"
+    },
+    "organisation": {
+      "@id": "csiro:organisation",
+      "@type": "xsd:string"
+    },
+    "organisationDisplay": {
+      "@id": "csiro:organisationDisplay",
+      "@type": "xsd:string"
+    },
+    "rorId": {
+      "@id": "csiro:rorId",
+      "@type": "xsd:string"
+    },
+    "country": {
+      "@id": "csiro:country",
+      "@type": "xsd:string"
+    },
+    "countryDisplayName": {
+      "@id": "csiro:countryDisplayName",
+      "@type": "xsd:string"
+    },
+    "state": {
+      "@id": "csiro:state",
+      "@type": "xsd:string"
+    },
+    "type": {
+      "@id": "csiro:type",
+      "@type": "xsd:string"
+    },
+    "city": {
+      "@id": "csiro:city",
+      "@type": "xsd:string"
+    },
+    "notes": {
+      "@id": "csiro:notes",
+      "@type": "xsd:string"
+    },
+    "S3AccessKeysDTO": "csiro:S3AccessKeysDTO",
+    "accesskey": {
+      "@id": "csiro:accesskey",
+      "@type": "xsd:string"
+    },
+    "secretAccessKey": {
+      "@id": "csiro:secretAccessKey",
+      "@type": "xsd:string"
+    },
+    "expires": {
+      "@id": "csiro:expires",
+      "@type": "xsd:dateTime"
+    },
+    "accessKey": {
+      "@id": "csiro:accessKey",
+      "@type": "xsd:string"
+    },
+    "accessKeyExpiryDate": {
+      "@id": "csiro:accessKeyExpiryDate",
+      "@type": "xsd:dateTime"
+    },
+    "UserRESTAccountDTO": "csiro:UserRESTAccountDTO",
+    "password": {
+      "@id": "csiro:password",
+      "@type": "xsd:string"
+    },
+    "active": {
+      "@id": "csiro:active",
+      "@type": "xsd:boolean"
+    },
+    "regenerate": {
+      "@id": "csiro:regenerate",
+      "@type": "xsd:boolean"
+    },
+    "ProjectDTO": "csiro:ProjectDTO",
+    "wbsCode": {
+      "@id": "csiro:wbsCode",
+      "@type": "xsd:string"
+    },
+    "projectId": {
+      "@id": "csiro:projectId",
+      "@type": "xsd:string"
+    },
+    "name": {
+      "@id": "csiro:name",
+      "@type": "xsd:string"
+    },
+    "description": {
+      "@id": "csiro:description",
+      "@type": "xsd:string"
+    },
+    "inactive": {
+      "@id": "csiro:inactive",
+      "@type": "xsd:boolean"
+    },
+    "projectLeader": {
+      "@id": "csiro:projectLeader",
+      "@type": "@id"
+    },
+    "editedProjectName": {
+      "@id": "csiro:editedProjectName",
+      "@type": "xsd:string"
+    },
+    "editedProgramName": {
+      "@id": "csiro:editedProgramName",
+      "@type": "xsd:string"
+    },
+    "OrgNodeDTO": "csiro:OrgNodeDTO",
+    "nodeCode": {
+      "@id": "csiro:nodeCode",
+      "@type": "xsd:string"
+    },
+    "UserOrgDetailsDTO": "csiro:UserOrgDetailsDTO",
+    "nationalFacility": {
+      "@id": "csiro:nationalFacility",
+      "@type": "xsd:string"
+    },
+    "costCentreBusinessUnit": {
+      "@id": "csiro:costCentreBusinessUnit",
+      "@type": "@id"
+    },
+    "costCentreTeam": {
+      "@id": "csiro:costCentreTeam",
+      "@type": "@id"
+    },
+    "AccessControlListDto": "csiro:AccessControlListDto",
+    "accessControlListId": {
+      "@id": "csiro:accessControlListId",
+      "@type": "xsd:integer"
+    },
+    "metadataAccessLevel": {
+      "@id": "csiro:metadataAccessLevel",
+      "@type": "xsd:string"
+    },
+    "dataAccessLevel": {
+      "@id": "csiro:dataAccessLevel",
+      "@type": "xsd:string"
+    },
+    "embargoEndDate": {
+      "@id": "csiro:embargoEndDate",
+      "@type": "xsd:string"
+    },
+    "permittedUsers": {
+      "@id": "csiro:permittedUsers",
+      "@container": "@list"
+    },
+    "permittedGroups": {
+      "@id": "csiro:permittedGroups",
+      "@container": "@list"
+    },
+    "ActivityDTO": "csiro:ActivityDTO",
+    "activityId": {
+      "@id": "csiro:activityId",
+      "@type": "xsd:integer"
+    },
+    "activityType": {
+      "@id": "csiro:activityType",
+      "@type": "xsd:string"
+    },
+    "title": {
+      "@id": "csiro:title",
+      "@type": "xsd:string"
+    },
+    "activityAbstract": {
+      "@id": "csiro:activityAbstract",
+      "@type": "xsd:string"
+    },
+    "instrument": {
+      "@id": "csiro:instrument",
+      "@type": "xsd:string"
+    },
+    "projectType": {
+      "@id": "csiro:projectType",
+      "@type": "xsd:string"
+    },
+    "wbs": {
+      "@id": "csiro:wbs",
+      "@type": "xsd:string"
+    },
+    "nationalCollection": {
+      "@id": "csiro:nationalCollection",
+      "@type": "xsd:string"
+    },
+    "fromExternalSource": {
+      "@id": "csiro:fromExternalSource",
+      "@type": "xsd:boolean"
+    },
+    "editable": {
+      "@id": "csiro:editable",
+      "@type": "xsd:boolean"
+    },
+    "AnzlicDto": "csiro:AnzlicDto",
+    "spatialId": {
+      "@id": "csiro:spatialId",
+      "@type": "xsd:integer"
+    },
+    "altCollectionTitle": {
+      "@id": "csiro:altCollectionTitle",
+      "@type": "xsd:string"
+    },
+    "individualName": {
+      "@id": "csiro:individualName",
+      "@type": "xsd:string"
+    },
+    "position": {
+      "@id": "csiro:position",
+      "@type": "xsd:string"
+    },
+    "verticalExtentMin": {
+      "@id": "csiro:verticalExtentMin",
+      "@type": "xsd:decimal"
+    },
+    "verticalExtentMax": {
+      "@id": "csiro:verticalExtentMax",
+      "@type": "xsd:decimal"
+    },
+    "spatialRepresentationType": {
+      "@id": "csiro:spatialRepresentationType",
+      "@type": "xsd:string"
+    },
+    "spatialResolution": {
+      "@id": "csiro:spatialResolution",
+      "@type": "xsd:string"
+    },
+    "metadataLanguage": {
+      "@id": "csiro:metadataLanguage",
+      "@type": "xsd:string"
+    },
+    "metadataCharacterSet": {
+      "@id": "csiro:metadataCharacterSet",
+      "@type": "xsd:string"
+    },
+    "anzlicTopicCategoryCode": {
+      "@id": "csiro:anzlicTopicCategoryCode",
+      "@type": "xsd:string"
+    },
+    "CollaboratingOrganisationDto": "csiro:CollaboratingOrganisationDto",
+    "dataOwner": {
+      "@id": "csiro:dataOwner",
+      "@type": "xsd:boolean"
+    },
+    "ContributorDto": "csiro:ContributorDto",
+    "contact": {
+      "@id": "csiro:contact",
+      "@type": "@id"
+    },
+    "DataCollectionDTO": "csiro:DataCollectionDTO",
+    "versionNumber": {
+      "@id": "csiro:versionNumber",
+      "@type": "xsd:integer"
+    },
+    "dataVersionNumber": {
+      "@id": "csiro:dataVersionNumber",
+      "@type": "xsd:integer"
+    },
+    "collectionTitle": {
+      "@id": "csiro:collectionTitle",
+      "@type": "xsd:string"
+    },
+    "collectionContentTypeCode": {
+      "@id": "csiro:collectionContentTypeCode",
+      "@type": "xsd:string"
+    },
+    "fieldsOfResearch": {
+      "@id": "csiro:fieldsOfResearch",
+      "@container": "@list"
+    },
+    "depositDate": {
+      "@id": "csiro:depositDate",
+      "@type": "xsd:dateTime"
+    },
+    "publishedDate": {
+      "@id": "csiro:publishedDate",
+      "@type": "xsd:dateTime"
+    },
+    "startDate": {
+      "@id": "csiro:startDate",
+      "@type": "xsd:string"
+    },
+    "endDate": {
+      "@id": "csiro:endDate",
+      "@type": "xsd:string"
+    },
+    "keywords": {
+      "@id": "csiro:keywords",
+      "@type": "xsd:string"
+    },
+    "legacyId": {
+      "@id": "csiro:legacyId",
+      "@type": "xsd:string"
+    },
+    "lineage": {
+      "@id": "csiro:lineage",
+      "@type": "xsd:string"
+    },
+    "credit": {
+      "@id": "csiro:credit",
+      "@type": "xsd:string"
+    },
+    "templateCollection": {
+      "@id": "csiro:templateCollection",
+      "@type": "xsd:boolean"
+    },
+    "supportingFiles": {
+      "@id": "csiro:supportingFiles",
+      "@container": "@list"
+    },
+    "relatedLinks": {
+      "@id": "csiro:relatedLinks",
+      "@container": "@list"
+    },
+    "authenticatedUsersOnly": {
+      "@id": "csiro:authenticatedUsersOnly",
+      "@type": "xsd:boolean"
+    },
+    "spatialParameters": {
+      "@id": "csiro:spatialParameters",
+      "@type": "@id"
+    },
+    "externalSystemIds": {
+      "@id": "csiro:externalSystemIds",
+      "@container": "@list"
+    },
+    "depositStatusCode": {
+      "@id": "csiro:depositStatusCode",
+      "@type": "xsd:string"
+    },
+    "rightsStatement": {
+      "@id": "csiro:rightsStatement",
+      "@type": "xsd:string"
+    },
+    "doi": {
+      "@id": "csiro:doi",
+      "@type": "xsd:string"
+    },
+    "dataCollectionTypeCode": {
+      "@id": "csiro:dataCollectionTypeCode",
+      "@type": "xsd:string"
+    },
+    "fileStorageTypeCode": {
+      "@id": "csiro:fileStorageTypeCode",
+      "@type": "xsd:string"
+    },
+    "fundingSources": {
+      "@id": "csiro:fundingSources",
+      "@container": "@list"
+    },
+    "serviceEndpoints": {
+      "@id": "csiro:serviceEndpoints",
+      "@container": "@list"
+    },
+    "associatedWithProject": {
+      "@id": "csiro:associatedWithProject",
+      "@type": "xsd:boolean"
+    },
+    "legacyProject": {
+      "@id": "csiro:legacyProject",
+      "@type": "@id"
+    },
+    "legacyCostCentre": {
+      "@id": "csiro:legacyCostCentre",
+      "@type": "@id"
+    },
+    "project": {
+      "@id": "csiro:project",
+      "@type": "@id"
+    },
+    "collaboratingOrganisations": {
+      "@id": "csiro:collaboratingOrganisations",
+      "@container": "@list"
+    },
+    "activity": {
+      "@id": "csiro:activity",
+      "@type": "@id"
+    },
+    "voResource": {
+      "@id": "csiro:voResource",
+      "@type": "@id"
+    },
+    "anzlic": {
+      "@id": "csiro:anzlic",
+      "@type": "@id"
+    },
+    "taxonomy": {
+      "@id": "csiro:taxonomy",
+      "@type": "@id"
+    },
+    "softwareMetadata": {
+      "@id": "csiro:softwareMetadata",
+      "@type": "@id"
+    },
+    "specimenMetadata": {
+      "@id": "csiro:specimenMetadata",
+      "@type": "@id"
+    },
+    "marineSchema": {
+      "@id": "csiro:marineSchema",
+      "@type": "@id"
+    },
+    "acl": {
+      "@id": "csiro:acl",
+      "@type": "@id"
+    },
+    "embargoAcl": {
+      "@id": "csiro:embargoAcl",
+      "@type": "@id"
+    },
+    "licenceId": {
+      "@id": "csiro:licenceId",
+      "@type": "xsd:integer"
+    },
+    "licenceSupportingFile": {
+      "@id": "csiro:licenceSupportingFile",
+      "@type": "@id"
+    },
+    "leadResearcher": {
+      "@id": "csiro:leadResearcher",
+      "@type": "@id"
+    },
+    "contributors": {
+      "@id": "csiro:contributors",
+      "@container": "@list"
+    },
+    "publicationYear": {
+      "@id": "csiro:publicationYear",
+      "@type": "xsd:integer"
+    },
+    "attributionStatement": {
+      "@id": "csiro:attributionStatement",
+      "@type": "xsd:string"
+    },
+    "fedoraId": {
+      "@id": "csiro:fedoraId",
+      "@type": "xsd:string"
+    },
+    "depositStatusLabel": {
+      "@id": "csiro:depositStatusLabel",
+      "@type": "xsd:string"
+    },
+    "withdrawn": {
+      "@id": "csiro:withdrawn",
+      "@type": "xsd:boolean"
+    },
+    "blocked": {
+      "@id": "csiro:blocked",
+      "@type": "xsd:boolean"
+    },
+    "fileCount": {
+      "@id": "csiro:fileCount",
+      "@type": "xsd:integer"
+    },
+    "imageCount": {
+      "@id": "csiro:imageCount",
+      "@type": "xsd:integer"
+    },
+    "collectionSize": {
+      "@id": "csiro:collectionSize",
+      "@type": "xsd:integer"
+    },
+    "DistributionDto": "csiro:DistributionDto",
+    "version": {
+      "@id": "csiro:version",
+      "@type": "xsd:string"
+    },
+    "ForDto": "csiro:ForDto",
+    "code": {
+      "@id": "csiro:code",
+      "@type": "xsd:string"
+    },
+    "link": {
+      "@id": "csiro:link",
+      "@type": "xsd:string"
+    },
+    "displayValue": {
+      "@id": "csiro:displayValue",
+      "@type": "xsd:string"
+    },
+    "FundingSourceDto": "csiro:FundingSourceDto",
+    "fundingBody": {
+      "@id": "csiro:fundingBody",
+      "@type": "xsd:string"
+    },
+    "grantId": {
+      "@id": "csiro:grantId",
+      "@type": "xsd:string"
+    },
+    "LegacyCostCentreDTO": "csiro:LegacyCostCentreDTO",
+    "businessUnit": {
+      "@id": "csiro:businessUnit",
+      "@type": "xsd:string"
+    },
+    "costCentre": {
+      "@id": "csiro:costCentre",
+      "@type": "xsd:string"
+    },
+    "researchProgram": {
+      "@id": "csiro:researchProgram",
+      "@type": "xsd:string"
+    },
+    "researchGroup": {
+      "@id": "csiro:researchGroup",
+      "@type": "xsd:string"
+    },
+    "LegacyProjectDTO": "csiro:LegacyProjectDTO",
+    "group": {
+      "@id": "csiro:group",
+      "@type": "xsd:string"
+    },
+    "portfolio": {
+      "@id": "csiro:portfolio",
+      "@type": "xsd:string"
+    },
+    "theme": {
+      "@id": "csiro:theme",
+      "@type": "xsd:string"
+    },
+    "stream": {
+      "@id": "csiro:stream",
+      "@type": "xsd:string"
+    },
+    "MarineSchemaDto": "csiro:MarineSchemaDto",
+    "geoSpatialId": {
+      "@id": "csiro:geoSpatialId",
+      "@type": "xsd:integer"
+    },
+    "fileIdentifier": {
+      "@id": "csiro:fileIdentifier",
+      "@type": "xsd:string"
+    },
+    "standardName": {
+      "@id": "csiro:standardName",
+      "@type": "xsd:string"
+    },
+    "standardVersion": {
+      "@id": "csiro:standardVersion",
+      "@type": "xsd:string"
+    },
+    "standardDataTypes": {
+      "@id": "csiro:standardDataTypes",
+      "@type": "xsd:string"
+    },
+    "areasOfInterest": {
+      "@id": "csiro:areasOfInterest",
+      "@type": "xsd:string"
+    },
+    "collectionMethods": {
+      "@id": "csiro:collectionMethods",
+      "@type": "xsd:string"
+    },
+    "completenessOmission": {
+      "@id": "csiro:completenessOmission",
+      "@type": "xsd:string"
+    },
+    "distributionList": {
+      "@id": "csiro:distributionList",
+      "@container": "@list"
+    },
+    "metadataContactList": {
+      "@id": "csiro:metadataContactList",
+      "@container": "@list"
+    },
+    "gcmdKeywords": {
+      "@id": "csiro:gcmdKeywords",
+      "@type": "xsd:string"
+    },
+    "geographicExtentNames": {
+      "@id": "csiro:geographicExtentNames",
+      "@type": "xsd:string"
+    },
+    "globalProjectList": {
+      "@id": "csiro:globalProjectList",
+      "@type": "xsd:string"
+    },
+    "isoTopicCategories": {
+      "@id": "csiro:isoTopicCategories",
+      "@container": "@list"
+    },
+    "metadataDateStamp": {
+      "@id": "csiro:metadataDateStamp",
+      "@type": "xsd:string"
+    },
+    "metadataCharSet": {
+      "@id": "csiro:metadataCharSet",
+      "@type": "xsd:string"
+    },
+    "nationalSpeciesList": {
+      "@id": "csiro:nationalSpeciesList",
+      "@type": "xsd:string"
+    },
+    "projectList": {
+      "@id": "csiro:projectList",
+      "@type": "xsd:string"
+    },
+    "regionList": {
+      "@id": "csiro:regionList",
+      "@type": "xsd:string"
+    },
+    "registerMarineSpeciesList": {
+      "@id": "csiro:registerMarineSpeciesList",
+      "@type": "xsd:string"
+    },
+    "revisionDate": {
+      "@id": "csiro:revisionDate",
+      "@type": "xsd:string"
+    },
+    "sourceList": {
+      "@id": "csiro:sourceList",
+      "@type": "xsd:string"
+    },
+    "supplementalInformation": {
+      "@id": "csiro:supplementalInformation",
+      "@type": "xsd:string"
+    },
+    "surveyList": {
+      "@id": "csiro:surveyList",
+      "@type": "xsd:string"
+    },
+    "vertCoordinateSystem": {
+      "@id": "csiro:vertCoordinateSystem",
+      "@type": "xsd:string"
+    },
+    "voyageId": {
+      "@id": "csiro:voyageId",
+      "@type": "xsd:string"
+    },
+    "MetadataContactDto": "csiro:MetadataContactDto",
+    "role": {
+      "@id": "csiro:role",
+      "@type": "xsd:string"
+    },
+    "contactInformation": {
+      "@id": "csiro:contactInformation",
+      "@type": "xsd:string"
+    },
+    "OrganisationDto": "csiro:OrganisationDto",
+    "organisationId": {
+      "@id": "csiro:organisationId",
+      "@type": "xsd:integer"
+    },
+    "organisationName": {
+      "@id": "csiro:organisationName",
+      "@type": "xsd:string"
+    },
+    "countryCode": {
+      "@id": "csiro:countryCode",
+      "@type": "xsd:string"
+    },
+    "RelatedLinkDTO": "csiro:RelatedLinkDTO",
+    "address": {
+      "@id": "csiro:address",
+      "@type": "xsd:string"
+    },
+    "displayText": {
+      "@id": "csiro:displayText",
+      "@type": "xsd:string"
+    },
+    "toolTip": {
+      "@id": "csiro:toolTip",
+      "@type": "xsd:string"
+    },
+    "ServiceEndpointDto": "csiro:ServiceEndpointDto",
+    "serviceEndpointId": {
+      "@id": "csiro:serviceEndpointId",
+      "@type": "xsd:integer"
+    },
+    "url": {
+      "@id": "csiro:url",
+      "@type": "xsd:string"
+    },
+    "metadata": {
+      "@id": "csiro:metadata"
+    },
+    "SoftwareMetadataDto": "csiro:SoftwareMetadataDto",
+    "environmentRequirements": {
+      "@id": "csiro:environmentRequirements",
+      "@type": "xsd:string"
+    },
+    "programmingLanguage": {
+      "@id": "csiro:programmingLanguage",
+      "@type": "xsd:string"
+    },
+    "operatingSystem": {
+      "@id": "csiro:operatingSystem",
+      "@type": "xsd:string"
+    },
+    "SpatialParametersDto": "csiro:SpatialParametersDto",
+    "projection": {
+      "@id": "csiro:projection",
+      "@type": "xsd:string"
+    },
+    "northLatitude": {
+      "@id": "csiro:northLatitude",
+      "@type": "xsd:string"
+    },
+    "southLatitude": {
+      "@id": "csiro:southLatitude",
+      "@type": "xsd:string"
+    },
+    "westLongitude": {
+      "@id": "csiro:westLongitude",
+      "@type": "xsd:string"
+    },
+    "eastLongitude": {
+      "@id": "csiro:eastLongitude",
+      "@type": "xsd:string"
+    },
+    "SpecimenMetadataDto": "csiro:SpecimenMetadataDto",
+    "uniqueSequenceId": {
+      "@id": "csiro:uniqueSequenceId",
+      "@type": "xsd:string"
+    },
+    "accessionNo": {
+      "@id": "csiro:accessionNo",
+      "@type": "xsd:string"
+    },
+    "campaignId": {
+      "@id": "csiro:campaignId",
+      "@type": "xsd:string"
+    },
+    "campaignName": {
+      "@id": "csiro:campaignName",
+      "@type": "xsd:string"
+    },
+    "institutionName": {
+      "@id": "csiro:institutionName",
+      "@type": "xsd:string"
+    },
+    "campaignFunder": {
+      "@id": "csiro:campaignFunder",
+      "@type": "xsd:string"
+    },
+    "campaignCollaborators": {
+      "@id": "csiro:campaignCollaborators",
+      "@type": "xsd:string"
+    },
+    "campaignDataRelease": {
+      "@id": "csiro:campaignDataRelease",
+      "@type": "xsd:string"
+    },
+    "contractNumber": {
+      "@id": "csiro:contractNumber",
+      "@type": "xsd:string"
+    },
+    "collectionId": {
+      "@id": "csiro:collectionId",
+      "@type": "xsd:string"
+    },
+    "institutionId": {
+      "@id": "csiro:institutionId",
+      "@type": "xsd:string"
+    },
+    "mtaNumber": {
+      "@id": "csiro:mtaNumber",
+      "@type": "xsd:string"
+    },
+    "collectionName": {
+      "@id": "csiro:collectionName",
+      "@type": "xsd:string"
+    },
+    "projectName": {
+      "@id": "csiro:projectName",
+      "@type": "xsd:string"
+    },
+    "scientificNameAuthorship": {
+      "@id": "csiro:scientificNameAuthorship",
+      "@type": "xsd:string"
+    },
+    "speciesNameSupplied": {
+      "@id": "csiro:speciesNameSupplied",
+      "@type": "xsd:string"
+    },
+    "higherTaxonomySupplied": {
+      "@id": "csiro:higherTaxonomySupplied",
+      "@type": "xsd:string"
+    },
+    "biome": {
+      "@id": "csiro:biome",
+      "@type": "xsd:string"
+    },
+    "marineEcoRegions": {
+      "@id": "csiro:marineEcoRegions",
+      "@container": "@list"
+    },
+    "terrestrialEcoRegions": {
+      "@id": "csiro:terrestrialEcoRegions",
+      "@container": "@list"
+    },
+    "taxonomicGroup": {
+      "@id": "csiro:taxonomicGroup",
+      "@type": "xsd:string"
+    },
+    "taxonomicStatus": {
+      "@id": "csiro:taxonomicStatus",
+      "@type": "xsd:string"
+    },
+    "taxonRemarks": {
+      "@id": "csiro:taxonRemarks",
+      "@type": "xsd:string"
+    },
+    "vernacularName": {
+      "@id": "csiro:vernacularName",
+      "@type": "xsd:string"
+    },
+    "nuclearGeneticCode": {
+      "@id": "csiro:nuclearGeneticCode",
+      "@type": "xsd:string"
+    },
+    "mitochondrialGeneticCode": {
+      "@id": "csiro:mitochondrialGeneticCode",
+      "@type": "xsd:string"
+    },
+    "plastidGeneticCode": {
+      "@id": "csiro:plastidGeneticCode",
+      "@type": "xsd:string"
+    },
+    "nameAccordingTo": {
+      "@id": "csiro:nameAccordingTo",
+      "@type": "xsd:string"
+    },
+    "taxonNodeId": {
+      "@id": "csiro:taxonNodeId",
+      "@type": "xsd:string"
+    },
+    "taxonRank": {
+      "@id": "csiro:taxonRank",
+      "@type": "xsd:string"
+    },
+    "specimen": {
+      "@id": "csiro:specimen",
+      "@type": "xsd:string"
+    },
+    "preservedSpecimen": {
+      "@id": "csiro:preservedSpecimen",
+      "@type": "xsd:string"
+    },
+    "preparations": {
+      "@id": "csiro:preparations",
+      "@type": "xsd:string"
+    },
+    "specimenNotes": {
+      "@id": "csiro:specimenNotes",
+      "@type": "xsd:string"
+    },
+    "materialCollectionId": {
+      "@id": "csiro:materialCollectionId",
+      "@type": "xsd:string"
+    },
+    "recordNumber": {
+      "@id": "csiro:recordNumber",
+      "@type": "xsd:string"
+    },
+    "tissueSampleId": {
+      "@id": "csiro:tissueSampleId",
+      "@type": "xsd:string"
+    },
+    "otherIdentifiers": {
+      "@id": "csiro:otherIdentifiers",
+      "@type": "xsd:string"
+    },
+    "collector": {
+      "@id": "csiro:collector",
+      "@type": "xsd:string"
+    },
+    "collectionPermits": {
+      "@id": "csiro:collectionPermits",
+      "@type": "xsd:string"
+    },
+    "identifiedBy": {
+      "@id": "csiro:identifiedBy",
+      "@type": "xsd:string"
+    },
+    "privateLatitude": {
+      "@id": "csiro:privateLatitude",
+      "@type": "xsd:string"
+    },
+    "privateLongitude": {
+      "@id": "csiro:privateLongitude",
+      "@type": "xsd:string"
+    },
+    "verbatimLocality": {
+      "@id": "csiro:verbatimLocality",
+      "@type": "xsd:string"
+    },
+    "verbatimLatitude": {
+      "@id": "csiro:verbatimLatitude",
+      "@type": "xsd:string"
+    },
+    "verbatimLongitude": {
+      "@id": "csiro:verbatimLongitude",
+      "@type": "xsd:string"
+    },
+    "decimalEndLat": {
+      "@id": "csiro:decimalEndLat",
+      "@type": "xsd:string"
+    },
+    "decimalEndLong": {
+      "@id": "csiro:decimalEndLong",
+      "@type": "xsd:string"
+    },
+    "occurrenceRemarks": {
+      "@id": "csiro:occurrenceRemarks",
+      "@type": "xsd:string"
+    },
+    "lifeStage": {
+      "@id": "csiro:lifeStage",
+      "@type": "xsd:string"
+    },
+    "typeStatus": {
+      "@id": "csiro:typeStatus",
+      "@type": "xsd:string"
+    },
+    "specimenPreservation": {
+      "@id": "csiro:specimenPreservation",
+      "@type": "xsd:string"
+    },
+    "dateIdentified": {
+      "@id": "csiro:dateIdentified",
+      "@type": "xsd:string"
+    },
+    "sex": {
+      "@id": "csiro:sex",
+      "@type": "xsd:string"
+    },
+    "collectionDate": {
+      "@id": "csiro:collectionDate",
+      "@type": "xsd:string"
+    },
+    "fieldNumber": {
+      "@id": "csiro:fieldNumber",
+      "@type": "xsd:string"
+    },
+    "eventRemarks": {
+      "@id": "csiro:eventRemarks",
+      "@type": "xsd:string"
+    },
+    "stateProvince": {
+      "@id": "csiro:stateProvince",
+      "@type": "xsd:string"
+    },
+    "locality": {
+      "@id": "csiro:locality",
+      "@type": "xsd:string"
+    },
+    "station": {
+      "@id": "csiro:station",
+      "@type": "xsd:string"
+    },
+    "specimenCollectionLatitude": {
+      "@id": "csiro:specimenCollectionLatitude",
+      "@type": "xsd:decimal"
+    },
+    "specimenCollectionLongitude": {
+      "@id": "csiro:specimenCollectionLongitude",
+      "@type": "xsd:decimal"
+    },
+    "geodeticDatum": {
+      "@id": "csiro:geodeticDatum",
+      "@type": "xsd:string"
+    },
+    "depth": {
+      "@id": "csiro:depth",
+      "@type": "xsd:string"
+    },
+    "depthStart": {
+      "@id": "csiro:depthStart",
+      "@type": "xsd:string"
+    },
+    "depthEnd": {
+      "@id": "csiro:depthEnd",
+      "@type": "xsd:string"
+    },
+    "altitude": {
+      "@id": "csiro:altitude",
+      "@type": "xsd:string"
+    },
+    "maximumElevationInMeters": {
+      "@id": "csiro:maximumElevationInMeters",
+      "@type": "xsd:decimal"
+    },
+    "minimumElevationInMeters": {
+      "@id": "csiro:minimumElevationInMeters",
+      "@type": "xsd:decimal"
+    },
+    "releaseDate": {
+      "@id": "csiro:releaseDate",
+      "@type": "xsd:string"
+    },
+    "dataGeneralizations": {
+      "@id": "csiro:dataGeneralizations",
+      "@type": "xsd:string"
+    },
+    "acknowledgement": {
+      "@id": "csiro:acknowledgement",
+      "@type": "xsd:string"
+    },
+    "licence": {
+      "@id": "csiro:licence",
+      "@type": "xsd:string"
+    },
+    "specimenTaxonomyAtSequencing": {
+      "@id": "csiro:specimenTaxonomyAtSequencing",
+      "@type": "@id"
+    },
+    "currentSpecimenTaxonomy": {
+      "@id": "csiro:currentSpecimenTaxonomy",
+      "@type": "@id"
+    },
+    "SpecimenTaxonomyDto": "csiro:SpecimenTaxonomyDto",
+    "family": {
+      "@id": "csiro:family",
+      "@type": "xsd:string"
+    },
+    "genus": {
+      "@id": "csiro:genus",
+      "@type": "xsd:string"
+    },
+    "kingdom": {
+      "@id": "csiro:kingdom",
+      "@type": "xsd:string"
+    },
+    "order": {
+      "@id": "csiro:order",
+      "@type": "xsd:string"
+    },
+    "phylum": {
+      "@id": "csiro:phylum",
+      "@type": "xsd:string"
+    },
+    "scientificName": {
+      "@id": "csiro:scientificName",
+      "@type": "xsd:string"
+    },
+    "species": {
+      "@id": "csiro:species",
+      "@type": "xsd:string"
+    },
+    "subfamily": {
+      "@id": "csiro:subfamily",
+      "@type": "xsd:string"
+    },
+    "taxonomyClass": {
+      "@id": "csiro:taxonomyClass",
+      "@type": "xsd:string"
+    },
+    "subPhylum": {
+      "@id": "csiro:subPhylum",
+      "@type": "xsd:string"
+    },
+    "infraPhylum": {
+      "@id": "csiro:infraPhylum",
+      "@type": "xsd:string"
+    },
+    "parvPhylum": {
+      "@id": "csiro:parvPhylum",
+      "@type": "xsd:string"
+    },
+    "gigaClass": {
+      "@id": "csiro:gigaClass",
+      "@type": "xsd:string"
+    },
+    "megaClass": {
+      "@id": "csiro:megaClass",
+      "@type": "xsd:string"
+    },
+    "superClass": {
+      "@id": "csiro:superClass",
+      "@type": "xsd:string"
+    },
+    "subClass": {
+      "@id": "csiro:subClass",
+      "@type": "xsd:string"
+    },
+    "infraClass": {
+      "@id": "csiro:infraClass",
+      "@type": "xsd:string"
+    },
+    "subterClass": {
+      "@id": "csiro:subterClass",
+      "@type": "xsd:string"
+    },
+    "superOrder": {
+      "@id": "csiro:superOrder",
+      "@type": "xsd:string"
+    },
+    "subOrder": {
+      "@id": "csiro:subOrder",
+      "@type": "xsd:string"
+    },
+    "infraOrder": {
+      "@id": "csiro:infraOrder",
+      "@type": "xsd:string"
+    },
+    "parvOrder": {
+      "@id": "csiro:parvOrder",
+      "@type": "xsd:string"
+    },
+    "nanoOrder": {
+      "@id": "csiro:nanoOrder",
+      "@type": "xsd:string"
+    },
+    "sectionZoology": {
+      "@id": "csiro:sectionZoology",
+      "@type": "xsd:string"
+    },
+    "superFamily": {
+      "@id": "csiro:superFamily",
+      "@type": "xsd:string"
+    },
+    "epiFamily": {
+      "@id": "csiro:epiFamily",
+      "@type": "xsd:string"
+    },
+    "superTribe": {
+      "@id": "csiro:superTribe",
+      "@type": "xsd:string"
+    },
+    "tribe": {
+      "@id": "csiro:tribe",
+      "@type": "xsd:string"
+    },
+    "subTribe": {
+      "@id": "csiro:subTribe",
+      "@type": "xsd:string"
+    },
+    "subGenus": {
+      "@id": "csiro:subGenus",
+      "@type": "xsd:string"
+    },
+    "infragenericName": {
+      "@id": "csiro:infragenericName",
+      "@type": "xsd:string"
+    },
+    "section": {
+      "@id": "csiro:section",
+      "@type": "xsd:string"
+    },
+    "subSection": {
+      "@id": "csiro:subSection",
+      "@type": "xsd:string"
+    },
+    "subSpecies": {
+      "@id": "csiro:subSpecies",
+      "@type": "xsd:string"
+    },
+    "TaxonomyDto": "csiro:TaxonomyDto",
+    "commonName": {
+      "@id": "csiro:commonName",
+      "@type": "xsd:string"
+    },
+    "VoResourceDto": "csiro:VoResourceDto",
+    "ivoIdentifier": {
+      "@id": "csiro:ivoIdentifier",
+      "@type": "xsd:string"
+    },
+    "HelpDto": "csiro:HelpDto",
+    "key": {
+      "@id": "csiro:key",
+      "@type": "xsd:string"
+    },
+    "value": {
+      "@id": "csiro:value",
+      "@type": "xsd:string"
+    },
+    "page": {
+      "@id": "csiro:page",
+      "@type": "xsd:string"
+    },
+    "heading": {
+      "@id": "csiro:heading",
+      "@type": "xsd:string"
+    },
+    "DoiFile": "csiro:DoiFile",
+    "adoId": {
+      "@id": "csiro:adoId",
+      "@type": "xsd:integer"
+    },
+    "dataCollectionVersion": {
+      "@id": "csiro:dataCollectionVersion",
+      "@type": "xsd:integer"
+    },
+    "filePath": {
+      "@id": "csiro:filePath",
+      "@type": "xsd:string"
+    },
+    "filename": {
+      "@id": "csiro:filename",
+      "@type": "xsd:string"
+    },
+    "DoiFilesDatasetDTO": "csiro:DoiFilesDatasetDTO",
+    "uuid": {
+      "@id": "csiro:uuid",
+      "@type": "xsd:string"
+    },
+    "creatorId": {
+      "@id": "csiro:creatorId",
+      "@type": "xsd:integer"
+    },
+    "publisher": {
+      "@id": "csiro:publisher",
+      "@type": "xsd:string"
+    },
+    "restricted": {
+      "@id": "csiro:restricted",
+      "@type": "xsd:boolean"
+    },
+    "created": {
+      "@id": "csiro:created",
+      "@type": "xsd:dateTime"
+    },
+    "dataCollectionType": {
+      "@id": "csiro:dataCollectionType",
+      "@type": "xsd:string"
+    },
+    "attribution": {
+      "@id": "csiro:attribution",
+      "@type": "xsd:string"
+    },
+    "doiUrl": {
+      "@id": "csiro:doiUrl",
+      "@type": "xsd:string"
+    },
+    "filesList": {
+      "@id": "csiro:filesList",
+      "@container": "@list"
+    },
+    "withdrawnFilesList": {
+      "@id": "csiro:withdrawnFilesList",
+      "@container": "@list"
+    },
+    "availableFilesList": {
+      "@id": "csiro:availableFilesList",
+      "@container": "@list"
+    },
+    "specimens": {
+      "@id": "csiro:specimens",
+      "@container": "@list"
+    },
+    "specimenImageResults": {
+      "@id": "csiro:specimenImageResults",
+      "@container": "@list"
+    },
+    "LinkDto": "csiro:LinkDto",
+    "relationship": {
+      "@id": "csiro:relationship",
+      "@type": "xsd:string"
+    },
+    "mediaType": {
+      "@id": "csiro:mediaType",
+      "@type": "xsd:string"
+    },
+    "href": {
+      "@id": "csiro:href",
+      "@type": "@id"
+    },
+    "fileUpload": {
+      "@id": "csiro:fileUpload",
+      "@type": "xsd:boolean"
+    },
+    "fileId": {
+      "@id": "csiro:fileId",
+      "@type": "xsd:integer"
+    },
+    "SpecimenImageDto": "csiro:SpecimenImageDto",
+    "dataCollectionVers": {
+      "@id": "csiro:dataCollectionVers",
+      "@type": "xsd:integer"
+    },
+    "nationalSpecimenCollection": {
+      "@id": "csiro:nationalSpecimenCollection",
+      "@type": "xsd:string"
+    },
+    "externalInstitutionCode": {
+      "@id": "csiro:externalInstitutionCode",
+      "@type": "xsd:string"
+    },
+    "externalContact": {
+      "@id": "csiro:externalContact",
+      "@type": "xsd:string"
+    },
+    "externalInstitutionName": {
+      "@id": "csiro:externalInstitutionName",
+      "@type": "xsd:string"
+    },
+    "dateTimeDigitised": {
+      "@id": "csiro:dateTimeDigitised",
+      "@type": "xsd:string"
+    },
+    "specimenPreparationView": {
+      "@id": "csiro:specimenPreparationView",
+      "@type": "xsd:string"
+    },
+    "identificationQualifier": {
+      "@id": "csiro:identificationQualifier",
+      "@type": "xsd:string"
+    },
+    "specimenClass": {
+      "@id": "csiro:specimenClass",
+      "@type": "xsd:string"
+    },
+    "subgenus": {
+      "@id": "csiro:subgenus",
+      "@type": "xsd:string"
+    },
+    "subspecies": {
+      "@id": "csiro:subspecies",
+      "@type": "xsd:string"
+    },
+    "acceptedScientificName": {
+      "@id": "csiro:acceptedScientificName",
+      "@type": "xsd:string"
+    },
+    "acceptedCanonicalScientificName": {
+      "@id": "csiro:acceptedCanonicalScientificName",
+      "@type": "xsd:string"
+    },
+    "acceptedScientificNameId": {
+      "@id": "csiro:acceptedScientificNameId",
+      "@type": "xsd:string"
+    },
+    "scientificNameId": {
+      "@id": "csiro:scientificNameId",
+      "@type": "xsd:string"
+    },
+    "user": {
+      "@id": "csiro:user",
+      "@type": "xsd:string"
+    },
+    "catalogNumber": {
+      "@id": "csiro:catalogNumber",
+      "@type": "xsd:string"
+    },
+    "thumbnails": {
+      "@id": "csiro:thumbnails",
+      "@type": "@id"
+    },
+    "imageOnly": {
+      "@id": "csiro:imageOnly",
+      "@type": "xsd:boolean"
+    },
+    "files": {
+      "@id": "csiro:files",
+      "@container": "@list"
+    },
+    "resolutions": {
+      "@id": "csiro:resolutions",
+      "@container": "@list"
+    },
+    "formats": {
+      "@id": "csiro:formats",
+      "@container": "@list"
+    },
+    "dataRestricted": {
+      "@id": "csiro:dataRestricted",
+      "@type": "xsd:boolean"
+    },
+    "specimenImageIdentifier": {
+      "@id": "csiro:specimenImageIdentifier",
+      "@type": "xsd:string"
+    },
+    "view": {
+      "@id": "csiro:view",
+      "@type": "xsd:string"
+    },
+    "SpecimenImageFileDetailsDto": "csiro:SpecimenImageFileDetailsDto",
+    "fileFormat": {
+      "@id": "csiro:fileFormat",
+      "@type": "xsd:string"
+    },
+    "fileSize": {
+      "@id": "csiro:fileSize",
+      "@type": "xsd:integer"
+    },
+    "resolution": {
+      "@id": "csiro:resolution",
+      "@type": "xsd:string"
+    },
+    "downloadUrl": {
+      "@id": "csiro:downloadUrl",
+      "@type": "@id"
+    },
+    "ThumbnailDto": "csiro:ThumbnailDto",
+    "smallThumbnail": {
+      "@id": "csiro:smallThumbnail",
+      "@type": "@id"
+    },
+    "mediumThumbnail": {
+      "@id": "csiro:mediumThumbnail",
+      "@type": "@id"
+    },
+    "largeThumbnail": {
+      "@id": "csiro:largeThumbnail",
+      "@type": "@id"
+    },
+    "fullThumbnail": {
+      "@id": "csiro:fullThumbnail",
+      "@type": "@id"
+    },
+    "FileDto": "csiro:FileDto",
+    "path": {
+      "@id": "csiro:path",
+      "@type": "xsd:string"
+    },
+    "lastUpdated": {
+      "@id": "csiro:lastUpdated",
+      "@type": "xsd:string"
+    },
+    "parameters": {
+      "@id": "csiro:parameters",
+      "@container": "@list"
+    },
+    "FileMetadataDto": "csiro:FileMetadataDto",
+    "dateValue": {
+      "@id": "csiro:dateValue",
+      "@type": "xsd:dateTime"
+    },
+    "dateValueString": {
+      "@id": "csiro:dateValueString",
+      "@type": "xsd:string"
+    },
+    "numericValue": {
+      "@id": "csiro:numericValue",
+      "@type": "xsd:decimal"
+    },
+    "stringValue": {
+      "@id": "csiro:stringValue",
+      "@type": "xsd:string"
+    },
+    "BulkFileMetadataDTO": "csiro:BulkFileMetadataDTO",
+    "allFiles": {
+      "@id": "csiro:allFiles",
+      "@type": "xsd:boolean"
+    },
+    "selectedFilePaths": {
+      "@id": "csiro:selectedFilePaths",
+      "@container": "@list"
+    },
+    "BulkFileMetadataResultDTO": "csiro:BulkFileMetadataResultDTO",
+    "numFilesUpdated": {
+      "@id": "csiro:numFilesUpdated",
+      "@type": "xsd:integer"
+    },
+    "unsuccessfulPaths": {
+      "@id": "csiro:unsuccessfulPaths",
+      "@container": "@list"
+    },
+    "CasdaPathsDTO": "csiro:CasdaPathsDTO",
+    "imageCubePath": {
+      "@id": "csiro:imageCubePath",
+      "@type": "xsd:string"
+    },
+    "spectrumPath": {
+      "@id": "csiro:spectrumPath",
+      "@type": "xsd:string"
+    },
+    "momentMapPath": {
+      "@id": "csiro:momentMapPath",
+      "@type": "xsd:string"
+    },
+    "cubeletPath": {
+      "@id": "csiro:cubeletPath",
+      "@type": "xsd:string"
+    },
+    "cataloguePath": {
+      "@id": "csiro:cataloguePath",
+      "@type": "xsd:string"
+    },
+    "CasdaFileDTO": "csiro:CasdaFileDTO",
+    "size": {
+      "@id": "csiro:size",
+      "@type": "xsd:integer"
+    },
+    "thumbnail": {
+      "@id": "csiro:thumbnail",
+      "@type": "xsd:boolean"
+    },
+    "ErrorDTO": "csiro:ErrorDTO",
+    "field": {
+      "@id": "csiro:field",
+      "@type": "xsd:string"
+    },
+    "message": {
+      "@id": "csiro:message",
+      "@type": "xsd:string"
+    },
+    "TemplateSubmitValidationDTO": "csiro:TemplateSubmitValidationDTO",
+    "errors": {
+      "@id": "csiro:errors",
+      "@container": "@list"
+    },
+    "collectionTemplateId": {
+      "@id": "csiro:collectionTemplateId",
+      "@type": "xsd:integer"
+    },
+    "UserAdminDTO": "csiro:UserAdminDTO",
+    "userEntityDto": {
+      "@id": "csiro:userEntityDto",
+      "@type": "@id"
+    },
+    "userAdminRolesDto": {
+      "@id": "csiro:userAdminRolesDto",
+      "@container": "@list"
+    },
+    "status": {
+      "@id": "csiro:status",
+      "@type": "xsd:string"
+    },
+    "UserAdminRoleDTO": "csiro:UserAdminRoleDTO",
+    "roleName": {
+      "@id": "csiro:roleName",
+      "@type": "xsd:string"
+    },
+    "roleKey": {
+      "@id": "csiro:roleKey",
+      "@type": "xsd:string"
+    },
+    "enabled": {
+      "@id": "csiro:enabled",
+      "@type": "xsd:boolean"
+    },
+    "SystemTaskDto": "csiro:SystemTaskDto",
+    "collectionCommonId": {
+      "@id": "csiro:collectionCommonId",
+      "@type": "xsd:integer"
+    },
+    "collectionFullId": {
+      "@id": "csiro:collectionFullId",
+      "@type": "xsd:string"
+    },
+    "collectionVersion": {
+      "@id": "csiro:collectionVersion",
+      "@type": "xsd:integer"
+    },
+    "taskType": {
+      "@id": "csiro:taskType",
+      "@type": "xsd:string"
+    },
+    "lastModified": {
+      "@id": "csiro:lastModified",
+      "@type": "xsd:string"
+    },
+    "queueName": {
+      "@id": "csiro:queueName",
+      "@type": "xsd:string"
+    },
+    "failureCount": {
+      "@id": "csiro:failureCount",
+      "@type": "xsd:integer"
+    },
+    "QueueStatusDto": "csiro:QueueStatusDto",
+    "RESTUserDTO": "csiro:RESTUserDTO",
+    "userId": {
+      "@id": "csiro:userId",
+      "@type": "xsd:integer"
+    },
+    "ident": {
+      "@id": "csiro:ident",
+      "@type": "xsd:string"
+    },
+    "OpalProjectTeamDTO": "csiro:OpalProjectTeamDTO",
+    "members": {
+      "@id": "csiro:members",
+      "@container": "@list"
+    },
+    "OpalProjectTeamMemberDTO": "csiro:OpalProjectTeamMemberDTO",
+    "accessLevel": {
+      "@id": "csiro:accessLevel",
+      "@type": "xsd:string"
+    },
+    "LookupValueDTO": "csiro:LookupValueDTO",
+    "LicenceAdminDTO": "csiro:LicenceAdminDTO",
+    "depositorDescription": {
+      "@id": "csiro:depositorDescription",
+      "@type": "xsd:string"
+    },
+    "dataUserDescription": {
+      "@id": "csiro:dataUserDescription",
+      "@type": "xsd:string"
+    },
+    "logo": {
+      "@id": "csiro:logo",
+      "@type": "xsd:string"
+    },
+    "uploadAvailable": {
+      "@id": "csiro:uploadAvailable",
+      "@type": "xsd:boolean"
+    },
+    "displayOrder": {
+      "@id": "csiro:displayOrder",
+      "@type": "xsd:integer"
+    },
+    "licenceType": {
+      "@id": "csiro:licenceType",
+      "@type": "xsd:string"
+    },
+    "collectionType": {
+      "@id": "csiro:collectionType",
+      "@type": "xsd:string"
+    },
+    "rightsUri": {
+      "@id": "csiro:rightsUri",
+      "@type": "xsd:string"
+    },
+    "FeaturedCollectionDTO": "csiro:FeaturedCollectionDTO",
+    "imageLink": {
+      "@id": "csiro:imageLink",
+      "@type": "xsd:string"
+    },
+    "imageTitle": {
+      "@id": "csiro:imageTitle",
+      "@type": "xsd:string"
+    },
+    "imageAltText": {
+      "@id": "csiro:imageAltText",
+      "@type": "xsd:string"
+    },
+    "ExternalSystemDTO": "csiro:ExternalSystemDTO",
+    "tag": {
+      "@id": "csiro:tag",
+      "@type": "xsd:string"
+    },
+    "schemaName": {
+      "@id": "csiro:schemaName",
+      "@type": "xsd:string"
+    },
+    "BasicValueDto": "csiro:BasicValueDto",
+    "StatusDTO": "csiro:StatusDTO",
+    "statusMessage": {
+      "@id": "csiro:statusMessage",
+      "@type": "xsd:string"
+    },
+    "ContactEditDto": "csiro:ContactEditDto",
+    "RightsStatementDto": "csiro:RightsStatementDto",
+    "ProgressiveDoiIntervalDto": "csiro:ProgressiveDoiIntervalDto",
+    "interval": {
+      "@id": "csiro:interval",
+      "@type": "xsd:integer"
+    },
+    "ExternalSystemIdListDto": "csiro:ExternalSystemIdListDto",
+    "CasdaDataProductSubTypeValidationDTO": "csiro:CasdaDataProductSubTypeValidationDTO",
+    "subType": {
+      "@id": "csiro:subType",
+      "@type": "xsd:string"
+    },
+    "qualityLevel": {
+      "@id": "csiro:qualityLevel",
+      "@type": "xsd:string"
+    },
+    "count": {
+      "@id": "csiro:count",
+      "@type": "xsd:integer"
+    },
+    "CasdaDataProductValidationDTO": "csiro:CasdaDataProductValidationDTO",
+    "identifier": {
+      "@id": "csiro:identifier",
+      "@type": "xsd:string"
+    },
+    "CasdaObservationValidationDTO": "csiro:CasdaObservationValidationDTO",
+    "sbid": {
+      "@id": "csiro:sbid",
+      "@type": "xsd:integer"
+    },
+    "observationId": {
+      "@id": "csiro:observationId",
+      "@type": "xsd:integer"
+    },
+    "opalCode": {
+      "@id": "csiro:opalCode",
+      "@type": "xsd:string"
+    },
+    "obsStartDateMillis": {
+      "@id": "csiro:obsStartDateMillis",
+      "@type": "xsd:integer"
+    },
+    "principalFirstName": {
+      "@id": "csiro:principalFirstName",
+      "@type": "xsd:string"
+    },
+    "principalLastName": {
+      "@id": "csiro:principalLastName",
+      "@type": "xsd:string"
+    },
+    "globalQualityLevel": {
+      "@id": "csiro:globalQualityLevel",
+      "@type": "xsd:string"
+    },
+    "subTypes": {
+      "@id": "csiro:subTypes",
+      "@container": "@list"
+    },
+    "dataProducts": {
+      "@id": "csiro:dataProducts",
+      "@container": "@list"
+    },
+    "validationNotes": {
+      "@id": "csiro:validationNotes",
+      "@container": "@list"
+    },
+    "taskTitle": {
+      "@id": "csiro:taskTitle",
+      "@type": "xsd:string"
+    },
+    "encapsulationFileIds": {
+      "@id": "csiro:encapsulationFileIds",
+      "@container": "@list"
+    },
+    "validationReportUrl": {
+      "@id": "csiro:validationReportUrl",
+      "@type": "xsd:string"
+    },
+    "validationMetrics": {
+      "@id": "csiro:validationMetrics",
+      "@container": "@list"
+    },
+    "CasdaValidationMetricDTO": "csiro:CasdaValidationMetricDTO",
+    "CasdaValidationNoteDTO": "csiro:CasdaValidationNoteDTO",
+    "content": {
+      "@id": "csiro:content",
+      "@type": "xsd:string"
+    },
+    "createdDate": {
+      "@id": "csiro:createdDate",
+      "@type": "xsd:integer"
+    },
+    "SequenceCollectionDTO": "csiro:SequenceCollectionDTO",
+    "SequenceCollectionsDTO": "csiro:SequenceCollectionsDTO",
+    "idPairs": {
+      "@id": "csiro:idPairs",
+      "@container": "@list"
+    },
+    "ApprovalDTO": "csiro:ApprovalDTO",
+    "ReassignDTO": "csiro:ReassignDTO",
+    "templateType": {
+      "@id": "csiro:templateType",
+      "@type": "xsd:string"
+    },
+    "depositStatus": {
+      "@id": "csiro:depositStatus",
+      "@type": "xsd:string"
+    },
+    "approverName": {
+      "@id": "csiro:approverName",
+      "@type": "xsd:string"
+    },
+    "DepositCollaboratorDto": "csiro:DepositCollaboratorDto",
+    "readOnlyAccess": {
+      "@id": "csiro:readOnlyAccess",
+      "@type": "xsd:boolean"
+    },
+    "ChangeApproverDTO": "csiro:ChangeApproverDTO",
+    "CollectionDetailsDTO": "csiro:CollectionDetailsDTO",
+    "MessageDTO": "csiro:MessageDTO",
+    "XmlCollectionSummaryDTO": "csiro:XmlCollectionSummaryDTO",
+    "schemaType": {
+      "@id": "csiro:schemaType",
+      "@type": "xsd:string"
+    },
+    "messages": {
+      "@id": "csiro:messages",
+      "@container": "@list"
+    },
+    "collection": {
+      "@id": "csiro:collection",
+      "@type": "@id"
+    },
+    "AtnfCollectionSummaryDTO": "csiro:AtnfCollectionSummaryDTO",
+    "semester": {
+      "@id": "csiro:semester",
+      "@type": "xsd:string"
+    },
+    "creationStatus": {
+      "@id": "csiro:creationStatus",
+      "@type": "xsd:string"
+    },
+    "AdminChangeRequestDto": "csiro:AdminChangeRequestDto",
+    "requestorIdent": {
+      "@id": "csiro:requestorIdent",
+      "@type": "xsd:string"
+    },
+    "reason": {
+      "@id": "csiro:reason",
+      "@type": "xsd:string"
+    },
+    "WorkerStatusRecord": "csiro:WorkerStatusRecord",
+    "taskQueue": {
+      "@id": "csiro:taskQueue",
+      "@type": "xsd:string"
+    },
+    "taskUrl": {
+      "@id": "csiro:taskUrl",
+      "@type": "xsd:string"
+    },
+    "started": {
+      "@id": "csiro:started",
+      "@type": "xsd:boolean"
+    },
+    "polling": {
+      "@id": "csiro:polling",
+      "@type": "xsd:boolean"
+    },
+    "suspended": {
+      "@id": "csiro:suspended",
+      "@type": "xsd:boolean"
+    },
+    "shutdown": {
+      "@id": "csiro:shutdown",
+      "@type": "xsd:boolean"
+    },
+    "terminated": {
+      "@id": "csiro:terminated",
+      "@type": "xsd:boolean"
+    },
+    "UserCredentialsDTO": "csiro:UserCredentialsDTO",
+    "ResearchClassificationResultDTO": "csiro:ResearchClassificationResultDTO",
+    "newFieldResearchCodesCount": {
+      "@id": "csiro:newFieldResearchCodesCount",
+      "@type": "xsd:integer"
+    },
+    "newFieldResearchCodes": {
+      "@id": "csiro:newFieldResearchCodes",
+      "@container": "@list"
+    },
+    "existingFieldResearchCodes": {
+      "@id": "csiro:existingFieldResearchCodes",
+      "@container": "@list"
+    },
+    "newForDivisionCodes": {
+      "@id": "csiro:newForDivisionCodes",
+      "@container": "@list"
+    },
+    "existingForDivisionCodes": {
+      "@id": "csiro:existingForDivisionCodes",
+      "@container": "@list"
+    },
+    "newForDivisionCodesCount": {
+      "@id": "csiro:newForDivisionCodesCount",
+      "@type": "xsd:integer"
+    },
+    "InternalFacilityDTO": "csiro:InternalFacilityDTO",
+    "ror": {
+      "@id": "csiro:ror",
+      "@type": "xsd:string"
+    },
+    "previousVersion": {
+      "@id": "csiro:previousVersion",
+      "@type": "xsd:string"
+    },
+    "StatusDetailDTO": "csiro:StatusDetailDTO",
+    "statusDetail": {
+      "@id": "csiro:statusDetail",
+      "@type": "xsd:string"
+    },
+    "AndsPidRequestDTO": "csiro:AndsPidRequestDTO",
+    "index": {
+      "@id": "csiro:index",
+      "@type": "xsd:integer"
+    },
+    "AndsPidDTO": "csiro:AndsPidDTO",
+    "handle": {
+      "@id": "csiro:handle",
+      "@type": "xsd:string"
+    },
+    "handles": {
+      "@id": "csiro:handles",
+      "@container": "@list"
+    },
+    "properties": {
+      "@id": "csiro:properties",
+      "@container": "@list"
+    },
+    "AndsPidPropertyDTO": "csiro:AndsPidPropertyDTO",
+    "UserTaskDTO": "csiro:UserTaskDTO",
+    "taskId": {
+      "@id": "csiro:taskId",
+      "@type": "xsd:integer"
+    },
+    "dataCollectionTitle": {
+      "@id": "csiro:dataCollectionTitle",
+      "@type": "xsd:string"
+    },
+    "assignedDate": {
+      "@id": "csiro:assignedDate",
+      "@type": "xsd:string"
+    },
+    "taskTypeCode": {
+      "@id": "csiro:taskTypeCode",
+      "@type": "xsd:string"
+    },
+    "taskTypeDescription": {
+      "@id": "csiro:taskTypeDescription",
+      "@type": "xsd:string"
+    },
+    "dueWithinWeek": {
+      "@id": "csiro:dueWithinWeek",
+      "@type": "xsd:boolean"
+    },
+    "overdue": {
+      "@id": "csiro:overdue",
+      "@type": "xsd:boolean"
+    },
+    "IdWithDescriptionDto": "csiro:IdWithDescriptionDto",
+    "UserTaskCountDTO": "csiro:UserTaskCountDTO",
+    "StorageGridS3AccessKeyDTO": "csiro:StorageGridS3AccessKeyDTO",
+    "userUUID": {
+      "@id": "csiro:userUUID",
+      "@type": "xsd:string"
+    },
+    "accountId": {
+      "@id": "csiro:accountId",
+      "@type": "xsd:string"
+    },
+    "UserCapabilitiesDTO": "csiro:UserCapabilitiesDTO",
+    "manageProjectTeams": {
+      "@id": "csiro:manageProjectTeams",
+      "@type": "xsd:boolean"
+    },
+    "manageHelpMessages": {
+      "@id": "csiro:manageHelpMessages",
+      "@type": "xsd:boolean"
+    },
+    "manageDataCollection": {
+      "@id": "csiro:manageDataCollection",
+      "@type": "xsd:boolean"
+    },
+    "manageExternalTags": {
+      "@id": "csiro:manageExternalTags",
+      "@type": "xsd:boolean"
+    },
+    "manageFeaturedCollections": {
+      "@id": "csiro:manageFeaturedCollections",
+      "@type": "xsd:boolean"
+    },
+    "manageRESTUsers": {
+      "@id": "csiro:manageRESTUsers",
+      "@type": "xsd:boolean"
+    },
+    "manageLookupTable": {
+      "@id": "csiro:manageLookupTable",
+      "@type": "xsd:boolean"
+    },
+    "manageOrganisations": {
+      "@id": "csiro:manageOrganisations",
+      "@type": "xsd:boolean"
+    },
+    "manageUsers": {
+      "@id": "csiro:manageUsers",
+      "@type": "xsd:boolean"
+    },
+    "manageSystemTasks": {
+      "@id": "csiro:manageSystemTasks",
+      "@type": "xsd:boolean"
+    },
+    "manageLicences": {
+      "@id": "csiro:manageLicences",
+      "@type": "xsd:boolean"
+    },
+    "manageOrgData": {
+      "@id": "csiro:manageOrgData",
+      "@type": "xsd:boolean"
+    },
+    "validateCasdaProjects": {
+      "@id": "csiro:validateCasdaProjects",
+      "@type": "xsd:boolean"
+    },
+    "accessToUserProfile": {
+      "@id": "csiro:accessToUserProfile",
+      "@type": "xsd:boolean"
+    },
+    "canImpersonate": {
+      "@id": "csiro:canImpersonate",
+      "@type": "xsd:boolean"
+    },
+    "TombstoneDTO": "csiro:TombstoneDTO",
+    "published": {
+      "@id": "csiro:published",
+      "@type": "xsd:string"
+    },
+    "permaLink": {
+      "@id": "csiro:permaLink",
+      "@type": "xsd:string"
+    },
+    "replacementAttributionStatement": {
+      "@id": "csiro:replacementAttributionStatement",
+      "@type": "xsd:string"
+    },
+    "replacementPermaLink": {
+      "@id": "csiro:replacementPermaLink",
+      "@type": "xsd:string"
+    },
+    "SettingsDTO": "csiro:SettingsDTO",
+    "askapLvl7MaxEmbargoDuration": {
+      "@id": "csiro:askapLvl7MaxEmbargoDuration",
+      "@type": "xsd:integer"
+    },
+    "RelatedOrgNodesDTO": "csiro:RelatedOrgNodesDTO",
+    "program": {
+      "@id": "csiro:program",
+      "@type": "@id"
+    },
+    "OpalDTO": "csiro:OpalDTO",
+    "shortName": {
+      "@id": "csiro:shortName",
+      "@type": "xsd:string"
+    },
+    "creator": {
+      "@id": "csiro:creator",
+      "@type": "@id"
+    },
+    "date": {
+      "@id": "csiro:date",
+      "@type": "xsd:dateTime"
+    },
+    "subject": {
+      "@id": "csiro:subject",
+      "@type": "xsd:string"
+    },
+    "scientificDescription": {
+      "@id": "csiro:scientificDescription",
+      "@type": "xsd:string"
+    },
+    "outreachDescription": {
+      "@id": "csiro:outreachDescription",
+      "@type": "xsd:string"
+    },
+    "semesterName": {
+      "@id": "csiro:semesterName",
+      "@type": "xsd:string"
+    },
+    "longTitle": {
+      "@id": "csiro:longTitle",
+      "@type": "xsd:string"
+    },
+    "activityTitle": {
+      "@id": "csiro:activityTitle",
+      "@type": "xsd:string"
+    },
+    "dateAsIS08601": {
+      "@id": "csiro:dateAsIS08601",
+      "@type": "xsd:string"
+    },
+    "creatorFullName": {
+      "@id": "csiro:creatorFullName",
+      "@type": "xsd:string"
+    },
+    "OpalUserDTO": "csiro:OpalUserDTO",
+    "logonIdent": {
+      "@id": "csiro:logonIdent",
+      "@type": "xsd:string"
+    },
+    "emailAddress": {
+      "@id": "csiro:emailAddress",
+      "@type": "xsd:string"
+    },
+    "MyCollection": "csiro:MyCollection",
+    "supported": {
+      "@id": "csiro:supported",
+      "@type": "xsd:boolean"
+    },
+    "amendable": {
+      "@id": "csiro:amendable",
+      "@type": "xsd:boolean"
+    },
+    "depositCollaboratorsManageable": {
+      "@id": "csiro:depositCollaboratorsManageable",
+      "@type": "xsd:boolean"
+    },
+    "withdrawable": {
+      "@id": "csiro:withdrawable",
+      "@type": "xsd:boolean"
+    },
+    "approverChangeble": {
+      "@id": "csiro:approverChangeble",
+      "@type": "xsd:boolean"
+    },
+    "specifiedUsersChangeable": {
+      "@id": "csiro:specifiedUsersChangeable",
+      "@type": "xsd:boolean"
+    },
+    "draftReturnable": {
+      "@id": "csiro:draftReturnable",
+      "@type": "xsd:boolean"
+    },
+    "statusDate": {
+      "@id": "csiro:statusDate",
+      "@type": "xsd:string"
+    },
+    "typeUpdateable": {
+      "@id": "csiro:typeUpdateable",
+      "@type": "xsd:boolean"
+    },
+    "dataCollectionPid": {
+      "@id": "csiro:dataCollectionPid",
+      "@type": "xsd:string"
+    },
+    "activityName": {
+      "@id": "csiro:activityName",
+      "@type": "xsd:string"
+    },
+    "activityDescription": {
+      "@id": "csiro:activityDescription",
+      "@type": "xsd:string"
+    },
+    "activityEditable": {
+      "@id": "csiro:activityEditable",
+      "@type": "xsd:boolean"
+    },
+    "embargoChangeable": {
+      "@id": "csiro:embargoChangeable",
+      "@type": "xsd:boolean"
+    },
+    "deletable": {
+      "@id": "csiro:deletable",
+      "@type": "xsd:boolean"
+    },
+    "singleFolder": {
+      "@id": "csiro:singleFolder",
+      "@type": "xsd:boolean"
+    },
+    "reassignable": {
+      "@id": "csiro:reassignable",
+      "@type": "xsd:boolean"
+    },
+    "automaticallyMaintained": {
+      "@id": "csiro:automaticallyMaintained",
+      "@type": "xsd:boolean"
+    },
+    "dataCollectionName": {
+      "@id": "csiro:dataCollectionName",
+      "@type": "xsd:string"
+    },
+    "copyable": {
+      "@id": "csiro:copyable",
+      "@type": "xsd:boolean"
+    },
+    "updatable": {
+      "@id": "csiro:updatable",
+      "@type": "xsd:boolean"
+    },
+    "LicenceDto": "csiro:LicenceDto",
+    "userDescription": {
+      "@id": "csiro:userDescription",
+      "@type": "xsd:string"
+    },
+    "AdoParameterFieldDto": "csiro:AdoParameterFieldDto",
+    "fieldName": {
+      "@id": "csiro:fieldName",
+      "@type": "xsd:string"
+    },
+    "fieldType": {
+      "@id": "csiro:fieldType",
+      "@type": "xsd:string"
+    },
+    "fieldUnits": {
+      "@id": "csiro:fieldUnits",
+      "@type": "xsd:string"
+    },
+    "mandatory": {
+      "@id": "csiro:mandatory",
+      "@type": "xsd:boolean"
+    },
+    "fieldLabel": {
+      "@id": "csiro:fieldLabel",
+      "@type": "xsd:string"
+    },
+    "ActivityDto": "csiro:ActivityDto",
+    "activityInstrument": {
+      "@id": "csiro:activityInstrument",
+      "@type": "xsd:string"
+    },
+    "ContactDto": "csiro:ContactDto",
+    "contactName": {
+      "@id": "csiro:contactName",
+      "@type": "xsd:string"
+    },
+    "contactDetails": {
+      "@id": "csiro:contactDetails",
+      "@type": "xsd:string"
+    },
+    "DarwinCoreDto": "csiro:DarwinCoreDto",
+    "class": {
+      "@id": "csiro:class",
+      "@type": "xsd:string"
+    },
+    "DataCollectionDtoV2": "csiro:DataCollectionDtoV2",
+    "dataCollectionCommonId": {
+      "@id": "csiro:dataCollectionCommonId",
+      "@type": "xsd:integer"
+    },
+    "self": {
+      "@id": "csiro:self",
+      "@type": "@id"
+    },
+    "landingPage": {
+      "@id": "csiro:landingPage",
+      "@type": "@id"
+    },
+    "dataStartDate": {
+      "@id": "csiro:dataStartDate",
+      "@type": "xsd:string"
+    },
+    "dataEndDate": {
+      "@id": "csiro:dataEndDate",
+      "@type": "xsd:string"
+    },
+    "licenceLink": {
+      "@id": "csiro:licenceLink",
+      "@type": "@id"
+    },
+    "organisations": {
+      "@id": "csiro:organisations",
+      "@container": "@list"
+    },
+    "rights": {
+      "@id": "csiro:rights",
+      "@type": "xsd:string"
+    },
+    "access": {
+      "@id": "csiro:access",
+      "@type": "xsd:string"
+    },
+    "dataCollectionVersionId": {
+      "@id": "csiro:dataCollectionVersionId",
+      "@type": "xsd:integer"
+    },
+    "versions": {
+      "@id": "csiro:versions",
+      "@type": "@id"
+    },
+    "data": {
+      "@id": "csiro:data",
+      "@type": "@id"
+    },
+    "serviceCount": {
+      "@id": "csiro:serviceCount",
+      "@type": "xsd:integer"
+    },
+    "allNames": {
+      "@id": "csiro:allNames",
+      "@container": "@list"
+    },
+    "domainType": {
+      "@id": "csiro:domainType",
+      "@type": "xsd:string"
+    },
+    "collectionContentType": {
+      "@id": "csiro:collectionContentType",
+      "@type": "xsd:string"
+    },
+    "andsPid": {
+      "@id": "csiro:andsPid",
+      "@type": "xsd:string"
+    },
+    "organisationalLevels": {
+      "@id": "csiro:organisationalLevels",
+      "@type": "@id"
+    },
+    "software": {
+      "@id": "csiro:software",
+      "@type": "@id"
+    },
+    "sensor": {
+      "@id": "csiro:sensor",
+      "@type": "@id"
+    },
+    "darwinCore": {
+      "@id": "csiro:darwinCore",
+      "@type": "@id"
+    },
+    "marineCommunityProfile": {
+      "@id": "csiro:marineCommunityProfile",
+      "@type": "@id"
+    },
+    "latestVersion": {
+      "@id": "csiro:latestVersion",
+      "@type": "xsd:integer"
+    },
+    "progressDois": {
+      "@id": "csiro:progressDois"
+    },
+    "progressDoisVerbose": {
+      "@id": "csiro:progressDoisVerbose",
+      "@container": "@list"
+    },
+    "coveragePreviewLink": {
+      "@id": "csiro:coveragePreviewLink",
+      "@type": "xsd:string"
+    },
+    "accessViewable": {
+      "@id": "csiro:accessViewable",
+      "@type": "xsd:boolean"
+    },
+    "askapLevel7": {
+      "@id": "csiro:askapLevel7",
+      "@type": "xsd:boolean"
+    },
+    "selfLink": {
+      "@id": "csiro:selfLink",
+      "@type": "xsd:string"
+    },
+    "IdentifierDto": "csiro:IdentifierDto",
+    "identifierType": {
+      "@id": "csiro:identifierType",
+      "@type": "xsd:string"
+    },
+    "MarineCommunityProfileDto": "csiro:MarineCommunityProfileDto",
+    "alternateTitle": {
+      "@id": "csiro:alternateTitle",
+      "@type": "xsd:string"
+    },
+    "mcpCollectionMethods": {
+      "@id": "csiro:mcpCollectionMethods",
+      "@type": "xsd:string"
+    },
+    "mcpGeographicExtentNames": {
+      "@id": "csiro:mcpGeographicExtentNames",
+      "@type": "xsd:string"
+    },
+    "csiroAreasOfInterest": {
+      "@id": "csiro:csiroAreasOfInterest",
+      "@type": "xsd:string"
+    },
+    "csiroGlobalProjectList": {
+      "@id": "csiro:csiroGlobalProjectList",
+      "@type": "xsd:string"
+    },
+    "csiroSourceList": {
+      "@id": "csiro:csiroSourceList",
+      "@type": "xsd:string"
+    },
+    "csiroSurveyList": {
+      "@id": "csiro:csiroSurveyList",
+      "@type": "xsd:string"
+    },
+    "csiroStandardDataTypes": {
+      "@id": "csiro:csiroStandardDataTypes",
+      "@type": "xsd:string"
+    },
+    "region": {
+      "@id": "csiro:region",
+      "@type": "xsd:string"
+    },
+    "australianNationalSpeciesList": {
+      "@id": "csiro:australianNationalSpeciesList",
+      "@type": "xsd:string"
+    },
+    "worldRegisterOfMarineSpeciesAlgae": {
+      "@id": "csiro:worldRegisterOfMarineSpeciesAlgae",
+      "@type": "xsd:string"
+    },
+    "verticalCoordinateSystem": {
+      "@id": "csiro:verticalCoordinateSystem",
+      "@type": "xsd:string"
+    },
+    "distributions": {
+      "@id": "csiro:distributions",
+      "@container": "@list"
+    },
+    "metadataContacts": {
+      "@id": "csiro:metadataContacts",
+      "@container": "@list"
+    },
+    "NameDto": "csiro:NameDto",
+    "display": {
+      "@id": "csiro:display",
+      "@type": "xsd:string"
+    },
+    "orcidId": {
+      "@id": "csiro:orcidId",
+      "@type": "xsd:string"
+    },
+    "orgInfo": {
+      "@id": "csiro:orgInfo",
+      "@type": "xsd:string"
+    },
+    "OrganisationalLevelsDto": "csiro:OrganisationalLevelsDto",
+    "irpHierarchy": {
+      "@id": "csiro:irpHierarchy",
+      "@type": "xsd:boolean"
+    },
+    "team": {
+      "@id": "csiro:team",
+      "@type": "xsd:string"
+    },
+    "ProgressDoiDto": "csiro:ProgressDoiDto",
+    "andsDoi": {
+      "@id": "csiro:andsDoi",
+      "@type": "xsd:string"
+    },
+    "issueDate": {
+      "@id": "csiro:issueDate",
+      "@type": "xsd:dateTime"
+    },
+    "ProjectDto": "csiro:ProjectDto",
+    "projectDescription": {
+      "@id": "csiro:projectDescription",
+      "@type": "xsd:string"
+    },
+    "projectTitle": {
+      "@id": "csiro:projectTitle",
+      "@type": "xsd:string"
+    },
+    "SensorDto": "csiro:SensorDto",
+    "network": {
+      "@id": "csiro:network",
+      "@type": "xsd:string"
+    },
+    "platform": {
+      "@id": "csiro:platform",
+      "@type": "xsd:string"
+    },
+    "featureOfInterest": {
+      "@id": "csiro:featureOfInterest",
+      "@type": "xsd:string"
+    },
+    "verticalExtent": {
+      "@id": "csiro:verticalExtent",
+      "@type": "xsd:string"
+    },
+    "sensorSerialNumber": {
+      "@id": "csiro:sensorSerialNumber",
+      "@type": "xsd:string"
+    },
+    "phenomena": {
+      "@id": "csiro:phenomena",
+      "@type": "xsd:string"
+    },
+    "latestDeploymentStartDate": {
+      "@id": "csiro:latestDeploymentStartDate",
+      "@type": "xsd:dateTime"
+    },
+    "latestDeploymentEndDate": {
+      "@id": "csiro:latestDeploymentEndDate",
+      "@type": "xsd:dateTime"
+    },
+    "deployer": {
+      "@id": "csiro:deployer",
+      "@type": "xsd:string"
+    },
+    "latestDeploymentOrganisation": {
+      "@id": "csiro:latestDeploymentOrganisation",
+      "@type": "xsd:string"
+    },
+    "latestDeploymentContact": {
+      "@id": "csiro:latestDeploymentContact",
+      "@type": "xsd:string"
+    },
+    "latestDeploymentOffsetX": {
+      "@id": "csiro:latestDeploymentOffsetX",
+      "@type": "xsd:string"
+    },
+    "latestDeploymentOffsetY": {
+      "@id": "csiro:latestDeploymentOffsetY",
+      "@type": "xsd:string"
+    },
+    "latestDeploymentOffsetZ": {
+      "@id": "csiro:latestDeploymentOffsetZ",
+      "@type": "xsd:string"
+    },
+    "latestCalibrationDate": {
+      "@id": "csiro:latestCalibrationDate",
+      "@type": "xsd:dateTime"
+    },
+    "latestCalibrationOrganisation": {
+      "@id": "csiro:latestCalibrationOrganisation",
+      "@type": "xsd:string"
+    },
+    "latestCalibrationGroup": {
+      "@id": "csiro:latestCalibrationGroup",
+      "@type": "xsd:string"
+    },
+    "latestConformanceDate": {
+      "@id": "csiro:latestConformanceDate",
+      "@type": "xsd:dateTime"
+    },
+    "latestConformanceOrganisation": {
+      "@id": "csiro:latestConformanceOrganisation",
+      "@type": "xsd:string"
+    },
+    "latestConformanceGroup": {
+      "@id": "csiro:latestConformanceGroup",
+      "@type": "xsd:string"
+    },
+    "latestConformanceRequirement": {
+      "@id": "csiro:latestConformanceRequirement",
+      "@type": "xsd:string"
+    },
+    "latestConformancePassed": {
+      "@id": "csiro:latestConformancePassed",
+      "@type": "xsd:boolean"
+    },
+    "latestConformanceReason": {
+      "@id": "csiro:latestConformanceReason",
+      "@type": "xsd:string"
+    },
+    "unitOfMeasure": {
+      "@id": "csiro:unitOfMeasure",
+      "@type": "xsd:string"
+    },
+    "method": {
+      "@id": "csiro:method",
+      "@type": "xsd:string"
+    },
+    "observedProperty": {
+      "@id": "csiro:observedProperty",
+      "@type": "xsd:string"
+    },
+    "SoftwareDto": "csiro:SoftwareDto",
+    "SpecimenDto": "csiro:SpecimenDto",
+    "DataFilesDto": "csiro:DataFilesDto",
+    "file": {
+      "@id": "csiro:file",
+      "@container": "@list"
+    },
+    "filesInFolder": {
+      "@id": "csiro:filesInFolder",
+      "@type": "xsd:integer"
+    },
+    "DataCollectionTypeDTO": "csiro:DataCollectionTypeDTO",
+    "allowServices": {
+      "@id": "csiro:allowServices",
+      "@type": "xsd:boolean"
+    },
+    "allowFiles": {
+      "@id": "csiro:allowFiles",
+      "@type": "xsd:boolean"
+    },
+    "filesEditable": {
+      "@id": "csiro:filesEditable",
+      "@type": "xsd:boolean"
+    },
+    "fileMetadataEditable": {
+      "@id": "csiro:fileMetadataEditable",
+      "@type": "xsd:boolean"
+    },
+    "requiresStartAndEndDate": {
+      "@id": "csiro:requiresStartAndEndDate",
+      "@type": "xsd:boolean"
+    },
+    "dataAccessLevelCodes": {
+      "@id": "csiro:dataAccessLevelCodes",
+      "@container": "@list"
+    },
+    "metadataAccessLevelCodes": {
+      "@id": "csiro:metadataAccessLevelCodes",
+      "@container": "@list"
+    },
+    "embargoDataAccessLevelCodes": {
+      "@id": "csiro:embargoDataAccessLevelCodes",
+      "@container": "@list"
+    },
+    "embargoMetadataAccessLevelCodes": {
+      "@id": "csiro:embargoMetadataAccessLevelCodes",
+      "@container": "@list"
+    },
+    "activityFieldsEditable": {
+      "@id": "csiro:activityFieldsEditable",
+      "@type": "xsd:boolean"
+    },
+    "licenceEditable": {
+      "@id": "csiro:licenceEditable",
+      "@type": "xsd:boolean"
+    },
+    "adoMetadataSchema": {
+      "@id": "csiro:adoMetadataSchema",
+      "@type": "xsd:string"
+    },
+    "ValidationDTO": "csiro:ValidationDTO",
+    "doiUpdateRequired": {
+      "@id": "csiro:doiUpdateRequired",
+      "@type": "xsd:boolean"
+    },
+    "collectionWithdrawn": {
+      "@id": "csiro:collectionWithdrawn",
+      "@type": "xsd:boolean"
+    },
+    "canUserByPassApproval": {
+      "@id": "csiro:canUserByPassApproval",
+      "@type": "xsd:boolean"
+    },
+    "canUserUpdateApprover": {
+      "@id": "csiro:canUserUpdateApprover",
+      "@type": "xsd:boolean"
+    },
+    "bypassReasonCsiroOnly": {
+      "@id": "csiro:bypassReasonCsiroOnly",
+      "@type": "xsd:boolean"
+    },
+    "bypassReasonMetadataOnlyUpdate": {
+      "@id": "csiro:bypassReasonMetadataOnlyUpdate",
+      "@type": "xsd:boolean"
+    },
+    "bypassReasonApprovedAllFuture": {
+      "@id": "csiro:bypassReasonApprovedAllFuture",
+      "@type": "xsd:boolean"
+    },
+    "FileFolderDTO": "csiro:FileFolderDTO",
+    "totalFileSize": {
+      "@id": "csiro:totalFileSize",
+      "@type": "xsd:integer"
+    },
+    "folders": {
+      "@id": "csiro:folders",
+      "@container": "@list"
+    },
+    "FolderContentsDTO": "csiro:FolderContentsDTO",
+    "items": {
+      "@id": "csiro:items",
+      "@container": "@list"
+    },
+    "total": {
+      "@id": "csiro:total",
+      "@type": "xsd:integer"
+    },
+    "FolderDTO": "csiro:FolderDTO",
+    "FolderItemDTO": "csiro:FolderItemDTO",
+    "folder": {
+      "@id": "csiro:folder",
+      "@type": "@id"
+    }
+  },
+  "@type": "schema:Dataset",
+  "schema:name": "CSIRO API JSON-LD context",
+  "schema:description": "A JSON-LD @context for the objects CSIRO's own API contract declares: one class per component schema, one property per declared field, typed from the contract. Derived by script (derive-json-ld.py, 2026-10-22) from openapi/csiro-dap-api-v2-openapi.yml, openapi/csiro-dap-orcid-v1-openapi.yml, openapi/csiro-dap-ws-v2-openapi.yml.",
+  "dcterms:created": "2026-10-22",
+  "dcterms:source": [
+    "openapi/csiro-dap-api-v2-openapi.yml",
+    "openapi/csiro-dap-orcid-v1-openapi.yml",
+    "openapi/csiro-dap-ws-v2-openapi.yml"
+  ]
+}

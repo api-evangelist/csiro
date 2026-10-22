@@ -1,0 +1,157 @@
+openapi: 3.2.0
+info:
+  title: Csiro Licence API
+  version: v2
+  description: 'Operations tagged Licence across 2 of this provider''s published API definitions: csiro-dap-ws-v2-openapi.json, csiro-dap-ws-v2-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://data.csiro.au/dap
+  description: Generated server url
+security:
+- basicAuth: []
+- bearerAuth: []
+- oauth2: []
+tags:
+- name: Licence
+paths:
+  /ws/v2/licences:
+    get:
+      tags:
+      - Licence
+      operationId: getLicencesForCollections
+      parameters:
+      - name: dcid
+        in: query
+        required: true
+        schema:
+          type: array
+          items:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LicenceDto'
+      summary: Get licences for collections
+      x-summary-source: derived
+    servers:
+    - url: https://data.csiro.au/dap
+      description: Generated server url
+  /ws/v2/licences/{id}:
+    get:
+      tags:
+      - Licence
+      operationId: getLicenceAsHtml
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            text/html:
+              schema:
+                type: string
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LicenceDto'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/LicenceDto'
+      summary: Get licence as html
+      x-summary-source: derived
+    servers:
+    - url: https://data.csiro.au/dap
+      description: Generated server url
+components:
+  schemas:
+    LinkDto:
+      type: object
+      properties:
+        relationship:
+          type: string
+          xml:
+            name: rel
+            attribute: true
+        mediaType:
+          type: string
+          xml:
+            name: type
+            attribute: true
+        href:
+          type: string
+          format: uri
+          xml:
+            attribute: true
+        fileUpload:
+          type: boolean
+        fileId:
+          type: integer
+          format: int32
+    LicenceDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        self:
+          type: string
+          format: uri
+        name:
+          type: string
+        description:
+          type: string
+        userDescription:
+          type: string
+        rightsUri:
+          type: string
+        logo:
+          type: string
+        licenceLink:
+          $ref: '#/components/schemas/LinkDto'
+        fileName:
+          type: string
+        dataCollectionId:
+          type: integer
+          format: int32
+      required:
+      - dataCollectionId
+      - description
+      - fileName
+      - id
+      - licenceLink
+      - logo
+      - name
+      - rightsUri
+      - self
+      - userDescription
+      xml:
+        name: licence
+        namespace: urn:au:csiro:rds:dap:1.0
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: opaque
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.microsoftonline.com/0fe05593-19ac-4f98-adbf-0375fce7f160/oauth2/v2.0/authorize
+          tokenUrl: /dap/auth/csiro/token
+          scopes:
+            openid: OpenID Connect
+x-refined-from:
+- csiro-dap-ws-v2-openapi.json
+- csiro-dap-ws-v2-openapi.yml

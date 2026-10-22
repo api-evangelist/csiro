@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/csiro/main/json-schema/csiro-globus-collection-dto-schema.json",
+  "title": "GlobusCollectionDTO",
+  "x-generated": "2026-10-22",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/csiro-dap-api-v2-openapi.yml#/components/schemas/GlobusCollectionDTO",
+  "type": "object",
+  "properties": {
+    "keywords": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "organization": {
+      "type": "string"
+    },
+    "policies": {
+      "$ref": "#/$defs/GlobusPoliciesDTO"
+    },
+    "DATA_TYPE": {
+      "type": "string"
+    },
+    "allow_guest_collections": {
+      "type": "boolean"
+    },
+    "collection_base_path": {
+      "type": "string"
+    },
+    "default_directory": {
+      "type": "string"
+    },
+    "collection_type": {
+      "type": "string"
+    },
+    "display_name": {
+      "type": "string"
+    },
+    "info_link": {
+      "type": "string"
+    },
+    "public": {
+      "type": "boolean"
+    },
+    "enable_https": {
+      "type": "boolean"
+    },
+    "delete_protected": {
+      "type": "boolean"
+    },
+    "storage_gateway_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "user_credential_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "mapped_collection_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "created_at": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string"
+    }
+  },
+  "$defs": {
+    "GlobusPoliciesDTO": {
+      "type": "object",
+      "properties": {
+        "DATA_TYPE": {
+          "type": "string"
+        },
+        "s3_buckets": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "s3_endpoint": {
+          "type": "string"
+        },
+        "s3_user_credential_required": {
+          "type": "boolean"
+        },
+        "s3_requester_pays": {
+          "type": "boolean"
+        },
+        "s3_key_id": {
+          "type": "string"
+        },
+        "s3_secret_key": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

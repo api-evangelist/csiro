@@ -1,0 +1,94 @@
+name: CSIRO Data Access Portal MCP (candidate)
+type: MCPServer
+generated: '2026-10-22'
+method: derived
+source: openapi/csiro-dap-ws-v2-openapi.yml
+status: candidate
+description: No official CSIRO MCP server was found (web search 2026-10-22; no MCP docs on research.csiro.au/dap/developer-tools/ or data.csiro.au). This is a CANDIDATE tool list derived from the public
+  read operations of the DAP Web Services (ws/v2) OpenAPI. Nobody ships this server.
+deployment:
+  mode: none
+  auth: unknown
+  verified: derived
+search_evidence:
+- query: CSIRO Data Access Portal MCP server model context protocol
+  result: no CSIRO MCP server found
+api: csiro:dap-web-services
+base_url: https://data.csiro.au/dap/ws/v2
+tools:
+- name: search_collections
+  category: discovery
+  operationId: getCollections
+  description: Keyword search of published DAP data collections (q, paging, sort, facets).
+- name: search_collections_by_field
+  category: discovery
+  operationId: getCollectionsSearch
+  description: Field-specific search (name, business unit, research group, FOR code, dates).
+- name: advanced_search_collections
+  category: discovery
+  operationId: doAdvancedSearch
+  description: Advanced structured search of collections (POST body is a search query, read-only).
+- name: search_collections_by_location
+  category: discovery
+  operationId: getCollectionsByLocation
+  description: Spatial bounding-box search of collections.
+- name: browse_collections
+  category: discovery
+  operationId: getCollectionsByBrowse
+  description: Browse collections by category/value.
+- name: list_keywords
+  category: discovery
+  operationId: getKeywords
+  description: List browse keywords.
+- name: list_fields_of_research
+  category: discovery
+  operationId: getFieldsOfResearch
+  description: List ANZSRC fields of research used for browsing.
+- name: get_collection
+  category: collections
+  operationId: getCollection
+  description: Get a collection record by id.
+- name: get_collection_versions
+  category: collections
+  operationId: getAllVersions
+  description: List versions of a collection.
+- name: get_collection_metadata
+  category: collections
+  operationId: getCollectionMetadataByType
+  description: Get collection metadata in a given format.
+- name: get_collection_licence
+  category: collections
+  operationId: getCollectionLicenceFile
+  description: Get the licence for a collection.
+- name: list_collection_files
+  category: files
+  operationId: getFiles
+  description: List files in a collection (folder, paging, query).
+- name: list_collection_data_files
+  category: files
+  operationId: getCollectionDataFileList
+  description: List data files of a collection.
+- name: get_download_urls
+  category: files
+  operationId: getDownloadUrls
+  description: Get download URLs for a subset of files in a collection.
+- name: search_specimen_images
+  category: domains
+  operationId: getSpecimenImageResults
+  description: Search National Research Collections specimen images.
+- name: search_pulsar_observations
+  category: domains
+  operationId: getAtnfResults
+  description: Search ATNF pulsar observations.
+- name: list_cutout_surveys
+  category: domains
+  operationId: getCutoutSurveys
+  description: List CASDA surveys supported by the cutout service.
+- name: find_cutouts
+  category: domains
+  operationId: getCutoutDetail
+  description: Find CASDA cutout data products by position and size.
+- name: get_server_info
+  category: meta
+  operationId: getServerInfo
+  description: DAP server info.

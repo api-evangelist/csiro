@@ -1,0 +1,18 @@
+overlay: 1.0.0
+info:
+  title: CSIRO dap-orcid-v1 enhancements
+  version: 1.0.0
+extends: ../openapi/_original/csiro-dap-orcid-v1-openapi.yml
+actions:
+- target: $.info
+  update:
+    x-provider: CSIRO
+    x-apisjson-aid: csiro:dap-orcid
+    x-documentation: https://research.csiro.au/dap/developer-tools/
+    contact:
+      name: CSIRO Data Access Portal
+      url: https://data.csiro.au/
+- target: $.servers
+  update:
+  - url: https://data.csiro.au/dap
+    description: CSIRO Data Access Portal production

@@ -1,0 +1,392 @@
+openapi: 3.2.0
+info:
+  title: Csiro Collection Download API
+  version: v2
+  description: 'Operations tagged Collection Download across 2 of this provider''s published API definitions: csiro-dap-ws-v2-openapi.json, csiro-dap-ws-v2-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://data.csiro.au/dap
+  description: Generated server url
+security:
+- basicAuth: []
+- bearerAuth: []
+- oauth2: []
+tags:
+- name: Collection Download
+paths:
+  /ws/v2/collections/{collectionId}/downloadzip:
+    post:
+      tags:
+      - Collection Download
+      summary: Retrieve a ZIP of a subset of files in the collection
+      operationId: getDownloadZip_1
+      parameters:
+      - name: collectionId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DownloadDto'
+        required: true
+      responses:
+        '200':
+          description: OK
+    servers:
+    - url: https://data.csiro.au/dap
+      description: Generated server url
+  /ws/v2/collections/{collectionId}/downloadurls:
+    post:
+      tags:
+      - Collection Download
+      summary: Retrieve an object with a subset of files in the collection
+      operationId: getDownloadUrls
+      parameters:
+      - name: collectionId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DownloadDto'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/DownloadCollectionDTO'
+    servers:
+    - url: https://data.csiro.au/dap
+      description: Generated server url
+  /ws/v2/collections/download/restricted:
+    post:
+      tags:
+      - Collection Download
+      operationId: restrictedDownloadRequest
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RestrictedDownloadRequestDto'
+        required: true
+      responses:
+        '200':
+          description: OK
+      summary: Restricted download request
+      x-summary-source: derived
+    servers:
+    - url: https://data.csiro.au/dap
+      description: Generated server url
+  /ws/v2/collections/download/restricted/{id}/regenerate:
+    post:
+      tags:
+      - Collection Download
+      operationId: regenerateRestrictedDownloadRequest
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+      summary: Regenerate restricted download request
+      x-summary-source: derived
+    servers:
+    - url: https://data.csiro.au/dap
+      description: Generated server url
+  /ws/v2/collections/download/log:
+    post:
+      tags:
+      - Collection Download
+      operationId: addDownloadRequestLog
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DownloadRequestLogDto'
+        required: true
+      responses:
+        '200':
+          description: OK
+      summary: Add download request log
+      x-summary-source: derived
+    servers:
+    - url: https://data.csiro.au/dap
+      description: Generated server url
+  /ws/v2/collections/domain/downloadzip:
+    post:
+      tags:
+      - Collection Download
+      summary: This function allows a client to retrieve a ZIP of a subset of files across…
+      operationId: getDownloadDomainZip
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FileListDTO'
+        required: true
+      responses:
+        '200':
+          description: OK
+    servers:
+    - url: https://data.csiro.au/dap
+      description: Generated server url
+  /ws/v2/collections/domain/downloadurls:
+    post:
+      tags:
+      - Collection Download
+      summary: Retrieve an object with a subset of files in the collection
+      operationId: getDownloadUrlsDomain
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FileListDTO'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/DownloadCollectionDTO'
+    servers:
+    - url: https://data.csiro.au/dap
+      description: Generated server url
+  /ws/v2/collections/domain/downloadtar:
+    post:
+      tags:
+      - Collection Download
+      summary: Retrieve a TAR of a subset of files across different collections
+      operationId: getDownloadDomainTar
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FileListDTO'
+        required: true
+      responses:
+        '200':
+          description: OK
+    servers:
+    - url: https://data.csiro.au/dap
+      description: Generated server url
+  /ws/v2/collections/{id}/licence:
+    get:
+      tags:
+      - Collection Download
+      operationId: getCollectionLicenceFile
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+      summary: Get collection licence file
+      x-summary-source: derived
+    servers:
+    - url: https://data.csiro.au/dap
+      description: Generated server url
+  /ws/v2/collections/{id}/files/list:
+    get:
+      tags:
+      - Collection Download
+      summary: This function allows a client to download a text file with download links for…
+      operationId: getDownloadListFile
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+    servers:
+    - url: https://data.csiro.au/dap
+      description: Generated server url
+  /ws/v2/collections/{id}/downloadzip:
+    get:
+      tags:
+      - Collection Download
+      summary: This function returns an empty DownloadDto.
+      operationId: getDownloadZipEmptyDTO
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DownloadDto'
+    servers:
+    - url: https://data.csiro.au/dap
+      description: Generated server url
+  /ws/v2/collections/{collectionId}/downloadfile:
+    get:
+      tags:
+      - Collection Download
+      summary: This function allows a client to retrieve a single file by name from a…
+      operationId: getDownloadFile
+      parameters:
+      - name: collectionId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: fileName
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+    servers:
+    - url: https://data.csiro.au/dap
+      description: Generated server url
+components:
+  schemas:
+    FileNameDTO:
+      type: object
+      properties:
+        dataCollectionId:
+          type: integer
+          format: int32
+        fileName:
+          type: string
+    DownloadRequestLogDto:
+      type: object
+      properties:
+        ror:
+          type: string
+        dataObjectIds:
+          type: array
+          items:
+            type: integer
+            format: int64
+        institution:
+          type: string
+        reason:
+          type: string
+        country:
+          type: string
+        dataCollectionType:
+          type: string
+    RestrictedDownloadRequestDto:
+      type: object
+      properties:
+        ror:
+          type: string
+        dataObjectIds:
+          type: array
+          items:
+            type: integer
+            format: int64
+        institution:
+          type: string
+        reason:
+          type: string
+        dataCollectionType:
+          type: string
+        name:
+          type: string
+        email:
+          type: string
+        descriptionOfUse:
+          type: string
+        country:
+          type: string
+    DownloadFileDTO:
+      type: object
+      properties:
+        fileName:
+          type: string
+        filePath:
+          type: string
+        fileSize:
+          type: integer
+          format: int64
+        filePresignedUrl:
+          type: string
+          format: url
+    DownloadCollectionDTO:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/DownloadFileDTO'
+        metadata:
+          type: array
+          items:
+            $ref: '#/components/schemas/DownloadFileDTO'
+    FileListDTO:
+      type: object
+      properties:
+        files:
+          type: array
+          items:
+            $ref: '#/components/schemas/FileNameDTO'
+        email:
+          type: string
+    DownloadDto:
+      type: object
+      properties:
+        filePaths:
+          type: array
+          items:
+            type: string
+          xml:
+            wrapped: true
+        folders:
+          type: array
+          items:
+            type: string
+          xml:
+            wrapped: true
+        allFiles:
+          type: boolean
+        email:
+          type: string
+          xml:
+            wrapped: true
+      xml:
+        name: download
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: opaque
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.microsoftonline.com/0fe05593-19ac-4f98-adbf-0375fce7f160/oauth2/v2.0/authorize
+          tokenUrl: /dap/auth/csiro/token
+          scopes:
+            openid: OpenID Connect
+x-refined-from:
+- csiro-dap-ws-v2-openapi.json
+- csiro-dap-ws-v2-openapi.yml

@@ -1,0 +1,7 @@
+generated: '2026-10-22'
+method: none
+source: https://research.csiro.au/dap/developer-tools/
+name: CSIRO rate limits
+limit_count: 0
+limits: []
+note: No request rate limits or rate-limit response headers are documented on the DAP developer tools pages or declared in the OpenAPI. The only documented throughput constraint is that direct file retrieval applies "for mounted collections < 10GB".

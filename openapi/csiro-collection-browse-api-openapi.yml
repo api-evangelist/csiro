@@ -1,0 +1,134 @@
+openapi: 3.2.0
+info:
+  title: Csiro Collection Browse API
+  version: v2
+  description: 'Operations tagged Collection Browse across 2 of this provider''s published API definitions: csiro-dap-ws-v2-openapi.json, csiro-dap-ws-v2-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://data.csiro.au/dap
+  description: Generated server url
+security:
+- basicAuth: []
+- bearerAuth: []
+- oauth2: []
+tags:
+- name: Collection Browse
+paths:
+  /ws/v2/browse/keywords:
+    get:
+      tags:
+      - Collection Browse
+      summary: This function allows a client to retrieve a list of keywords and counts for…
+      operationId: getKeywords
+      parameters:
+      - name: limit
+        in: query
+        description: <b>size limit</b> (optional) is the maximum number of keywords to be returned. If not present will default to 40.
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 40
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KeywordsResultDto'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/KeywordsResultDto'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/KeywordsResultDto'
+            application/atom+xml;type=entry:
+              schema:
+                $ref: '#/components/schemas/KeywordsResultDto'
+    servers:
+    - url: https://data.csiro.au/dap
+      description: Generated server url
+  /ws/v2/browse/fieldsOfResearch:
+    get:
+      tags:
+      - Collection Browse
+      summary: This function allows a client to retrieve a list of FORs and counts for…
+      operationId: getFieldsOfResearch
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForCategoryResultDto'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ForCategoryResultDto'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ForCategoryResultDto'
+            application/atom+xml;type=entry:
+              schema:
+                $ref: '#/components/schemas/ForCategoryResultDto'
+    servers:
+    - url: https://data.csiro.au/dap
+      description: Generated server url
+components:
+  schemas:
+    ForCategoryResultDto:
+      type: object
+      properties:
+        fors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ForCategoryDto'
+          xml:
+            wrapped: true
+      xml:
+        name: forsResult
+        namespace: urn:au:csiro:rds:dap:1.0
+    ForCategoryDto:
+      type: object
+      properties:
+        name:
+          type: string
+        count:
+          type: integer
+          format: int32
+        subCategories:
+          type: object
+          additionalProperties:
+            type: integer
+            format: int32
+      xml:
+        name: forCategory
+        namespace: urn:au:csiro:rds:dap:1.0
+    KeywordsResultDto:
+      type: object
+      properties:
+        keywords:
+          type: object
+          additionalProperties:
+            type: integer
+            format: int64
+      xml:
+        name: keywordsResult
+        namespace: urn:au:csiro:rds:dap:1.0
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: opaque
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.microsoftonline.com/0fe05593-19ac-4f98-adbf-0375fce7f160/oauth2/v2.0/authorize
+          tokenUrl: /dap/auth/csiro/token
+          scopes:
+            openid: OpenID Connect
+x-refined-from:
+- csiro-dap-ws-v2-openapi.json
+- csiro-dap-ws-v2-openapi.yml

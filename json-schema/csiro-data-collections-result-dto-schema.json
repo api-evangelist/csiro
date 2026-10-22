@@ -1,0 +1,1163 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/csiro/main/json-schema/csiro-data-collections-result-dto-schema.json",
+  "title": "DataCollectionsResultDto",
+  "x-generated": "2026-10-22",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/csiro-dap-ws-v2-openapi.yml#/components/schemas/DataCollectionsResultDto",
+  "type": "object",
+  "properties": {
+    "elapsedTime": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "totalResults": {
+      "type": "string"
+    },
+    "page": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "resultsPerPage": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "next": {
+      "$ref": "#/$defs/LinkDto"
+    },
+    "previous": {
+      "$ref": "#/$defs/LinkDto"
+    },
+    "first": {
+      "$ref": "#/$defs/LinkDto"
+    },
+    "last": {
+      "$ref": "#/$defs/LinkDto"
+    },
+    "facets": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/FacetDto"
+      }
+    },
+    "query": {
+      "type": "string"
+    },
+    "criteria": {
+      "$ref": "#/$defs/AdvancedSearchCriteria"
+    },
+    "isshowOnlyUnrestrictedDataForUser": {
+      "type": "boolean"
+    },
+    "sortBy": {
+      "type": "string"
+    },
+    "complete": {
+      "type": "boolean"
+    },
+    "dataCollections": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/DataCollectionDto"
+      }
+    }
+  },
+  "required": [
+    "elapsedTime",
+    "first",
+    "isshowOnlyUnrestrictedDataForUser",
+    "last",
+    "page",
+    "resultsPerPage",
+    "totalResults"
+  ],
+  "$defs": {
+    "ActivityDto": {
+      "type": "object",
+      "properties": {
+        "activityId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "activityTitle": {
+          "type": "string"
+        },
+        "activityType": {
+          "type": "string"
+        },
+        "activityDescription": {
+          "type": "string"
+        },
+        "activityInstrument": {
+          "type": "string"
+        }
+      }
+    },
+    "AdvancedSearchCriteria": {
+      "type": "object",
+      "properties": {
+        "searchByList": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/SearchByDto"
+          }
+        },
+        "showFilesUserCanAccess": {
+          "type": "boolean"
+        },
+        "publishedDateStart": {
+          "type": "string"
+        },
+        "publishedDateEnd": {
+          "type": "string"
+        },
+        "scientificDomain": {
+          "type": "string"
+        },
+        "collectionType": {
+          "type": "string"
+        },
+        "pidType": {
+          "type": "string"
+        },
+        "pidValue": {
+          "type": "string"
+        },
+        "forDivision": {
+          "type": "string"
+        },
+        "forField": {
+          "type": "string"
+        },
+        "costCentreBusinessUnit": {
+          "type": "string"
+        },
+        "costCentreTeam": {
+          "type": "string"
+        },
+        "includeArchivedCollections": {
+          "type": "boolean"
+        }
+      }
+    },
+    "AnzlicDto": {
+      "type": "object",
+      "properties": {
+        "individualName": {
+          "type": "string"
+        },
+        "position": {
+          "type": "string"
+        },
+        "verticalExtentMin": {
+          "type": "string"
+        },
+        "verticalExtentMax": {
+          "type": "string"
+        },
+        "spatialRepresentationType": {
+          "type": "string"
+        },
+        "metadataLanguage": {
+          "type": "string"
+        },
+        "metadataCharacterSet": {
+          "type": "string"
+        },
+        "anzlicTopicCategory": {
+          "type": "string"
+        }
+      }
+    },
+    "ContactDto": {
+      "type": "object",
+      "properties": {
+        "contactName": {
+          "type": "string"
+        },
+        "contactDetails": {
+          "type": "string"
+        }
+      }
+    },
+    "DarwinCoreDto": {
+      "type": "object",
+      "properties": {
+        "scientificName": {
+          "type": "string"
+        },
+        "commonName": {
+          "type": "string"
+        },
+        "kingdom": {
+          "type": "string"
+        },
+        "phylum": {
+          "type": "string"
+        },
+        "class": {
+          "type": "string"
+        },
+        "order": {
+          "type": "string"
+        },
+        "family": {
+          "type": "string"
+        },
+        "genus": {
+          "type": "string"
+        },
+        "species": {
+          "type": "string"
+        },
+        "comments": {
+          "type": "string"
+        }
+      }
+    },
+    "DataCollectionDto": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/IdentifierDto"
+        },
+        "dataCollectionId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "self": {
+          "type": "string",
+          "format": "uri"
+        },
+        "landingPage": {
+          "$ref": "#/$defs/LinkDto"
+        },
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "fieldsOfResearch": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "contact": {
+          "$ref": "#/$defs/ContactDto"
+        },
+        "dataStartDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "dataEndDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "keywords": {
+          "type": "string"
+        },
+        "relatedLinks": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "lineage": {
+          "type": "string"
+        },
+        "credit": {
+          "type": "string"
+        },
+        "licence": {
+          "type": "string"
+        },
+        "licenceLink": {
+          "$ref": "#/$defs/LinkDto"
+        },
+        "organisations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "attributionStatement": {
+          "type": "string"
+        },
+        "rights": {
+          "type": "string"
+        },
+        "access": {
+          "type": "string"
+        },
+        "size": {
+          "type": "string"
+        },
+        "published": {
+          "type": "string"
+        },
+        "leadResearcher": {
+          "type": "string"
+        },
+        "versions": {
+          "type": "string",
+          "format": "uri"
+        },
+        "metadata": {
+          "type": "string",
+          "format": "uri"
+        },
+        "data": {
+          "type": "string",
+          "format": "uri"
+        },
+        "serviceCount": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "supportingFiles": {
+          "type": "string",
+          "format": "uri"
+        },
+        "spatialParameters": {
+          "$ref": "#/$defs/SpatialParametersDto"
+        },
+        "contributors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "activity": {
+          "$ref": "#/$defs/ActivityDto"
+        },
+        "fundingSources": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "collectionType": {
+          "type": "string"
+        },
+        "domainType": {
+          "type": "string"
+        },
+        "andsPid": {
+          "type": "string"
+        },
+        "doi": {
+          "type": "string"
+        },
+        "project": {
+          "$ref": "#/$defs/ProjectDto"
+        },
+        "nationalFacility": {
+          "type": "string"
+        },
+        "nationalCollection": {
+          "type": "string"
+        },
+        "organisationalLevels": {
+          "$ref": "#/$defs/OrganisationalLevelsDto"
+        },
+        "accessLevel": {
+          "type": "string"
+        },
+        "dataRestricted": {
+          "type": "string"
+        },
+        "voResource": {
+          "$ref": "#/$defs/VoResourceDto"
+        },
+        "software": {
+          "$ref": "#/$defs/SoftwareDto"
+        },
+        "specimen": {
+          "$ref": "#/$defs/SpecimenDto"
+        },
+        "sensor": {
+          "$ref": "#/$defs/SensorDto"
+        },
+        "darwinCore": {
+          "$ref": "#/$defs/DarwinCoreDto"
+        },
+        "marineCommunityProfile": {
+          "$ref": "#/$defs/MarineCommunityProfileDto"
+        },
+        "anzlic": {
+          "$ref": "#/$defs/AnzlicDto"
+        },
+        "dataVersionNumber": {
+          "type": "string"
+        },
+        "softwareVersionNumber": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "dataCollectionId",
+        "id",
+        "self",
+        "title"
+      ]
+    },
+    "DistributionDto": {
+      "type": "object",
+      "properties": {
+        "distributionFormat": {
+          "type": "string"
+        },
+        "distributionVersion": {
+          "type": "string"
+        }
+      }
+    },
+    "FacetDto": {
+      "type": "object",
+      "properties": {
+        "field": {
+          "type": "string"
+        },
+        "values": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/FacetValueDto"
+          }
+        }
+      },
+      "required": [
+        "field"
+      ]
+    },
+    "FacetValueDto": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "count": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    },
+    "IdentifierDto": {
+      "type": "object",
+      "properties": {
+        "identifierType": {
+          "type": "string"
+        },
+        "identifier": {
+          "type": "string"
+        }
+      }
+    },
+    "LinkDto": {
+      "type": "object",
+      "properties": {
+        "relationship": {
+          "type": "string"
+        },
+        "mediaType": {
+          "type": "string"
+        },
+        "href": {
+          "type": "string",
+          "format": "uri"
+        },
+        "fileUpload": {
+          "type": "boolean"
+        },
+        "fileId": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "MarineCommunityProfileDto": {
+      "type": "object",
+      "properties": {
+        "voyageId": {
+          "type": "string"
+        },
+        "alternateTitle": {
+          "type": "string"
+        },
+        "supplementalInformation": {
+          "type": "string"
+        },
+        "isoTopicCategories": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "gcmdKeywords": {
+          "type": "string"
+        },
+        "mcpCollectionMethods": {
+          "type": "string"
+        },
+        "mcpGeographicExtentNames": {
+          "type": "string"
+        },
+        "csiroAreasOfInterest": {
+          "type": "string"
+        },
+        "csiroGlobalProjectList": {
+          "type": "string"
+        },
+        "csiroSourceList": {
+          "type": "string"
+        },
+        "csiroSurveyList": {
+          "type": "string"
+        },
+        "csiroStandardDataTypes": {
+          "type": "string"
+        },
+        "region": {
+          "type": "string"
+        },
+        "australianNationalSpeciesList": {
+          "type": "string"
+        },
+        "worldRegisterOfMarineSpeciesAlgae": {
+          "type": "string"
+        },
+        "verticalCoordinateSystem": {
+          "type": "string"
+        },
+        "verticalExtentMin": {
+          "type": "string"
+        },
+        "verticalExtentMax": {
+          "type": "string"
+        },
+        "spatialRepresentationType": {
+          "type": "string"
+        },
+        "spatialResolution": {
+          "type": "string"
+        },
+        "completenessOmission": {
+          "type": "string"
+        },
+        "distributions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DistributionDto"
+          }
+        },
+        "metadataContacts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/MetadataContactDto"
+          }
+        },
+        "metadataLanguage": {
+          "type": "string"
+        },
+        "metadataCharacterSet": {
+          "type": "string"
+        },
+        "metadataDateStamp": {
+          "type": "string"
+        },
+        "revisionDate": {
+          "type": "string"
+        }
+      }
+    },
+    "MetadataContactDto": {
+      "type": "object",
+      "properties": {
+        "organisation": {
+          "type": "string"
+        },
+        "individualName": {
+          "type": "string"
+        },
+        "position": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        },
+        "contactInformation": {
+          "type": "string"
+        }
+      }
+    },
+    "OrganisationalLevelsDto": {
+      "type": "object",
+      "properties": {
+        "irpHierarchy": {
+          "type": "boolean"
+        },
+        "businessUnit": {
+          "type": "string"
+        },
+        "team": {
+          "type": "string"
+        },
+        "program": {
+          "type": "string"
+        },
+        "group": {
+          "type": "string"
+        },
+        "costCentre": {
+          "type": "string"
+        },
+        "researchProgram": {
+          "type": "string"
+        },
+        "researchGroup": {
+          "type": "string"
+        }
+      }
+    },
+    "ProjectDto": {
+      "type": "object",
+      "properties": {
+        "irpHierarchy": {
+          "type": "boolean"
+        },
+        "wbs": {
+          "type": "string"
+        },
+        "businessUnit": {
+          "type": "string"
+        },
+        "program": {
+          "type": "string"
+        },
+        "group": {
+          "type": "string"
+        },
+        "portfolio": {
+          "type": "string"
+        },
+        "theme": {
+          "type": "string"
+        },
+        "stream": {
+          "type": "string"
+        },
+        "projectDescription": {
+          "type": "string"
+        },
+        "projectLeader": {
+          "type": "string"
+        },
+        "projectTitle": {
+          "type": "string"
+        }
+      }
+    },
+    "SearchByDto": {
+      "type": "object",
+      "properties": {
+        "fieldName": {
+          "type": "string"
+        },
+        "filterOption": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      }
+    },
+    "SensorDto": {
+      "type": "object",
+      "properties": {
+        "network": {
+          "type": "string"
+        },
+        "platform": {
+          "type": "string"
+        },
+        "sensor": {
+          "type": "string"
+        },
+        "featureOfInterest": {
+          "type": "string"
+        },
+        "verticalExtent": {
+          "type": "string"
+        },
+        "sensorSerialNumber": {
+          "type": "string"
+        },
+        "phenomena": {
+          "type": "string"
+        },
+        "latestDeploymentStartDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "latestDeploymentEndDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "deployer": {
+          "type": "string"
+        },
+        "latestDeploymentOrganisation": {
+          "type": "string"
+        },
+        "latestDeploymentContact": {
+          "type": "string"
+        },
+        "latestDeploymentOffsetX": {
+          "type": "string"
+        },
+        "latestDeploymentOffsetY": {
+          "type": "string"
+        },
+        "latestDeploymentOffsetZ": {
+          "type": "string"
+        },
+        "latestCalibrationDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "latestCalibrationOrganisation": {
+          "type": "string"
+        },
+        "latestCalibrationGroup": {
+          "type": "string"
+        },
+        "latestConformanceDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "latestConformanceOrganisation": {
+          "type": "string"
+        },
+        "latestConformanceGroup": {
+          "type": "string"
+        },
+        "latestConformanceRequirement": {
+          "type": "string"
+        },
+        "latestConformancePassed": {
+          "type": "boolean"
+        },
+        "latestConformanceReason": {
+          "type": "string"
+        },
+        "unitOfMeasure": {
+          "type": "string"
+        },
+        "method": {
+          "type": "string"
+        },
+        "observedProperty": {
+          "type": "string"
+        }
+      }
+    },
+    "SoftwareDto": {
+      "type": "object",
+      "properties": {
+        "environmentRequirements": {
+          "type": "string"
+        },
+        "programmingLanguage": {
+          "type": "string"
+        },
+        "operatingSystem": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      }
+    },
+    "SpatialParametersDto": {
+      "type": "object",
+      "properties": {
+        "projection": {
+          "type": "string"
+        },
+        "northLatitude": {
+          "type": "string"
+        },
+        "southLatitude": {
+          "type": "string"
+        },
+        "westLongitude": {
+          "type": "string"
+        },
+        "eastLongitude": {
+          "type": "string"
+        }
+      }
+    },
+    "SpecimenDto": {
+      "type": "object",
+      "properties": {
+        "uniqueSequenceId": {
+          "type": "string"
+        },
+        "accessionNo": {
+          "type": "string"
+        },
+        "campaignId": {
+          "type": "string"
+        },
+        "campaignName": {
+          "type": "string"
+        },
+        "institutionName": {
+          "type": "string"
+        },
+        "scientificNameAuthorship": {
+          "type": "string"
+        },
+        "campaignFunder": {
+          "type": "string"
+        },
+        "campaignCollaborators": {
+          "type": "string"
+        },
+        "campaignDataRelease": {
+          "type": "string"
+        },
+        "contractNumber": {
+          "type": "string"
+        },
+        "collectionId": {
+          "type": "string"
+        },
+        "institutionId": {
+          "type": "string"
+        },
+        "mtaNumber": {
+          "type": "string"
+        },
+        "collectionName": {
+          "type": "string"
+        },
+        "projectName": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "string"
+        },
+        "speciesNameSupplied": {
+          "type": "string"
+        },
+        "higherTaxonomySupplied": {
+          "type": "string"
+        },
+        "biome": {
+          "type": "string"
+        },
+        "marineEcoRegions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "terrestrialEcoRegions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "taxonomicGroup": {
+          "type": "string"
+        },
+        "taxonomicStatus": {
+          "type": "string"
+        },
+        "taxonRemarks": {
+          "type": "string"
+        },
+        "vernacularName": {
+          "type": "string"
+        },
+        "nuclearGeneticCode": {
+          "type": "string"
+        },
+        "mitochondrialGeneticCode": {
+          "type": "string"
+        },
+        "plastidGeneticCode": {
+          "type": "string"
+        },
+        "nameAccordingTo": {
+          "type": "string"
+        },
+        "taxonRank": {
+          "type": "string"
+        },
+        "specimen": {
+          "type": "string"
+        },
+        "preservedSpecimen": {
+          "type": "string"
+        },
+        "preparations": {
+          "type": "string"
+        },
+        "specimenNotes": {
+          "type": "string"
+        },
+        "materialCollectionId": {
+          "type": "string"
+        },
+        "recordNumber": {
+          "type": "string"
+        },
+        "tissueSampleId": {
+          "type": "string"
+        },
+        "otherIdentifiers": {
+          "type": "string"
+        },
+        "releaseDate": {
+          "type": "string"
+        },
+        "dataGeneralizations": {
+          "type": "string"
+        },
+        "licence": {
+          "type": "string"
+        },
+        "acknowledgement": {
+          "type": "string"
+        },
+        "collector": {
+          "type": "string"
+        },
+        "collectionPermits": {
+          "type": "string"
+        },
+        "identifiedBy": {
+          "type": "string"
+        },
+        "privateLatitude": {
+          "type": "string"
+        },
+        "privateLongitude": {
+          "type": "string"
+        },
+        "verbatimLocality": {
+          "type": "string"
+        },
+        "verbatimLatitude": {
+          "type": "string"
+        },
+        "verbatimLongitude": {
+          "type": "string"
+        },
+        "decimalEndLat": {
+          "type": "string"
+        },
+        "decimalEndLong": {
+          "type": "string"
+        },
+        "occurrenceRemarks": {
+          "type": "string"
+        },
+        "lifeStage": {
+          "type": "string"
+        },
+        "typeStatus": {
+          "type": "string"
+        },
+        "specimenPreservation": {
+          "type": "string"
+        },
+        "dateIdentified": {
+          "type": "string"
+        },
+        "sex": {
+          "type": "string"
+        },
+        "collectionDate": {
+          "type": "string"
+        },
+        "fieldNumber": {
+          "type": "string"
+        },
+        "eventRemarks": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "stateProvince": {
+          "type": "string"
+        },
+        "locality": {
+          "type": "string"
+        },
+        "station": {
+          "type": "string"
+        },
+        "specimenCollectionLatitude": {
+          "type": "number",
+          "format": "double"
+        },
+        "specimenCollectionLongitude": {
+          "type": "number",
+          "format": "double"
+        },
+        "geodeticDatum": {
+          "type": "string"
+        },
+        "depth": {
+          "type": "string"
+        },
+        "depthStart": {
+          "type": "string"
+        },
+        "depthEnd": {
+          "type": "string"
+        },
+        "altitude": {
+          "type": "string"
+        },
+        "maximumElevationInMeters": {
+          "type": "number",
+          "format": "double"
+        },
+        "minimumElevationInMeters": {
+          "type": "number",
+          "format": "double"
+        },
+        "specimenTaxonomyAtSequencing": {
+          "$ref": "#/$defs/SpecimenTaxonomyDto"
+        },
+        "currentSpecimenTaxonomy": {
+          "$ref": "#/$defs/SpecimenTaxonomyDto"
+        }
+      }
+    },
+    "SpecimenTaxonomyDto": {
+      "type": "object",
+      "properties": {
+        "family": {
+          "type": "string"
+        },
+        "genus": {
+          "type": "string"
+        },
+        "kingdom": {
+          "type": "string"
+        },
+        "order": {
+          "type": "string"
+        },
+        "phylum": {
+          "type": "string"
+        },
+        "scientificName": {
+          "type": "string"
+        },
+        "species": {
+          "type": "string"
+        },
+        "subfamily": {
+          "type": "string"
+        },
+        "taxonomyClass": {
+          "type": "string"
+        },
+        "subPhylum": {
+          "type": "string"
+        },
+        "infraPhylum": {
+          "type": "string"
+        },
+        "parvPhylum": {
+          "type": "string"
+        },
+        "gigaClass": {
+          "type": "string"
+        },
+        "megaClass": {
+          "type": "string"
+        },
+        "superClass": {
+          "type": "string"
+        },
+        "subClass": {
+          "type": "string"
+        },
+        "infraClass": {
+          "type": "string"
+        },
+        "subterClass": {
+          "type": "string"
+        },
+        "superOrder": {
+          "type": "string"
+        },
+        "subOrder": {
+          "type": "string"
+        },
+        "infraOrder": {
+          "type": "string"
+        },
+        "parvOrder": {
+          "type": "string"
+        },
+        "nanoOrder": {
+          "type": "string"
+        },
+        "sectionZoology": {
+          "type": "string"
+        },
+        "superFamily": {
+          "type": "string"
+        },
+        "epiFamily": {
+          "type": "string"
+        },
+        "superTribe": {
+          "type": "string"
+        },
+        "tribe": {
+          "type": "string"
+        },
+        "subTribe": {
+          "type": "string"
+        },
+        "subGenus": {
+          "type": "string"
+        },
+        "infragenericName": {
+          "type": "string"
+        },
+        "section": {
+          "type": "string"
+        },
+        "subSection": {
+          "type": "string"
+        },
+        "subSpecies": {
+          "type": "string"
+        }
+      }
+    },
+    "VoResourceDto": {
+      "type": "object",
+      "properties": {
+        "ivoIdentifier": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

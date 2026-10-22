@@ -1,0 +1,609 @@
+openapi: 3.2.0
+info:
+  title: Csiro ATNF API
+  version: v2
+  description: 'Operations tagged ATNF across 2 of this provider''s published API definitions: csiro-dap-ws-v2-openapi.json, csiro-dap-ws-v2-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://data.csiro.au/dap
+  description: Generated server url
+security:
+- basicAuth: []
+- bearerAuth: []
+- oauth2: []
+tags:
+- name: ATNF
+paths:
+  /ws/v2/domains/pulsarObservations/{field}/resolver:
+    get:
+      tags:
+      - ATNF
+      operationId: resolveField
+      parameters:
+      - name: field
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: value
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 20
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  type: string
+      summary: Resolve field
+      x-summary-source: derived
+    servers:
+    - url: https://data.csiro.au/dap
+      description: Generated server url
+  /ws/v2/domains/pulsarObservations/thumbnail/{thumbnailId}/{size}:
+    get:
+      tags:
+      - ATNF
+      operationId: getThumbnail
+      parameters:
+      - name: thumbnailId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: size
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: jwt
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+      summary: Get thumbnail
+      x-summary-source: derived
+    servers:
+    - url: https://data.csiro.au/dap
+      description: Generated server url
+  /ws/v2/domains/pulsarObservations/search:
+    get:
+      tags:
+      - ATNF
+      operationId: getAtnfResults
+      parameters:
+      - name: pulsarName
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: fileName
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: coneRaHms
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: coneDecDms
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: coneRadius
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: projId
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: dateMin
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: dateMax
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: mjdMin
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: mjdMax
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: freqMin
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: freqMax
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: frequencyBands
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+      - name: observationMode
+        in: query
+        required: false
+        schema:
+          type: string
+          default: All without calibration files
+      - name: backend
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: frontend
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: dataCollectionId
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: calibrationBefore
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: calibrationAfter
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: p
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 1
+      - name: rpp
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 25
+      - name: sb
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: so
+        in: query
+        required: false
+        schema:
+          type: string
+          default: asc
+          enum:
+          - asc
+          - desc
+      - name: showFacets
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AtnfResultDto'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/AtnfResultDto'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/AtnfResultDto'
+      summary: Get atnf results
+      x-summary-source: derived
+    servers:
+    - url: https://data.csiro.au/dap
+      description: Generated server url
+  /ws/v2/domains/pulsarObservations/fields:
+    get:
+      tags:
+      - ATNF
+      operationId: getFields
+      parameters:
+      - name: columns
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FieldsDto'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/FieldsDto'
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/FieldsDto'
+      summary: Get fields
+      x-summary-source: derived
+    servers:
+    - url: https://data.csiro.au/dap
+      description: Generated server url
+components:
+  schemas:
+    ColumnDto:
+      type: object
+      properties:
+        label:
+          type: string
+        key:
+          type: string
+        parameter:
+          type: string
+        type:
+          type: string
+          enum:
+          - TEXT
+          - SIZE
+          - IMAGE
+          - LINK
+          - DIALOG
+          - PROJECT_LINKS
+        defaultOrder:
+          type: integer
+          format: int32
+        tooltip:
+          type: string
+        sortable:
+          type: boolean
+      required:
+      - key
+      - label
+      - parameter
+      - sortable
+      - tooltip
+      - type
+      xml:
+        name: column
+        namespace: urn:au:csiro:rds:dap:1.0
+    FacetDto:
+      type: object
+      properties:
+        field:
+          type: string
+        values:
+          type: array
+          items:
+            $ref: '#/components/schemas/FacetValueDto'
+          xml:
+            wrapped: true
+      required:
+      - field
+      xml:
+        name: facet
+        namespace: urn:au:csiro:rds:dap:1.0
+    AtnfDto:
+      type: object
+      properties:
+        dataObjectId:
+          type: string
+        presignedLink:
+          $ref: '#/components/schemas/LinkDto'
+        thumbnails:
+          $ref: '#/components/schemas/ThumbnailDto'
+        projectId:
+          type: string
+        dataCollectionId:
+          type: integer
+          format: int64
+        filename:
+          type: string
+        filepath:
+          type: string
+        fileSize:
+          type: number
+          format: double
+        lastModified:
+          type: string
+        source:
+          type: string
+        rightAscension:
+          type: string
+        declination:
+          type: string
+        backend:
+          type: string
+        beconfig:
+          type: string
+        bitpix:
+          type: integer
+          format: int32
+        bw:
+          type: integer
+          format: int32
+        collection:
+          type: string
+        coordMethod:
+          type: string
+        creationDate:
+          type: string
+        equinox:
+          type: string
+        fdPoln:
+          type: string
+        frequency:
+          type: integer
+          format: int32
+        frontend:
+          type: string
+        hdrver:
+          type: string
+        length:
+          type: integer
+          format: int64
+        nchan:
+          type: integer
+          format: int32
+        nrcvr:
+          type: integer
+          format: int32
+        obsDate:
+          type: string
+        obsMode:
+          type: string
+        obsType:
+          type: string
+        observer:
+          type: string
+        startTime:
+          type: string
+        sttImjd:
+          type: integer
+          format: int64
+        sttLst:
+          type: number
+          format: double
+        sttOffs:
+          type: number
+          format: double
+        sttSmjd:
+          type: integer
+          format: int64
+        telescope:
+          type: string
+        embargoed:
+          type: boolean
+          xml:
+            name: isEmbargoed
+      xml:
+        name: atnf
+        namespace: urn:au:csiro:rds:dap:1.0
+    RestFrequencyDto:
+      type: object
+      properties:
+        code:
+          type: string
+        value:
+          type: number
+          format: double
+      xml:
+        name: RestFrequency
+        namespace: urn:au:csiro:rds:dap:1.0
+    LinkDto:
+      type: object
+      properties:
+        relationship:
+          type: string
+          xml:
+            name: rel
+            attribute: true
+        mediaType:
+          type: string
+          xml:
+            name: type
+            attribute: true
+        href:
+          type: string
+          format: uri
+          xml:
+            attribute: true
+        fileUpload:
+          type: boolean
+        fileId:
+          type: integer
+          format: int32
+    SearchFieldDto:
+      type: object
+      properties:
+        code:
+          type: string
+        name:
+          type: string
+        value:
+          type: string
+      xml:
+        name: SearchField
+        namespace: urn:au:csiro:rds:dap:1.0
+    FacetValueDto:
+      type: object
+      properties:
+        value:
+          type: string
+        count:
+          type: integer
+          format: int64
+      xml:
+        name: facetValue
+        namespace: urn:au:csiro:rds:dap:1.0
+    ThumbnailDto:
+      type: object
+      properties:
+        smallThumbnail:
+          $ref: '#/components/schemas/LinkDto'
+        mediumThumbnail:
+          $ref: '#/components/schemas/LinkDto'
+        largeThumbnail:
+          $ref: '#/components/schemas/LinkDto'
+        fullThumbnail:
+          $ref: '#/components/schemas/LinkDto'
+      xml:
+        name: thumbnail
+        namespace: urn:au:csiro:rds:dap:1.0
+    AtnfResultDto:
+      type: object
+      properties:
+        elapsedTime:
+          type: integer
+          format: int64
+        totalResults:
+          type: string
+        page:
+          type: integer
+          format: int32
+        resultsPerPage:
+          type: integer
+          format: int32
+        next:
+          $ref: '#/components/schemas/LinkDto'
+        previous:
+          $ref: '#/components/schemas/LinkDto'
+        first:
+          $ref: '#/components/schemas/LinkDto'
+        last:
+          $ref: '#/components/schemas/LinkDto'
+        facets:
+          type: array
+          items:
+            $ref: '#/components/schemas/FacetDto'
+          xml:
+            wrapped: true
+        files:
+          type: array
+          items:
+            $ref: '#/components/schemas/AtnfDto'
+          xml:
+            wrapped: true
+      required:
+      - elapsedTime
+      - first
+      - last
+      - page
+      - resultsPerPage
+      - totalResults
+      xml:
+        name: atnfResult
+        namespace: urn:au:csiro:rds:dap:1.0
+    FrequencyBandDto:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        description:
+          type: string
+      xml:
+        name: frequencyBand
+        namespace: urn:au:csiro:rds:dap:1.0
+    FieldDto:
+      type: object
+      properties:
+        label:
+          type: string
+        type:
+          type: string
+        values:
+          type: array
+          items:
+            type: string
+        frequencyBands:
+          type: array
+          items:
+            $ref: '#/components/schemas/FrequencyBandDto'
+        restFrequencies:
+          type: array
+          items:
+            $ref: '#/components/schemas/RestFrequencyDto'
+        searchFields:
+          type: array
+          items:
+            $ref: '#/components/schemas/SearchFieldDto'
+      required:
+      - label
+      - type
+      xml:
+        name: field
+        namespace: urn:au:csiro:rds:dap:1.0
+    FieldsDto:
+      type: object
+      properties:
+        fields:
+          type: array
+          items:
+            $ref: '#/components/schemas/FieldDto'
+          xml:
+            wrapped: true
+        columns:
+          type: array
+          items:
+            $ref: '#/components/schemas/ColumnDto'
+          xml:
+            wrapped: true
+      xml:
+        name: availableFields
+        namespace: urn:au:csiro:rds:dap:1.0
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: opaque
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.microsoftonline.com/0fe05593-19ac-4f98-adbf-0375fce7f160/oauth2/v2.0/authorize
+          tokenUrl: /dap/auth/csiro/token
+          scopes:
+            openid: OpenID Connect
+x-refined-from:
+- csiro-dap-ws-v2-openapi.json
+- csiro-dap-ws-v2-openapi.yml

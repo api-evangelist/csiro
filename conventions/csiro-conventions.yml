@@ -1,0 +1,39 @@
+generated: '2026-10-22'
+method: searched
+source:
+- https://research.csiro.au/dap/developer-tools/
+- https://research.csiro.au/dap/developer-tools/web-services-ws-v2/
+- https://research.csiro.au/dap/developer-tools/harvesting-metadata/
+- openapi/csiro-dap-ws-v2-openapi.yml
+name: CSIRO Data Access Portal conventions
+auth:
+  style: Public /ws/v2 needs no authentication; staff /api/v2 uses Microsoft Entra ID OAuth2 (authorization code), bearer or basic per the OpenAPI.
+  evidence: "Publicly accessible DAP collections can be accessed using /ws/v2 without authentication."
+  see: authentication/csiro-authentication.yml
+content_negotiation:
+  default: XML
+  json: 'Send "Accept: application/json"'
+  evidence: 'The default encoding that will be returned is XML, however you can also request that results be returned as JSON using content negotiation by including the header "Accept: application/json" .'
+pagination:
+  style: page-number
+  params:
+    page: p (default 1)
+    page_size: rpp (default 25)
+    sort_by: sb
+    sort_order: so (asc|desc)
+  source: openapi/csiro-dap-ws-v2-openapi.yml (e.g. GET /ws/v2/domains/specimenImages/search)
+  note: The staff /api/v2 surface also uses page/size on some operations.
+filtering: Search facets (showFacets) and keyword q; documented at https://research.csiro.au/dap/developer-tools/search-facets/
+idempotency:
+  coverage: none
+  note: No idempotency key or replay protection is documented or declared in the OpenAPI. The public /ws/v2 surface is read-only; writes exist only on the CSIRO-staff /api/v2 and /orcid/v1 surfaces.
+reversibility:
+  status: undocumented
+  note: The public /ws/v2 surface is read-only (na). The staff-only /api/v2 deposit surface has write operations, but the docs state no reversal operation or window. A withdrawn status exists (410 "Collection has been withdrawn") but no documented undo window.
+dry_run_mode: none documented
+request_id: none documented
+versioning: URI path (/ws/v2, /api/v2, /orcid/v1); see lifecycle/csiro-lifecycle.yml
+errors:
+  envelope: not declared; the ws/v2 OpenAPI documents only 200 and a 410 for withdrawn collections
+rate_limit_signaling: none documented; see rate-limits/csiro-rate-limits.yml
+crawler_etiquette: 'We request that if you using this method of harvesting, you do so by using a custom User Agent string that includes the word "bot" or "crawler" (case insensitive), so that we can filter this activity out of our usage logs.'

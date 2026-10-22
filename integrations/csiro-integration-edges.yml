@@ -1,0 +1,68 @@
+generated: '2026-10-22'
+method: searched
+source:
+- https://composio.dev/toolkits/csiro
+- https://monid.ai/tools/csiro
+- https://n8n.io/integrations/csiro/
+- https://research.csiro.au/dap/about/release-history/
+- https://research.csiro.au/dap/developer-tools/
+- https://research.csiro.au/dap/developer-tools/harvesting-metadata/
+- https://zapier.com/apps/csiro/integrations
+- openapi/csiro-dap-orcid-v1-openapi.yml
+checked:
+- https://composio.dev/toolkits/csiro
+- https://monid.ai/tools/csiro
+- https://n8n.io/integrations/csiro/
+- https://research.csiro.au/dap/about/release-history/
+- https://research.csiro.au/dap/developer-tools/
+- https://research.csiro.au/dap/developer-tools/harvesting-metadata/
+- https://zapier.com/apps/csiro/integrations
+- openapi/csiro-dap-orcid-v1-openapi.yml
+summary: '5 edges: ORCID in contract; DataCite, ROR, Globus named in release history; ALA harvest set.'
+marketplace_apps: []
+edges:
+- partner_name: ORCID
+  partner: orcid
+  partner_match: domain
+  type: contract
+  relationship: named-in-contract
+  direction: provider-built
+  operations:
+  - registerOrcidForUser
+  - getWorksForAllUsers
+  - recordWorkIds
+  - getWorksForUser
+  evidence: https://data.csiro.au/dap/v3/api-docs/ORCID-V1
+  quote: openapi/csiro-dap-orcid-v1-openapi.yml (/orcid/v1/orcid/{orcidId}/works)
+- partner_name: DataCite
+  partner: datacite
+  partner_match: domain
+  type: claimed
+  relationship: core-infrastructure
+  direction: provider-built
+  evidence: https://research.csiro.au/dap/about/release-history/
+  quote: DataCite DOI health check feature
+- partner_name: Research Organization Registry (ROR)
+  partner: ror
+  partner_match: domain
+  type: claimed
+  relationship: core-infrastructure
+  direction: provider-built
+  evidence: https://research.csiro.au/dap/about/release-history/
+  quote: ROR API upgraded to version and schema 2.1
+- partner_name: Globus
+  partner: null
+  type: claimed
+  relationship: file-exchange
+  direction: provider-built
+  evidence: https://research.csiro.au/dap/about/release-history/
+  quote: Globus download option API improvements
+- partner_name: Atlas of Living Australia
+  partner: null
+  type: docs
+  relationship: distribution-channel
+  direction: provider-built
+  evidence: https://research.csiro.au/dap/developer-tools/harvesting-metadata/
+  quote: Collections that have been flagged by their depositors as being of potential interest to the Atlas of Living
+    Australia.
+templates: []

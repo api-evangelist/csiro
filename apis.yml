@@ -1,23 +1,967 @@
 aid: csiro
+
 name: CSIRO
-description: 'CSIRO is a company surfaced via the API Evangelist harvest backlog (source: australia-apidays-2026)
-  and added to the network as a stub for full-pipeline profiling.'
+
+description: 'CSIRO, the Commonwealth Scientific and Industrial Research Organisation, is Australia''s national science agency and innovation
+  catalyst, an Australian Government body that solves major challenges through science and technology across areas such as agriculture, health,
+  oceans and climate, energy, digital and space. Its Data Access Portal (DAP) publishes RESTful web service APIs: a public read-only /dap/ws/v2
+  collections API for searching and retrieving research data collections, and a staff-only /dap/api/v2 deposit API. CSIRO was surfaced via the
+  australia-apidays-2026 harvest.'
+
 url: https://raw.githubusercontent.com/api-evangelist/csiro/refs/heads/main/apis.yml
+
 x-type: company
+
 x-source: harvest:australia-apidays-2026
-x-tier: stub
-x-tier-reason: harvest
+
+x-tier: profiled
+x-tier-reason: enrichment pass 2026-10-22 (modular-v1; was harvest)
+
 specificationVersion: '0.20'
+
 created: '2026-10-22'
+
 modified: '2026-10-22'
+
 tags:
 - Company
-apis: []
+- Government
+- Science
+- Research
+- Australia
+- Open Data
+- Research Data
+
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+
+image: https://www.csiro.au/-/media/Web-team/Images/CSIRO_Logo/logo.png
+
 common:
+- type: AgenticAccess
+  url: agentic-access/csiro-agentic-access.yml
+- type: Spectral
+  url: rules/csiro-rules.yml
+- type: JSONLD
+  url: json-ld/csiro-context.jsonld
+- type: Vocabulary
+  url: vocabulary/csiro-vocabulary.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: DataModel
+  url: data-model/csiro-data-model.yml
+- type: ChangeLog
+  url: changelog/csiro-changelog.yml
+- type: Conventions
+  url: conventions/csiro-conventions.yml
+- type: Deprecation
+  url: lifecycle/csiro-lifecycle.yml
+- type: Lifecycle
+  url: lifecycle/csiro-lifecycle.yml
+- type: ErrorCatalog
+  url: errors/csiro-problem-types.yml
+- type: Conformance
+  url: conformance/csiro-conformance.yml
+- type: Overlay
+  url: overlays/csiro-dap-api-v2-overlay.yaml
+- type: LLMsTxt
+  url: llms/csiro-llms.txt
+- type: Hosts
+  url: hosts/csiro-hosts.yml
+- type: IntegrationEdges
+  url: integrations/csiro-integration-edges.yml
+- type: Vendors
+  url: vendors/csiro-vendors.yml
+- type: APIReference
+  url: https://www.csiro.au/en/about/Corporate-governance/Chief-Executive-and-Executive-Team/Reference
+- type: OAuthScopes
+  url: scopes/csiro-scopes.yml
+- type: Authentication
+  url: authentication/csiro-authentication.yml
+- type: DomainSecurity
+  url: security/csiro-domain-security.yml
 - type: Website
-  url: https://csiro.au/
+  url: https://www.csiro.au/
+- type: Documentation
+  url: https://research.csiro.au/dap/developer-tools/
+- type: DeveloperPortal
+  url: https://data.csiro.au/
+- type: Support
+  url: https://www.csiro.au/en/contact
+- type: Blog
+  url: https://www.csiro.au/en/news
+- type: TermsOfService
+  url: https://www.csiro.au/en/about/Policies/Legal/Legal-notice
+- type: PrivacyPolicy
+  url: https://www.csiro.au/en/about/Policies/Privacy
+- type: Copyright
+  url: https://www.csiro.au/en/about/Policies/Legal/Copyright
+- type: LinkedIn
+  url: https://www.linkedin.com/company/csiro/
+
+apis:
+- aid: csiro:csiro-aahl-api
+  name: CSIRO AAHL API
+  description: The AAHL API from CSIRO — 2 operation(s) for aahl.
+  humanURL: https://research.csiro.au/dap/developer-tools/web-services-ws-v2/
+  baseURL: https://data.csiro.au/dap/ws/v2
+  tags:
+  - AAHL
+  properties:
+  - type: OpenAPI
+    url: openapi/csiro-aahl-api-openapi.yml
+  - type: Documentation
+    url: https://research.csiro.au/dap/developer-tools/
+  - type: APIExplorer
+    url: https://data.csiro.au/dap/swagger-ui.html
+  - type: JSONSchema
+    url: json-schema/csiro-data-collection-dto-v2-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-casda-metadata-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-casda-observation-search-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-data-collections-result-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-specimen-image-result-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-specimen-image-search-request-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-data-collection-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-my-collection-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-casda-observation-validation-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-doi-files-dataset-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-globus-collection-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-orcid-results-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-orcid-work-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-orcid-user-dto-schema.json
+- aid: csiro:csiro-api-v2-admin-api
+  name: CSIRO Api-V2 Admin API
+  description: The Api-V2 Admin API from CSIRO — 80 operation(s) for api-v2 admin.
+  humanURL: https://research.csiro.au/dap/developer-tools/web-services-ws-v2/
+  baseURL: https://data.csiro.au/dap/ws/v2
+  tags:
+  - Api-V2 Admin
+  properties:
+  - type: OpenAPI
+    url: openapi/csiro-api-v2-admin-api-openapi.yml
+  - type: Documentation
+    url: https://research.csiro.au/dap/developer-tools/
+  - type: APIExplorer
+    url: https://data.csiro.au/dap/swagger-ui.html
+  - type: JSONSchema
+    url: json-schema/csiro-data-collection-dto-v2-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-casda-metadata-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-casda-observation-search-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-data-collections-result-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-specimen-image-result-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-specimen-image-search-request-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-data-collection-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-my-collection-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-casda-observation-validation-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-doi-files-dataset-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-globus-collection-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-orcid-results-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-orcid-work-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-orcid-user-dto-schema.json
+- aid: csiro:csiro-api-v2-authentication-api
+  name: CSIRO Api-V2 Authentication API
+  description: The Api-V2 Authentication API from CSIRO — 1 operation(s) for api-v2 authentication.
+  humanURL: https://research.csiro.au/dap/developer-tools/web-services-ws-v2/
+  baseURL: https://data.csiro.au/dap/ws/v2
+  tags:
+  - Api-V2 Authentication
+  properties:
+  - type: OpenAPI
+    url: openapi/csiro-api-v2-authentication-api-openapi.yml
+  - type: Documentation
+    url: https://research.csiro.au/dap/developer-tools/
+  - type: APIExplorer
+    url: https://data.csiro.au/dap/swagger-ui.html
+  - type: JSONSchema
+    url: json-schema/csiro-data-collection-dto-v2-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-casda-metadata-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-casda-observation-search-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-data-collections-result-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-specimen-image-result-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-specimen-image-search-request-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-data-collection-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-my-collection-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-casda-observation-validation-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-doi-files-dataset-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-globus-collection-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-orcid-results-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-orcid-work-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-orcid-user-dto-schema.json
+- aid: csiro:csiro-api-v2-casda-observations-api
+  name: CSIRO Api-V2 Casda Observations API
+  description: >-
+    The Api-V2 Casda Observations API from CSIRO — 2 operation(s) for api-v2 casda observations.
+  humanURL: https://research.csiro.au/dap/developer-tools/web-services-ws-v2/
+  baseURL: https://data.csiro.au/dap/ws/v2
+  tags:
+  - Api-V2 Casda Observations
+  properties:
+  - type: OpenAPI
+    url: openapi/csiro-api-v2-casda-observations-api-openapi.yml
+  - type: Documentation
+    url: https://research.csiro.au/dap/developer-tools/
+  - type: APIExplorer
+    url: https://data.csiro.au/dap/swagger-ui.html
+  - type: JSONSchema
+    url: json-schema/csiro-data-collection-dto-v2-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-casda-metadata-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-casda-observation-search-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-data-collections-result-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-specimen-image-result-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-specimen-image-search-request-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-data-collection-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-my-collection-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-casda-observation-validation-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-doi-files-dataset-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-globus-collection-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-orcid-results-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-orcid-work-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-orcid-user-dto-schema.json
+- aid: csiro:csiro-api-v2-collections-api
+  name: CSIRO Api-V2 Collections API
+  description: The Api-V2 Collections API from CSIRO — 47 operation(s) for api-v2 collections.
+  humanURL: https://research.csiro.au/dap/developer-tools/web-services-ws-v2/
+  baseURL: https://data.csiro.au/dap/ws/v2
+  tags:
+  - Api-V2 Collections
+  properties:
+  - type: OpenAPI
+    url: openapi/csiro-api-v2-collections-api-openapi.yml
+  - type: Documentation
+    url: https://research.csiro.au/dap/developer-tools/
+  - type: APIExplorer
+    url: https://data.csiro.au/dap/swagger-ui.html
+  - type: JSONSchema
+    url: json-schema/csiro-data-collection-dto-v2-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-casda-metadata-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-casda-observation-search-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-data-collections-result-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-specimen-image-result-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-specimen-image-search-request-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-data-collection-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-my-collection-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-casda-observation-validation-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-doi-files-dataset-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-globus-collection-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-orcid-results-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-orcid-work-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-orcid-user-dto-schema.json
+- aid: csiro:csiro-api-v2-dna-sequence-collections-api
+  name: CSIRO Api-V2 DNA Sequence Collections API
+  description: >-
+    The Api-V2 DNA Sequence Collections API from CSIRO — 6 operation(s) for api-v2 dna sequence collections.
+  humanURL: https://research.csiro.au/dap/developer-tools/web-services-ws-v2/
+  baseURL: https://data.csiro.au/dap/ws/v2
+  tags:
+  - Api-V2 DNA Sequence Collections
+  properties:
+  - type: OpenAPI
+    url: openapi/csiro-api-v2-dna-sequence-collections-api-openapi.yml
+  - type: Documentation
+    url: https://research.csiro.au/dap/developer-tools/
+  - type: APIExplorer
+    url: https://data.csiro.au/dap/swagger-ui.html
+  - type: JSONSchema
+    url: json-schema/csiro-data-collection-dto-v2-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-casda-metadata-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-casda-observation-search-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-data-collections-result-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-specimen-image-result-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-specimen-image-search-request-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-data-collection-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-my-collection-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-casda-observation-validation-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-doi-files-dataset-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-globus-collection-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-orcid-results-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-orcid-work-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-orcid-user-dto-schema.json
+- aid: csiro:csiro-api-v2-supporting-data-api
+  name: CSIRO Api-V2 Supporting Data API
+  description: The Api-V2 Supporting Data API from CSIRO — 57 operation(s) for api-v2 supporting data.
+  humanURL: https://research.csiro.au/dap/developer-tools/web-services-ws-v2/
+  baseURL: https://data.csiro.au/dap/ws/v2
+  tags:
+  - Api-V2 Supporting Data
+  properties:
+  - type: OpenAPI
+    url: openapi/csiro-api-v2-supporting-data-api-openapi.yml
+  - type: Documentation
+    url: https://research.csiro.au/dap/developer-tools/
+  - type: APIExplorer
+    url: https://data.csiro.au/dap/swagger-ui.html
+  - type: JSONSchema
+    url: json-schema/csiro-data-collection-dto-v2-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-casda-metadata-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-casda-observation-search-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-data-collections-result-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-specimen-image-result-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-specimen-image-search-request-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-data-collection-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-my-collection-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-casda-observation-validation-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-doi-files-dataset-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-globus-collection-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-orcid-results-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-orcid-work-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-orcid-user-dto-schema.json
+- aid: csiro:csiro-api-v2-user-profile-api
+  name: CSIRO Api-V2 User Profile API
+  description: The Api-V2 User Profile API from CSIRO — 7 operation(s) for api-v2 user profile.
+  humanURL: https://research.csiro.au/dap/developer-tools/web-services-ws-v2/
+  baseURL: https://data.csiro.au/dap/ws/v2
+  tags:
+  - Api-V2 User Profile
+  properties:
+  - type: OpenAPI
+    url: openapi/csiro-api-v2-user-profile-api-openapi.yml
+  - type: Documentation
+    url: https://research.csiro.au/dap/developer-tools/
+  - type: APIExplorer
+    url: https://data.csiro.au/dap/swagger-ui.html
+  - type: JSONSchema
+    url: json-schema/csiro-data-collection-dto-v2-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-casda-metadata-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-casda-observation-search-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-data-collections-result-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-specimen-image-result-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-specimen-image-search-request-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-data-collection-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-my-collection-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-casda-observation-validation-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-doi-files-dataset-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-globus-collection-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-orcid-results-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-orcid-work-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-orcid-user-dto-schema.json
+- aid: csiro:csiro-api-v2-user-tasks-api
+  name: CSIRO Api-V2 User Tasks API
+  description: The Api-V2 User Tasks API from CSIRO — 15 operation(s) for api-v2 user tasks.
+  humanURL: https://research.csiro.au/dap/developer-tools/web-services-ws-v2/
+  baseURL: https://data.csiro.au/dap/ws/v2
+  tags:
+  - Api-V2 User Tasks
+  properties:
+  - type: OpenAPI
+    url: openapi/csiro-api-v2-user-tasks-api-openapi.yml
+  - type: Documentation
+    url: https://research.csiro.au/dap/developer-tools/
+  - type: APIExplorer
+    url: https://data.csiro.au/dap/swagger-ui.html
+  - type: JSONSchema
+    url: json-schema/csiro-data-collection-dto-v2-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-casda-metadata-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-casda-observation-search-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-data-collections-result-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-specimen-image-result-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-specimen-image-search-request-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-data-collection-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-my-collection-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-casda-observation-validation-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-doi-files-dataset-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-globus-collection-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-orcid-results-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-orcid-work-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-orcid-user-dto-schema.json
+- aid: csiro:csiro-atnf-api
+  name: CSIRO ATNF API
+  description: The ATNF API from CSIRO — 4 operation(s) for atnf.
+  humanURL: https://research.csiro.au/dap/developer-tools/web-services-ws-v2/
+  baseURL: https://data.csiro.au/dap/ws/v2
+  tags:
+  - ATNF
+  properties:
+  - type: OpenAPI
+    url: openapi/csiro-atnf-api-openapi.yml
+  - type: Documentation
+    url: https://research.csiro.au/dap/developer-tools/
+  - type: APIExplorer
+    url: https://data.csiro.au/dap/swagger-ui.html
+  - type: JSONSchema
+    url: json-schema/csiro-data-collection-dto-v2-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-casda-metadata-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-casda-observation-search-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-data-collections-result-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-specimen-image-result-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-specimen-image-search-request-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-data-collection-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-my-collection-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-casda-observation-validation-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-doi-files-dataset-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-globus-collection-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-orcid-results-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-orcid-work-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-orcid-user-dto-schema.json
+- aid: csiro:csiro-casda-api
+  name: CSIRO CASDA API
+  description: The CASDA API from CSIRO — 19 operation(s) for casda.
+  humanURL: https://research.csiro.au/dap/developer-tools/web-services-ws-v2/
+  baseURL: https://data.csiro.au/dap/ws/v2
+  tags:
+  - CASDA
+  properties:
+  - type: OpenAPI
+    url: openapi/csiro-casda-api-openapi.yml
+  - type: Documentation
+    url: https://research.csiro.au/dap/developer-tools/
+  - type: APIExplorer
+    url: https://data.csiro.au/dap/swagger-ui.html
+  - type: JSONSchema
+    url: json-schema/csiro-data-collection-dto-v2-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-casda-metadata-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-casda-observation-search-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-data-collections-result-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-specimen-image-result-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-specimen-image-search-request-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-data-collection-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-my-collection-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-casda-observation-validation-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-doi-files-dataset-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-globus-collection-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-orcid-results-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-orcid-work-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-orcid-user-dto-schema.json
+- aid: csiro:csiro-collection-browse-api
+  name: CSIRO Collection Browse API
+  description: The Collection Browse API from CSIRO — 2 operation(s) for collection browse.
+  humanURL: https://research.csiro.au/dap/developer-tools/web-services-ws-v2/
+  baseURL: https://data.csiro.au/dap/ws/v2
+  tags:
+  - Collection Browse
+  properties:
+  - type: OpenAPI
+    url: openapi/csiro-collection-browse-api-openapi.yml
+  - type: Documentation
+    url: https://research.csiro.au/dap/developer-tools/
+  - type: APIExplorer
+    url: https://data.csiro.au/dap/swagger-ui.html
+  - type: JSONSchema
+    url: json-schema/csiro-data-collection-dto-v2-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-casda-metadata-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-casda-observation-search-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-data-collections-result-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-specimen-image-result-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-specimen-image-search-request-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-data-collection-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-my-collection-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-casda-observation-validation-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-doi-files-dataset-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-globus-collection-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-orcid-results-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-orcid-work-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-orcid-user-dto-schema.json
+- aid: csiro:csiro-collection-data-api
+  name: CSIRO Collection Data API
+  description: The Collection Data API from CSIRO — 11 operation(s) for collection data.
+  humanURL: https://research.csiro.au/dap/developer-tools/web-services-ws-v2/
+  baseURL: https://data.csiro.au/dap/ws/v2
+  tags:
+  - Collection Data
+  properties:
+  - type: OpenAPI
+    url: openapi/csiro-collection-data-api-openapi.yml
+  - type: Documentation
+    url: https://research.csiro.au/dap/developer-tools/
+  - type: APIExplorer
+    url: https://data.csiro.au/dap/swagger-ui.html
+  - type: JSONSchema
+    url: json-schema/csiro-data-collection-dto-v2-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-casda-metadata-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-casda-observation-search-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-data-collections-result-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-specimen-image-result-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-specimen-image-search-request-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-data-collection-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-my-collection-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-casda-observation-validation-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-doi-files-dataset-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-globus-collection-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-orcid-results-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-orcid-work-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-orcid-user-dto-schema.json
+- aid: csiro:csiro-collection-download-api
+  name: CSIRO Collection Download API
+  description: The Collection Download API from CSIRO — 12 operation(s) for collection download.
+  humanURL: https://research.csiro.au/dap/developer-tools/web-services-ws-v2/
+  baseURL: https://data.csiro.au/dap/ws/v2
+  tags:
+  - Collection Download
+  properties:
+  - type: OpenAPI
+    url: openapi/csiro-collection-download-api-openapi.yml
+  - type: Documentation
+    url: https://research.csiro.au/dap/developer-tools/
+  - type: APIExplorer
+    url: https://data.csiro.au/dap/swagger-ui.html
+  - type: JSONSchema
+    url: json-schema/csiro-data-collection-dto-v2-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-casda-metadata-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-casda-observation-search-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-data-collections-result-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-specimen-image-result-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-specimen-image-search-request-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-data-collection-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-my-collection-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-casda-observation-validation-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-doi-files-dataset-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-globus-collection-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-orcid-results-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-orcid-work-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-orcid-user-dto-schema.json
+- aid: csiro:csiro-collection-search-api
+  name: CSIRO Collection Search API
+  description: The Collection Search API from CSIRO — 20 operation(s) for collection search.
+  humanURL: https://research.csiro.au/dap/developer-tools/web-services-ws-v2/
+  baseURL: https://data.csiro.au/dap/ws/v2
+  tags:
+  - Collection Search
+  properties:
+  - type: OpenAPI
+    url: openapi/csiro-collection-search-api-openapi.yml
+  - type: Documentation
+    url: https://research.csiro.au/dap/developer-tools/
+  - type: APIExplorer
+    url: https://data.csiro.au/dap/swagger-ui.html
+  - type: JSONSchema
+    url: json-schema/csiro-data-collection-dto-v2-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-casda-metadata-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-casda-observation-search-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-data-collections-result-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-specimen-image-result-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-specimen-image-search-request-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-data-collection-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-my-collection-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-casda-observation-validation-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-doi-files-dataset-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-globus-collection-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-orcid-results-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-orcid-work-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-orcid-user-dto-schema.json
+- aid: csiro:csiro-external-systems-api
+  name: CSIRO External Systems API
+  description: The External Systems API from CSIRO — 2 operation(s) for external systems.
+  humanURL: https://research.csiro.au/dap/developer-tools/web-services-ws-v2/
+  baseURL: https://data.csiro.au/dap/ws/v2
+  tags:
+  - External Systems
+  properties:
+  - type: OpenAPI
+    url: openapi/csiro-external-systems-api-openapi.yml
+  - type: Documentation
+    url: https://research.csiro.au/dap/developer-tools/
+  - type: APIExplorer
+    url: https://data.csiro.au/dap/swagger-ui.html
+  - type: JSONSchema
+    url: json-schema/csiro-data-collection-dto-v2-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-casda-metadata-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-casda-observation-search-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-data-collections-result-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-specimen-image-result-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-specimen-image-search-request-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-data-collection-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-my-collection-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-casda-observation-validation-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-doi-files-dataset-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-globus-collection-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-orcid-results-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-orcid-work-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-orcid-user-dto-schema.json
+- aid: csiro:csiro-licence-api
+  name: CSIRO Licence API
+  description: The Licence API from CSIRO — 2 operation(s) for licence.
+  humanURL: https://research.csiro.au/dap/developer-tools/web-services-ws-v2/
+  baseURL: https://data.csiro.au/dap/ws/v2
+  tags:
+  - Licence
+  properties:
+  - type: OpenAPI
+    url: openapi/csiro-licence-api-openapi.yml
+  - type: Documentation
+    url: https://research.csiro.au/dap/developer-tools/
+  - type: APIExplorer
+    url: https://data.csiro.au/dap/swagger-ui.html
+  - type: JSONSchema
+    url: json-schema/csiro-data-collection-dto-v2-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-casda-metadata-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-casda-observation-search-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-data-collections-result-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-specimen-image-result-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-specimen-image-search-request-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-data-collection-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-my-collection-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-casda-observation-validation-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-doi-files-dataset-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-globus-collection-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-orcid-results-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-orcid-work-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-orcid-user-dto-schema.json
+- aid: csiro:csiro-orcid-api
+  name: CSIRO ORCID API
+  description: The ORCID API from CSIRO — 3 operation(s) for orcid.
+  humanURL: https://research.csiro.au/dap/developer-tools/web-services-ws-v2/
+  baseURL: https://data.csiro.au/dap/ws/v2
+  tags:
+  - ORCID
+  properties:
+  - type: OpenAPI
+    url: openapi/csiro-orcid-api-openapi.yml
+  - type: Documentation
+    url: https://research.csiro.au/dap/developer-tools/
+  - type: APIExplorer
+    url: https://data.csiro.au/dap/swagger-ui.html
+  - type: JSONSchema
+    url: json-schema/csiro-data-collection-dto-v2-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-casda-metadata-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-casda-observation-search-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-data-collections-result-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-specimen-image-result-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-specimen-image-search-request-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-data-collection-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-my-collection-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-casda-observation-validation-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-doi-files-dataset-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-globus-collection-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-orcid-results-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-orcid-work-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-orcid-user-dto-schema.json
+- aid: csiro:csiro-specimen-images-api
+  name: CSIRO Specimen Images API
+  description: The Specimen_Images API from CSIRO — 6 operation(s) for specimen_images.
+  humanURL: https://research.csiro.au/dap/developer-tools/web-services-ws-v2/
+  baseURL: https://data.csiro.au/dap/ws/v2
+  tags:
+  - Specimen_Images
+  properties:
+  - type: OpenAPI
+    url: openapi/csiro-specimen-images-api-openapi.yml
+  - type: Documentation
+    url: https://research.csiro.au/dap/developer-tools/
+  - type: APIExplorer
+    url: https://data.csiro.au/dap/swagger-ui.html
+  - type: JSONSchema
+    url: json-schema/csiro-data-collection-dto-v2-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-casda-metadata-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-casda-observation-search-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-data-collections-result-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-specimen-image-result-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-specimen-image-search-request-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-data-collection-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-my-collection-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-casda-observation-validation-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-doi-files-dataset-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-globus-collection-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-orcid-results-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-orcid-work-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-orcid-user-dto-schema.json
+- aid: csiro:csiro-ui-display-api
+  name: CSIRO UI Display API
+  description: The UI Display API from CSIRO — 3 operation(s) for ui display.
+  humanURL: https://research.csiro.au/dap/developer-tools/web-services-ws-v2/
+  baseURL: https://data.csiro.au/dap/ws/v2
+  tags:
+  - UI Display
+  properties:
+  - type: OpenAPI
+    url: openapi/csiro-ui-display-api-openapi.yml
+  - type: Documentation
+    url: https://research.csiro.au/dap/developer-tools/
+  - type: APIExplorer
+    url: https://data.csiro.au/dap/swagger-ui.html
+  - type: JSONSchema
+    url: json-schema/csiro-data-collection-dto-v2-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-casda-metadata-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-casda-observation-search-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-data-collections-result-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-specimen-image-result-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-specimen-image-search-request-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-data-collection-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-my-collection-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-casda-observation-validation-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-doi-files-dataset-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-globus-collection-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-orcid-results-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-orcid-work-dto-schema.json
+  - type: JSONSchema
+    url: json-schema/csiro-orcid-user-dto-schema.json
+x-coverage:
+  state: covered
+  reason: identity-verified
+  detail: Bare https://csiro.au/ did not answer (connection failure); www.csiro.au serves the agency site titled "Commonwealth Scientific and
+    Industrial Research Organisation, Australian Government - CSIRO". DAP developer tools page documents the public /dap/ws/v2 API.
+  evidence:
+  - url: https://csiro.au/
+    status: 0
+  - url: https://www.csiro.au/
+    status: 200
+  - url: https://research.csiro.au/dap/developer-tools/
+    status: 200
+  - url: https://data.csiro.au/dap/ws/v2/collections?rpp=1
+    status: 200
+x-enrichment:
+  date: '2026-10-22'
+  status: enriched
+  artifacts_added: 53
+  pass: modular-v1
+  engine: identity=anthropic,contract=anthropic,surfaces=anthropic,docs=anthropic,regulatory=anthropic

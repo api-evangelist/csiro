@@ -1,0 +1,34 @@
+generated: '2026-10-22'
+method: searched
+source: https://research.csiro.au/dap/developer-tools/
+name: CSIRO Data Access Portal API lifecycle
+versioning:
+  scheme: URI path major version
+  evidence: 'The developer tools page lists two endpoint groups: /ws/v2 ("Status: stable", "Access: Public – read only") and /api/v2 ("Status: Stable / In Development", "Access: CSIRO staff only").'
+  surfaces:
+  - path: /ws/v2
+    status: stable
+    access: Public – read only
+  - path: /api/v2
+    status: Stable / In Development
+    access: CSIRO staff only
+  - path: /orcid/v1
+    status: undocumented
+deprecation:
+  policy: none published
+  retired_interfaces:
+  - name: OAI-PMH endpoint
+    evidence: "The DAP used to expose metadata for harvesting through an Open Archives Initiative Protocol for Metadata Harvesting (OAI-PMH) endpoint, but this has now been retired."
+    source: https://research.csiro.au/dap/developer-tools/harvesting-metadata/
+  deprecated_operations:
+  - operationId: getCollectionDataFileList
+    path: GET /api/v2/domains/publishedDnaSequenceByCollectionId/{dapCollectionId}/data
+    source: openapi/csiro-dap-api-v2-openapi.yml
+  - operationId: getCollectionDataFile
+    path: GET /api/v2/domains/publishedDnaSequenceByCollectionId/{dapCollectionId}/data/{fileId}
+    source: openapi/csiro-dap-api-v2-openapi.yml
+  sunset_headers: none declared in the OpenAPI
+withdrawn_resources: GET /ws/v2/collections/{id} documents a 410 response "Collection has been withdrawn".
+sla: none published
+status_page: null
+changelog: changelog/csiro-changelog.yml
